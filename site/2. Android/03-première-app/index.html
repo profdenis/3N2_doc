@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Première application avec Jetpack Compose - Programmation Android</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Premi\u00e8re application avec Jetpack Compose";
+        var mkdocs_page_input_path = "2. Android/03-premi\u00e8re-app.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Programmation Android
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Programmation Android</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. Kotlin</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1.%20Kotlin/01-kotlin/">Le langage de programmation Kotlin</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1.%20Kotlin/02-kotlin-android/">Kotlin pour Android</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Survol de Kotlin</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/01-survol/">Survol de Kotlin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/02-variables/">Variables</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/03-types/">Types de base</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/04-collections/">Collections</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/05-flot/">Flot de contrôle</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/06-fonctions/">Fonctions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/07-classes/">Classes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/08-valeurs-nulles/">Sécurité contre les valeurs nulles</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">2. Android</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../01-intro/">Introduction à la programmation mobile et Android</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../02-intro-compose/">Introduction à Jetpack Compose</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Première application avec Jetpack Compose</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#explication-des-elements-cles">Explication des éléments clés</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-imports">1. Imports</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-definition-de-lactivite-principale">2. Définition de l'activité principale</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3-methode-oncreate">3. Méthode onCreate</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#4-setcontent">4. setContent</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#5-box-layout">5. Box Layout</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#6-text-composable">6. Text Composable</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#points-cles-a-retenir">Points clés à retenir</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#definition-de-fonctions-composables">Définition de fonctions composables</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#explications-des-modifications">Explications des modifications</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-nouvelle-fonction-composable-bonjourscreen">1. Nouvelle fonction composable BonjourScreen</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-modification-de-oncreate">2. Modification de onCreate</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3-ajout-dune-fonction-de-previsualisation">3. Ajout d'une fonction de prévisualisation</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#implications-et-avantages-de-ces-modifications">Implications et avantages de ces modifications</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Programmation Android</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">2. Android</li>
+      <li class="breadcrumb-item active">Première application avec Jetpack Compose</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="premiere-application-avec-jetpack-compose">Première application avec Jetpack Compose</h1>
+<p>Voici un exemple simple d'une application "Bonjour !" utilisant Jetpack Compose. Je vais vous
+présenter le code, puis expliquer chaque élément important étape par étape.</p>
+<pre><code class="language-kotlin">import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.Text
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            Box(modifier = Modifier.fillMaxSize()) {
+                Text(
+                    text = &quot;Bonjour !&quot;,
+                    modifier = Modifier.align(Alignment.Center)
+                )
+            }
+        }
+    }
+}
+</code></pre>
+<p>Maintenant, expliquons les éléments importants de cette application étape par étape :</p>
+<h2 id="explication-des-elements-cles">Explication des éléments clés</h2>
+<h3 id="1-imports">1. Imports</h3>
+<pre><code class="language-kotlin">import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.Text
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+</code></pre>
+<ul>
+<li>Ces imports sont nécessaires pour utiliser les classes et fonctions de Jetpack Compose.</li>
+</ul>
+<h3 id="2-definition-de-lactivite-principale">2. Définition de l'activité principale</h3>
+<pre><code class="language-kotlin">class MainActivity : ComponentActivity() {
+    // ...
+}
+</code></pre>
+<ul>
+<li><code>MainActivity</code> hérite de <code>ComponentActivity</code>, qui est la classe de base recommandée pour les activités utilisant
+  Compose.</li>
+</ul>
+<h3 id="3-methode-oncreate">3. Méthode onCreate</h3>
+<pre><code class="language-kotlin">override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    // ...
+}
+</code></pre>
+<ul>
+<li>Cette méthode est appelée lorsque l'activité est créée.</li>
+</ul>
+<h3 id="4-setcontent">4. setContent</h3>
+<pre><code class="language-kotlin">setContent {
+    // Contenu Compose
+}
+</code></pre>
+<ul>
+<li><code>setContent</code> est une fonction spécifique à Compose qui définit le contenu de l'interface utilisateur.</li>
+<li>Tout ce qui est à l'intérieur de cette fonction est du code Compose.</li>
+</ul>
+<h3 id="5-box-layout">5. Box Layout</h3>
+<pre><code class="language-kotlin">Box(modifier = Modifier.fillMaxSize()) {
+    // Contenu du Box
+}
+</code></pre>
+<ul>
+<li><code>Box</code> est un composant de mise en page qui permet d'empiler des éléments.</li>
+<li><code>Modifier.fillMaxSize()</code> fait en sorte que le Box occupe tout l'espace disponible à l'écran.</li>
+</ul>
+<h3 id="6-text-composable">6. Text Composable</h3>
+<pre><code class="language-kotlin">Text(
+    text = &quot;Bonjour !&quot;,
+    modifier = Modifier.align(Alignment.Center)
+)
+</code></pre>
+<ul>
+<li><code>Text</code> est un composant Compose pour afficher du texte.</li>
+<li><code>text = "Bonjour !"</code> définit le texte à afficher.</li>
+<li><code>Modifier.align(Alignment.Center)</code> centre le texte dans le Box.</li>
+</ul>
+<h2 id="points-cles-a-retenir">Points clés à retenir</h2>
+<ol>
+<li>
+<p><strong>Composables</strong> : Dans Compose, l'interface utilisateur est construite à partir de fonctions composables (
+   comme <code>Text</code>).</p>
+</li>
+<li>
+<p><strong>Déclaratif</strong> : Le code décrit ce qui doit être affiché, pas comment le construire étape par étape.</p>
+</li>
+<li>
+<p><strong>Modifiers</strong> : Les <code>Modifier</code> sont utilisés pour personnaliser l'apparence et le comportement des composants.</p>
+</li>
+<li>
+<p><strong>Hiérarchie</strong> : Les composants sont organisés de manière hiérarchique (ici, <code>Text</code> est à l'intérieur de <code>Box</code>).</p>
+</li>
+<li>
+<p><strong>Pas de XML</strong> : Contrairement au développement Android traditionnel, il n'y a pas de fichiers XML pour définir la
+   mise en page.</p>
+</li>
+</ol>
+<p>Cette application simple affiche "Bonjour !" au centre de l'écran. C'est un point de départ idéal pour commencer à
+explorer Jetpack Compose, car elle illustre les concepts de base sans trop de complexité.</p>
+<h2 id="definition-de-fonctions-composables">Définition de fonctions composables</h2>
+<p>Excellent ! Voici l'exemple modifié avec une fonction composable définie pour la <code>Box</code>, et son appel dans <code>onCreate</code>. Je
+vais ensuite expliquer les modifications.</p>
+<pre><code class="language-kotlin">import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            BonjourScreen()
+        }
+    }
+}
+
+@Composable
+fun BonjourScreen() {
+    Box(modifier = Modifier.fillMaxSize()) {
+        Text(
+            text = &quot;Hello World!&quot;,
+            modifier = Modifier.align(Alignment.Center)
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun BonjourPreview() {
+    BonjourScreen()
+}
+</code></pre>
+<p>Expliquons maintenant les modifications et leurs implications :</p>
+<h2 id="explications-des-modifications">Explications des modifications</h2>
+<h3 id="1-nouvelle-fonction-composable-bonjourscreen">1. Nouvelle fonction composable <code>BonjourScreen</code></h3>
+<pre><code class="language-kotlin">@Composable
+fun BonjourScreen() {
+    Box(modifier = Modifier.fillMaxSize()) {
+        Text(
+            text = &quot;Hello World!&quot;,
+            modifier = Modifier.align(Alignment.Center)
+        )
+    }
+}
+</code></pre>
+<ul>
+<li>Cette nouvelle fonction est annotée avec <code>@Composable</code>, indiquant qu'il s'agit d'une fonction composable Jetpack
+  Compose.</li>
+<li>Elle encapsule la logique d'affichage qui était précédemment directement dans <code>setContent</code>.</li>
+<li>Cette approche améliore la réutilisabilité et la lisibilité du code.</li>
+</ul>
+<h3 id="2-modification-de-oncreate">2. Modification de <code>onCreate</code></h3>
+<pre><code class="language-kotlin">override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContent {
+        BonjourScreen()
+    }
+}
+</code></pre>
+<ul>
+<li>Au lieu de définir directement le contenu dans <code>setContent</code>, nous appelons maintenant notre fonction
+  composable <code>BonjourScreen</code>.</li>
+<li>Cela rend le code de <code>onCreate</code> plus concis et plus clair.</li>
+</ul>
+<h3 id="3-ajout-dune-fonction-de-previsualisation">3. Ajout d'une fonction de prévisualisation</h3>
+<pre><code class="language-kotlin">@Preview(showBackground = true)
+@Composable
+fun BonjourPreview() {
+    BonjourScreen()
+}
+</code></pre>
+<ul>
+<li>Cette nouvelle fonction est annotée avec <code>@Preview</code>, ce qui permet de prévisualiser le composant dans Android Studio
+  sans avoir à exécuter l'application.</li>
+<li><code>showBackground = true</code> ajoute un arrière-plan à la prévisualisation pour une meilleure visibilité.</li>
+<li>Elle appelle <code>BonjourScreen()</code>, permettant de voir exactement ce qui sera affiché dans l'application.</li>
+</ul>
+<h2 id="implications-et-avantages-de-ces-modifications">Implications et avantages de ces modifications</h2>
+<ol>
+<li>
+<p><strong>Séparation des préoccupations</strong> : La logique d'affichage est maintenant séparée de la logique de l'activité, ce qui
+   est une bonne pratique de programmation.</p>
+</li>
+<li>
+<p><strong>Réutilisabilité</strong> : <code>BonjourScreen</code> peut être facilement réutilisé ailleurs dans l'application si nécessaire.</p>
+</li>
+<li>
+<p><strong>Testabilité</strong> : Il est plus facile de tester <code>BonjourScreen</code> de manière isolée.</p>
+</li>
+<li>
+<p><strong>Prévisualisation</strong> : L'ajout de la fonction de prévisualisation permet aux développeurs de voir rapidement les
+   changements d'interface sans avoir à compiler et exécuter l'application entière.</p>
+</li>
+<li>
+<p><strong>Modularité</strong> : Cette structure facilite l'ajout futur de fonctionnalités ou de modifications à l'interface
+   utilisateur.</p>
+</li>
+<li>
+<p><strong>Lisibilité</strong> : Le code est plus clair et plus facile à comprendre, chaque partie ayant un rôle bien défini.</p>
+</li>
+<li>
+<p><strong>Évolutivité</strong> : À mesure que l'application se développe, cette structure permet d'ajouter facilement de nouveaux
+   composants et écrans.</p>
+</li>
+</ol>
+<p>Cette approche est typique du développement avec Jetpack Compose, où l'interface utilisateur est construite à partir de
+composants réutilisables et prévisualisables. C'est une base solide pour développer des applications plus complexes tout
+en maintenant un code propre et organisé.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../02-intro-compose/" class="btn btn-neutral float-left" title="Introduction à Jetpack Compose"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../02-intro-compose/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

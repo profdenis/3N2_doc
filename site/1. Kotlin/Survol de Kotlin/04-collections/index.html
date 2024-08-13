@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Collections - Programmation Android</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Collections";
+        var mkdocs_page_input_path = "1. Kotlin/Survol de Kotlin/04-collections.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Programmation Android
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Programmation Android</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. Kotlin</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../01-kotlin/">Le langage de programmation Kotlin</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../02-kotlin-android/">Kotlin pour Android</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Survol de Kotlin</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../01-survol/">Survol de Kotlin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../02-variables/">Variables</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../03-types/">Types de base</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Collections</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#liste">Liste</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ensemble">Ensemble</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pratique">Pratique</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#exercice-1">Exercice 1</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#exercice-2">Exercice 2</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#exercice-3">Exercice 3</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../05-flot/">Flot de contrôle</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../06-fonctions/">Fonctions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../07-classes/">Classes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../08-valeurs-nulles/">Sécurité contre les valeurs nulles</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">2. Android</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/01-intro/">Introduction à la programmation mobile et Android</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/02-intro-compose/">Introduction à Jetpack Compose</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/03-premi%C3%A8re-app/">Première application avec Jetpack Compose</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Programmation Android</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">1. Kotlin</li>
+          <li class="breadcrumb-item">Survol de Kotlin</li>
+      <li class="breadcrumb-item active">Collections</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="collections">Collections</h1>
+<p><a href="https://kotlinlang.org/docs/kotlin-tour-collections.html">Source</a></p>
+<p>Lors de la programmation, il est utile de pouvoir regrouper des données dans des structures pour un traitement
+ultérieur. Kotlin fournit des collections pour cet exact propos.</p>
+<p>Kotlin a les collections suivantes pour regrouper les éléments :</p>
+<table>
+<thead>
+<tr>
+<th><strong>Type de collection</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Listes</td>
+<td>Collections ordonnées d'éléments</td>
+</tr>
+<tr>
+<td>Ensembles</td>
+<td>Collections non ordonnées uniques d'éléments</td>
+</tr>
+<tr>
+<td>Mappes</td>
+<td>Ensembles de paires clé-valeur où les clés sont uniques et associent à une seule valeur</td>
+</tr>
+</tbody>
+</table>
+<p>Chaque type de collection peut être modifiable ou en lecture seule.</p>
+<h2 id="liste">Liste</h2>
+<p>Les listes stockent les éléments dans l'ordre dans lequel ils sont ajoutés, et autorisent des éléments en double.</p>
+<p>Pour créer une liste en lecture
+seule (<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/"><code>List</code></a>), utilisez la
+fonction <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/list-of.html"><code>listOf()</code></a>.</p>
+<p>Pour créer une liste
+modifiable (<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list.html"><code>MutableList</code></a>),
+utilisez la
+fonction <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/mutable-list-of.html"><code>mutableListOf()</code></a>.</p>
+<p>Lors de la création de listes, Kotlin peut inférer le type des éléments stockés. Pour déclarer le type explicitement,
+ajoutez le type entre des crochets <code>&lt;&gt;</code> après la déclaration de liste :</p>
+<pre><code class="language-kotlin">fun main() { 
+//sampleStart
+    // Liste en lecture seule
+    val formesLectureSeule = listOf(&quot;triangle&quot;, &quot;carré&quot;, &quot;cercle&quot;)
+    println(formesLectureSeule)
+    // [triangle, carré, cercle]
+
+    // Liste modifiable avec déclaration de type explicite
+    val formes: MutableList&lt;String&gt; = mutableListOf(&quot;triangle&quot;, &quot;carré&quot;, &quot;cercle&quot;)
+    println(formes)
+    // [triangle, carré, cercle]
+//sampleEnd
+}
+</code></pre>
+<blockquote>
+<p>Pour prévenir les modifications indésirables, vous pouvez obtenir des vues en lecture seule de listes modifiables en
+les affectant à une <code>List</code> :</p>
+</blockquote>
+<pre><code class="language-kotlin">    val formes: MutableList&lt;String&gt; = mutableListOf(&quot;triangle&quot;, &quot;carré&quot;, &quot;cercle&quot;)
+    val formesVerrouillées: List&lt;String&gt; = formes
+</code></pre>
+<blockquote>
+<p>Ceci est également appelé <strong>casting</strong> en anglais.
+</p>
+</blockquote>
+<p>Les listes sont ordonnées donc pour accéder à un élément dans une liste, utilisez
+l'<a href="https://kotlinlang.org/docs/operator-overloading.html#indexed-access-operator">opérateur d'accès indexé</a> <code>[]</code> :</p>
+<pre><code class="language-kotlin">fun main() { 
+//sampleStart
+    val formesLectureSeule = listOf(&quot;triangle&quot;, &quot;carré&quot;, &quot;cercle&quot;)
+    println(&quot;Le premier élément de la liste est : ${formesLectureSeule[0]}&quot;)
+    // Le premier élément de la liste est: triangle
+//sampleEnd
+}
+</code></pre>
+<p>Pour obtenir le premier ou le dernier élément d'une liste, utilisez respectivement les
+fonctions <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/first.html"><code>.first()</code></a>
+et <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/last.html"><code>.last()</code></a> :</p>
+<pre><code class="language-kotlin">fun main() { 
+//sampleStart
+    val formesLectureSeule = listOf(&quot;triangle&quot;, &quot;carré&quot;, &quot;cercle&quot;)
+    println(&quot;Le premier élément de la liste est : ${formesLectureSeule.first()}&quot;)
+    // Le premier élément de la liste est: triangle
+//sampleEnd
+}
+</code></pre>
+<blockquote>
+<p>Les fonctions <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/first.html"><code>.first()</code></a>
+et <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/last.html"><code>.last()</code></a>
+sont des exemples de <strong>fonctions d'extension</strong>. Pour appeler une fonction d'extension sur un objet, écrivez le nom de
+la fonction
+après l'objet en l'appendant avec un point <code>.</code></p>
+<p>Pour plus d'informations sur les fonctions d'extension,
+voir <a href="https://kotlinlang.org/docs/extensions.html#extension-functions">Fonctions d'extensions</a>.
+Pour les objectifs de cette visite, vous avez juste besoin de savoir comment les appeler.
+</p>
+</blockquote>
+<p>Pour obtenir le nombre d'éléments dans une liste, utilisez la
+fonction <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/count.html"><code>.count()</code></a> :</p>
+<pre><code class="language-kotlin">fun main() { 
+//sampleStart
+    val formesLectureSeule = listOf(&quot;triangle&quot;, &quot;carré&quot;, &quot;cercle&quot;)
+    println(&quot;Cette liste contient ${formesLectureSeule.count()} éléments&quot;)
+    // Cette liste contient 3 éléments
+//sampleEnd
+}
+</code></pre>
+<p>Pour vérifier qu'un élément se trouve dans une liste, utilisez
+l'<a href="https://kotlinlang.org/docs/operator-overloading.html#in-operatorr">opérateur <code>in</code></a> :</p>
+<pre><code class="language-kotlin">fun main() {
+//sampleStart
+    val formesLectureSeule = listOf(&quot;triangle&quot;, &quot;carré&quot;, &quot;cercle&quot;)
+    println(&quot;cercle&quot; in formesLectureSeule)
+    // true
+//sampleEnd
+}
+</code></pre>
+<p>Pour ajouter ou supprimer des éléments d'une liste modifiable, utilisez respectivement les
+fonctions <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/add.html"><code>.add()</code></a>
+et <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/remove.html"><code>.remove()</code></a> :</p>
+<pre><code class="language-kotlin">fun main() { 
+//sampleStart
+    val formes: MutableList&lt;String&gt; = mutableListOf(&quot;triangle&quot;, &quot;carré&quot;, &quot;cercle&quot;)
+    // Ajoute &quot;pentagone&quot; à la liste
+    formes.add(&quot;pentagone&quot;) 
+    println(formes)  
+    // [triangle, carré, cercle, pentagone]
+
+    // Supprime le premier &quot;pentagone&quot; de la liste
+    formes.remove(&quot;pentagone&quot;) 
+    println(formes)  
+    // [triangle, carré, cercle]
+//sampleEnd
+}
+</code></pre>
+<h2 id="ensemble">Ensemble</h2>
+<p>Alors que les listes sont ordonnées et autorisent des éléments en double, les ensembles sont <strong>non ordonnés</strong> et
+stockent uniquement des éléments <strong>uniques</strong>.</p>
+<p>Pour créer un ensemble en lecture
+seule (<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/"><code>Set</code></a>), utilisez la
+fonction <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/set-of.html"><code>setOf()</code></a>.</p>
+<p>Pour créer un ensemble
+modifiable (<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-set/"><code>MutableSet</code></a>), utilisez la
+fonction <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/mutable-set-of.html"><code>mutableSetOf()</code></a>.</p>
+<p>Lors de la création des ensembles, Kotlin peut inférer le type des éléments stockés. Pour déclarer explicitement le
+type, ajoutez le type entre des crochets <code>&lt;&gt;</code> après la déclaration de l'ensemble :</p>
+<pre><code class="language-kotlin">fun main() {
+//sampleStart
+    // Ensemble en lecture seule
+    val fruitsLectureSeule = setOf(&quot;pomme&quot;, &quot;banane&quot;, &quot;cerise&quot;, &quot;cerise&quot;)
+
+    // Ensemble modifiable avec déclaration de type explicite
+    val fruits: MutableSet&lt;String&gt; = mutableSetOf(&quot;pomme&quot;, &quot;banane&quot;, &quot;cerise&quot;, &quot;cerise&quot;)
+
+    println(fruitsLectureSeule)
+    // [pomme, banane, cerise]
+//sampleEnd
+}
+</code></pre>
+<p>Vous pouvez voir dans l'exemple précédent que comme les ensembles ne contiennent que des éléments uniques,
+l'élément <code>"cerise"</code> en double est supprimé.</p>
+<blockquote>
+<p>Pour prévenir les modifications indésirables, obtenez des vues en lecture seule des ensembles modifiables en les
+affectant à <code>Set</code> :
+<code>kotlin
+   val fruits: MutableSet&lt;String&gt; = mutableSetOf("pomme", "banane", "cerise", "cerise")
+   val fruitsVerrouillés: Set&lt;String&gt; = fruits</code>
+</p>
+<p>Comme les ensembles sont <strong>non ordonnés</strong>, vous ne pouvez pas accéder à un élément à un index particulier.
+</p>
+</blockquote>
+<p>Pour obtenir le nombre d'éléments dans un ensemble, utilisez la
+fonction <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/count.html"><code>.count()</code></a> :</p>
+<pre><code class="language-kotlin">fun main() { 
+//sampleStart
+    val fruitsLectureSeule = setOf(&quot;pomme&quot;, &quot;banane&quot;, &quot;cerise&quot;, &quot;cerise&quot;)
+    println(&quot;Cet ensemble contient ${fruitsLectureSeule.count()} éléments&quot;)
+    // Cet ensemble contient 3 éléments
+//sampleEnd
+}
+</code></pre>
+<p>Pour vérifier qu'un élément se trouve dans un ensemble, utilisez
+l'<a href="https://kotlinlang.org/docs/operator-overloading.html#in-operator">opérateur <code>in</code></a> :</p>
+<pre><code class="language-kotlin">fun main() {
+//sampleStart
+    val fruitsLectureSeule = setOf(&quot;pomme&quot;, &quot;banane&quot;, &quot;cerise&quot;, &quot;cerise&quot;)
+    println(&quot;banane&quot; in fruitsLectureSeule)
+    // true
+//sampleEnd
+}
+</code></pre>
+<p>Pour ajouter ou supprimer des éléments d'un ensemble modifiable, utilisez respectivement les
+fonctions <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-set/add.html"><code>.add()</code></a>
+et <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/remove.html"><code>.remove()</code></a> :</p>
+<pre><code class="language-kotlin">fun main() { 
+//sampleStart
+    val fruits: MutableSet&lt;String&gt; = mutableSetOf(&quot;pomme&quot;, &quot;banane&quot;, &quot;cerise&quot;, &quot;cerise&quot;)
+    fruits.add(&quot;dragonfruit&quot;)    // Ajoute &quot;dragonfruit&quot; à l'ensemble
+    println(fruits)              // [pomme, banane, cerise, dragonfruit]
+
+    fruits.remove(&quot;dragonfruit&quot;) // Supprime &quot;dragonfruit&quot; de l'ensemble
+    println(fruits)              // [pomme, banane, cerise]
+//sampleEnd
+}
+</code></pre>
+<p>Pour obtenir une collection des clés ou des valeurs d'une mappe, utilisez les
+propriétés <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/keys.html"><code>keys</code></a>
+et <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/values.html"><code>values</code></a> respectivement :</p>
+<pre><code class="language-kotlin">fun main() {
+//sampleStart
+    val menuJusLectureSeule = mapOf(&quot;pomme&quot; to 100, &quot;kiwi&quot; to 190, &quot;orange&quot; to 100)
+    println(menuJusLectureSeule.keys)
+    // [pomme, kiwi, orange]
+    println(menuJusLectureSeule.values)
+    // [100, 190, 100]
+//sampleEnd
+}
+</code></pre>
+<blockquote>
+<p><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/keys.html"><code>keys</code></a>
+et <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/values.html"><code>values</code></a> sont des exemples de *
+<em>propriétés</em>* d'un objet. Pour accéder à la propriété d'un objet, écrivez le nom de la propriété après l'objet, en
+ajoutant un point <code>.</code>.
+Les propriétés sont discutées plus en détail dans le chapitre <a href="../07-classes/">Classes</a>. À ce stade de la
+visite, vous devez seulement savoir comment y accéder.
+</p>
+</blockquote>
+<p>Pour vérifier qu'une clé ou une valeur est dans une mappe, utilisez
+l'<a href="https://kotlinlang.org/docs/operator-overloading.html#in-operator">opérateur <code>in</code></a> :</p>
+<pre><code class="language-kotlin">fun main() {
+//sampleStart
+    val menuJusLectureSeule = mapOf(&quot;pomme&quot; to 100, &quot;kiwi&quot; to 190, &quot;orange&quot; to 100)
+    println(&quot;orange&quot; in menuJusLectureSeule.keys)
+    // true
+    println(200 in menuJusLectureSeule.values)
+    // false
+//sampleEnd
+}
+</code></pre>
+<p>Pour plus d'informations sur ce que vous pouvez faire avec les collections,
+voir <a href="https://kotlinlang.org/docs/collections-overview.html">Collections</a>.</p>
+<p>Maintenant que vous connaissez les types de base et comment gérer les collections, il est temps d'explorer
+la <a href="../05-flot/">logique de contrôle</a> que vous pouvez utiliser dans vos programmes.</p>
+<h2 id="pratique">Pratique</h2>
+<h3 id="exercice-1">Exercice 1</h3>
+<p>Vous disposez d'une liste de nombres "verts" et d'une liste de nombres "rouges". Complétez le code pour imprimer combien
+de nombres il y a en tout.</p>
+<pre><code class="language-kotlin">fun main() {
+    val nombresVerts = listOf(1, 4, 23)
+    val nombresRouges = listOf(17, 2)
+    // Écrivez votre code ici
+}
+</code></pre>
+<details>
+    <summary>Réponse</summary>
+
+
+<pre><code class="language-kotlin">fun main() {
+    val nombresVerts = listOf(1, 4, 23)
+    val nombresRouges = listOf(17, 2)
+    val totalCount = nombresVerts.count() + nombresRouges.count()
+    println(totalCount)
+}
+</code></pre>
+
+</details>
+<p><br></p>
+<h3 id="exercice-2">Exercice 2</h3>
+<p>Vous avez un ensemble de protocoles pris en charge par votre serveur. Un utilisateur demande à utiliser un protocole
+particulier. Complétez le programme pour vérifier si le protocole demandé est pris en charge ou non (<code>isSupported</code> doit
+être une valeur booléenne).</p>
+<pre><code class="language-kotlin">fun main() {
+    val SUPPORTED = setOf(&quot;HTTP&quot;, &quot;HTTPS&quot;, &quot;FTP&quot;)
+    val requested = &quot;smtp&quot;
+    val isSupported = // Écrivez votre code ici 
+    println(&quot;Support pour $requested: $isSupported&quot;)
+}
+</code></pre>
+<details>
+    <summary>Astuce</summary>
+
+Assurez-vous de vérifier le protocole demandé en majuscule. Vous pouvez utiliser la fonction <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/uppercase.html"><code>.uppercase()</code></a> pour vous aider.
+</details>
+<p><br></p>
+<details>
+    <summary>Réponse</summary>
+
+
+<pre><code class="language-kotlin">fun main() {
+    val SUPPORTED = setOf(&quot;HTTP&quot;, &quot;HTTPS&quot;, &quot;FTP&quot;)
+    val requested = &quot;smtp&quot;
+    val isSupported = requested.uppercase() in SUPPORTED
+    println(&quot;Support pour $requested: $isSupported&quot;)
+}
+</code></pre>
+
+</details>
+<p><br></p>
+<h3 id="exercice-3">Exercice 3</h3>
+<p>Définissez une mappe qui relie les nombres entiers de 1 à 3 à leur orthographe correspondante. Utilisez cette mappe pour
+épeler le nombre donné.</p>
+<pre><code class="language-kotlin">fun main() {
+    val number2word = // Écrivez votre code ici
+    val n = 2
+    println(&quot;$n est épelé comme '${&lt;Écrivez votre code ici&gt;}'&quot;)
+}
+</code></pre>
+<details>
+    <summary>Réponse</summary>
+
+
+<pre><code class="language-kotlin">fun main() {
+    val number2word = mapOf(1 to &quot;un&quot;, 2 to &quot;deux&quot;, 3 to &quot;trois&quot;)
+    val n = 2
+    println(&quot;$n est épelé comme '${number2word[n]}'&quot;)
+}
+</code></pre>
+
+</details>
+<p><br></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../03-types/" class="btn btn-neutral float-left" title="Types de base"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../05-flot/" class="btn btn-neutral float-right" title="Flot de contrôle">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../03-types/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../05-flot/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

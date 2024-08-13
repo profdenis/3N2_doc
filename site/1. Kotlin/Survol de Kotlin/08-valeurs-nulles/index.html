@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Sécurité contre les valeurs nulles - Programmation Android</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "S\u00e9curit\u00e9 contre les valeurs nulles";
+        var mkdocs_page_input_path = "1. Kotlin/Survol de Kotlin/08-valeurs-nulles.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Programmation Android
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Programmation Android</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. Kotlin</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../01-kotlin/">Le langage de programmation Kotlin</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../02-kotlin-android/">Kotlin pour Android</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Survol de Kotlin</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../01-survol/">Survol de Kotlin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../02-variables/">Variables</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../03-types/">Types de base</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../04-collections/">Collections</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../05-flot/">Flot de contrôle</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../06-fonctions/">Fonctions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../07-classes/">Classes</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Sécurité contre les valeurs nulles</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#types-nullable">Types Nullable</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#verifier-les-valeurs-nulles">Vérifier les valeurs nulles</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#utiliser-des-appels-securises">Utiliser des appels sécurisés</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#utiliser-loperateur-elvis">Utiliser l'opérateur Elvis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pratique">Pratique</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#exercice">Exercice</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">2. Android</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/01-intro/">Introduction à la programmation mobile et Android</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/02-intro-compose/">Introduction à Jetpack Compose</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/03-premi%C3%A8re-app/">Première application avec Jetpack Compose</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Programmation Android</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">1. Kotlin</li>
+          <li class="breadcrumb-item">Survol de Kotlin</li>
+      <li class="breadcrumb-item active">Sécurité contre les valeurs nulles</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="securite-contre-les-valeurs-nulles">Sécurité contre les valeurs nulles</h1>
+<p><a href="https://kotlinlang.org/docs/kotlin-tour-null-safety.html">Source</a></p>
+<p>En Kotlin, il est possible d'avoir une valeur <code>null</code>. Pour aider à prévenir les problèmes avec les valeurs <code>null</code> dans
+vos programmes, Kotlin a mis en place une sécurité contre les nullités. La sécurité contre les nullités détecte les
+problèmes potentiels avec les valeurs <code>null</code> au moment de la compilation, plutôt qu'au moment de l'exécution.</p>
+<p>La sécurité contre les nullités est une combinaison de fonctionnalités qui vous permettent de :</p>
+<ul>
+<li>déclarer explicitement quand les valeurs <code>null</code> sont autorisées dans votre programme.</li>
+<li>vérifier la présence de valeurs <code>null</code>.</li>
+<li>utiliser des appels sécurisés à des propriétés ou des fonctions qui peuvent contenir des valeurs <code>null</code>.</li>
+<li>déclarer des actions à prendre si des valeurs <code>null</code> sont détectées.</li>
+</ul>
+<h2 id="types-nullable">Types Nullable</h2>
+<p>Kotlin supporte les types Nullable qui permettent la possibilité pour le type déclaré d'avoir des valeurs <code>null</code>. Par
+défaut, un type n'est <strong>pas</strong> autorisé à accepter des valeurs <code>null</code>. Les types Nullable sont déclarés en ajoutant
+explicitement <code>?</code> après la déclaration du type.</p>
+<p>Par exemple :</p>
+<pre><code class="language-kotlin">fun main() {
+    // neverNull a le type String
+    var neverNull: String = &quot;Ceci ne peut pas être null&quot;
+
+    // Lève une erreur de compilation
+    neverNull = null
+
+    // nullable a un type String nullable
+    var nullable: String? = &quot;Vous pouvez garder un null ici&quot;
+
+    // C'est OK
+    nullable = null
+
+    // Par défaut, les valeurs null ne sont pas acceptées
+    var inferredNonNull = &quot;Le compilateur suppose non-nullable&quot;
+
+    // Lève une erreur de compilation
+    inferredNonNull = null
+
+    // notNull n'accepte pas les valeurs null
+    fun strLength(notNull: String): Int {                 
+        return notNull.length
+    }
+
+    println(strLength(neverNull)) // 18
+    println(strLength(nullable))  // Lève une erreur de compilation
+}
+</code></pre>
+<blockquote>
+<p><code>length</code> est une propriété de la classe <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/">String</a> qui
+contient le nombre de caractères dans une chaîne.
+</p>
+</blockquote>
+<h2 id="verifier-les-valeurs-nulles">Vérifier les valeurs nulles</h2>
+<p>Vous pouvez vérifier la présence de valeurs <code>null</code> dans les expressions conditionnelles. Dans l'exemple suivant, la
+fonction <code>describeString()</code> a une instruction <code>if</code> qui vérifie si <code>maybeString</code> n'est <strong>pas</strong> <code>null</code> et si sa <code>length</code>
+est supérieure à zéro :</p>
+<pre><code class="language-kotlin">fun describeString(maybeString: String?): String {
+    if (maybeString != null &amp;&amp; maybeString.length &gt; 0) {
+        return &quot;Chaîne de longueur ${maybeString.length}&quot;
+    } else {
+        return &quot;Chaîne vide ou null&quot;
+    }
+}
+
+fun main() {
+    val nullString: String? = null
+    println(describeString(nullString))
+    // Chaîne vide ou null
+}
+</code></pre>
+<h2 id="utiliser-des-appels-securises">Utiliser des appels sécurisés</h2>
+<p>Pour accéder en toute sécurité aux propriétés d'un objet qui peut contenir une valeur <code>null</code>, utilisez l'opérateur 
+d'appel sécurisé <code>?.</code>. L'opérateur d'appel sécurisé renvoie <code>null</code> si l'objet ou l'une de ses propriétés accédées
+est <code>null</code>. Ceci est utile si vous voulez éviter que la présence de valeurs <code>null</code> déclenche des erreurs dans votre
+code.</p>
+<p>Dans l'exemple suivant, la fonction <code>lengthString()</code> utilise un appel sécurisé pour renvoyer soit la longueur de la
+chaîne, soit <code>null</code> :</p>
+<pre><code class="language-kotlin">fun lengthString(maybeString: String?): Int? = maybeString?.length
+
+fun main() { 
+    val nullString: String? = null
+    println(lengthString(nullString))
+    // null
+}
+</code></pre>
+<blockquote>
+<p>Les appels sécurisés peuvent être chaînés de manière à ce que si une propriété d'un objet contient une valeur <code>null</code>,
+alors <code>null</code> est renvoyé sans qu'une erreur soit levée. Par exemple :
+<code>kotlin
+  person.company?.address?.country</code>
+</p>
+</blockquote>
+<p>L'opérateur d'appel sécurisé peut également être utilisé pour appeler en toute sécurité une fonction d'extension ou de
+membre. Dans ce cas, une vérification de nullité est effectuée avant l'appel de la fonction. Si la vérification détecte
+une valeur <code>null</code>, alors l'appel est sauté et <code>null</code> est renvoyé.</p>
+<p>Dans l'exemple suivant, <code>nullString</code> est <code>null</code> donc l'invocation
+de <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/uppercase.html"><code>.uppercase()</code></a> est sautée et <code>null</code> est
+renvoyé :</p>
+<pre><code class="language-kotlin">fun main() {
+    val nullString: String? = null
+    println(nullString?.uppercase())
+    // null
+}
+</code></pre>
+<h2 id="utiliser-loperateur-elvis">Utiliser l'opérateur Elvis</h2>
+<p>Vous pouvez fournir une valeur par défaut à retourner si une valeur <code>null</code> est détectée en utilisant 
+l'<strong>opérateur Elvis</strong> <code>?:</code>.</p>
+<p>Écrivez sur le côté gauche de l'opérateur Elvis ce qui doit être vérifié pour une valeur <code>null</code>.
+Écrivez sur le côté droit de l'opérateur Elvis ce qui doit être renvoyé si une valeur <code>null</code> est détectée.</p>
+<p>Dans l'exemple suivant, <code>nullString</code> est <code>null</code> donc l'appel sécurisé pour accéder à la propriété <code>length</code> renvoie une
+valeur <code>null</code>.
+En conséquence, l'opérateur Elvis renvoie <code>0</code> :</p>
+<pre><code class="language-kotlin">fun main() {
+    val nullString: String? = null
+    println(nullString?.length ?: 0)
+    // 0
+}
+</code></pre>
+<p>Pour plus d'informations sur la sécurité des nullités en Kotlin,
+voir <a href="https://kotlinlang.org/docs/null-safety.html">Null safety</a>.</p>
+<h2 id="pratique">Pratique</h2>
+<h3 id="exercice">Exercice</h3>
+<p>Vous avez la fonction <code>employeeById</code> qui vous donne accès à une base de données d'employés d'une entreprise.
+Malheureusement, cette fonction renvoie une valeur du type <code>Employee?</code>, donc le résultat peut être <code>null</code>. Votre but est
+d'écrire une fonction qui renvoie le salaire d'un employé quand son <code>id</code> est fourni, ou <code>0</code> si l'employé est manquant
+dans la base de données.</p>
+<pre><code class="language-kotlin">data class Employee (val name: String, var salary: Int)
+
+fun employeeById(id: Int) = when(id) {
+    1 -&gt; Employee(&quot;Mary&quot;, 20)
+    2 -&gt; null
+    3 -&gt; Employee(&quot;John&quot;, 21)
+    4 -&gt; Employee(&quot;Ann&quot;, 23)
+    else -&gt; null
+}
+
+fun salaryById(id: Int) = // Écrivez votre code ici
+
+fun main() {
+    println((1..5).sumOf { id -&gt; salaryById(id) })
+}
+</code></pre>
+<details>
+    <summary>Réponse</summary>
+
+
+<pre><code class="language-kotlin">data class Employee (val name: String, var salary: Int)
+fun employeeById(id: Int) = when(id) {
+    1 -&gt; Employee(&quot;Mary&quot;, 20)
+    2 -&gt; null
+    3 -&gt; Employee(&quot;John&quot;, 21)
+    4 -&gt; Employee(&quot;Ann&quot;, 23)
+    else -&gt; null
+}
+fun salaryById(id: Int) = employeeById(id)?.salary ?: 0
+fun main() {
+    println((1..5).sumOf { id -&gt; salaryById(id) })
+}
+</code></pre>
+
+</details>
+<p><br></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../07-classes/" class="btn btn-neutral float-left" title="Classes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../../2.%20Android/01-intro/" class="btn btn-neutral float-right" title="Introduction à la programmation mobile et Android">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../07-classes/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../../2.%20Android/01-intro/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

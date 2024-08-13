@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Types de base - Programmation Android</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Types de base";
+        var mkdocs_page_input_path = "1. Kotlin/Survol de Kotlin/03-types.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Programmation Android
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Programmation Android</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. Kotlin</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../01-kotlin/">Le langage de programmation Kotlin</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../02-kotlin-android/">Kotlin pour Android</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Survol de Kotlin</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../01-survol/">Survol de Kotlin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../02-variables/">Variables</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Types de base</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#pratique">Pratique</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#exercice">Exercice</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../04-collections/">Collections</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../05-flot/">Flot de contrôle</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../06-fonctions/">Fonctions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../07-classes/">Classes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../08-valeurs-nulles/">Sécurité contre les valeurs nulles</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">2. Android</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/01-intro/">Introduction à la programmation mobile et Android</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/02-intro-compose/">Introduction à Jetpack Compose</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/03-premi%C3%A8re-app/">Première application avec Jetpack Compose</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Programmation Android</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">1. Kotlin</li>
+          <li class="breadcrumb-item">Survol de Kotlin</li>
+      <li class="breadcrumb-item active">Types de base</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="types-de-base">Types de base</h1>
+<p><a href="https://kotlinlang.org/docs/kotlin-tour-basic-types.html">Source</a></p>
+<p>Chaque variable et structure de données en Kotlin ont un type de données. Les types de données sont importants, car ils
+indiquent au compilateur ce que vous avez le droit de faire avec cette variable ou structure de données. En d'autres
+termes, quelles fonctions et propriétés, elles possèdent.</p>
+<p>Dans le dernier chapitre, Kotlin a pu déduire dans l'exemple précédent que <code>customers</code> est de
+type : <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/"><code>Int</code></a>.
+La capacité de Kotlin à <strong>déduire</strong> le type de données est appelée <strong>inférence de type</strong>. <code>customers</code> se voit attribuer
+une valeur entière. De cela, Kotlin déduit que <code>customers</code> a un type de données numérique : <code>Int</code>. Par conséquent, le
+compilateur sait que vous pouvez effectuer des opérations arithmétiques avec <code>customers</code> :</p>
+<pre><code class="language-kotlin">fun main() {
+//sampleStart
+    var customers = 10
+
+    // Certains clients quittent la file d'attente
+    customers = 8
+
+    customers = customers + 3 // Exemple d'addition : 11
+    customers += 7            // Exemple d'addition : 18
+    customers -= 3            // Exemple de soustraction : 15
+    customers *= 2            // Exemple de multiplication : 30
+    customers /= 3            // Exemple de division : 10
+
+    println(customers) // 10
+//sampleEnd
+}
+</code></pre>
+<blockquote>
+<p><code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, et <code>%=</code> sont des opérateurs d'affectation augmentés. Pour plus d'informations,
+voir <a href="https://kotlinlang.org/docs/operator-overloading.html#augmented-assignments">Affectations augmentées</a>.</p>
+</blockquote>
+<p>Au total, Kotlin a les types de base suivants :</p>
+<table>
+<thead>
+<tr>
+<th><strong>Catégorie</strong></th>
+<th><strong>Types de base</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Entiers</td>
+<td><code>Byte</code>, <code>Short</code>, <code>Int</code>, <code>Long</code></td>
+</tr>
+<tr>
+<td>Entiers non signés</td>
+<td><code>UByte</code>, <code>UShort</code>, <code>UInt</code>, <code>ULong</code></td>
+</tr>
+<tr>
+<td>Nombres à virgule flottante</td>
+<td><code>Float</code>, <code>Double</code></td>
+</tr>
+<tr>
+<td>Booléens</td>
+<td><code>Boolean</code></td>
+</tr>
+<tr>
+<td>Caractères</td>
+<td><code>Char</code></td>
+</tr>
+<tr>
+<td>Chaînes</td>
+<td><code>String</code></td>
+</tr>
+</tbody>
+</table>
+<p>Pour plus d'informations sur les types de base et leurs propriétés,
+voir <a href="https://kotlinlang.org/docs/basic-types.html">Types de base</a>.</p>
+<p>Avec ces connaissances, vous pouvez déclarer des variables et les initialiser plus tard. Kotlin peut gérer cela tant que
+les variables sont initialisées avant la première lecture.</p>
+<p>Pour déclarer une variable sans l'initialiser, spécifiez son type avec <code>:</code>.</p>
+<p>Par exemple :</p>
+<pre><code class="language-kotlin">fun main() {
+//sampleStart
+    // Variable déclarée sans initialisation
+    val d: Int
+    // Variable initialisée
+    d = 3
+
+    // Variable de type explicite et initialisée
+    val e: String = &quot;hello&quot;
+
+    // Les variables peuvent être lues car elles ont été initialisées
+    println(d) // 3
+    println(e) // hello
+//sampleEnd
+}
+</code></pre>
+<p>Maintenant que vous savez comment déclarer des types de base, il est temps d'en savoir plus sur
+les <a href="../04-collections/">collections</a>.</p>
+<h2 id="pratique">Pratique</h2>
+<h3 id="exercice">Exercice</h3>
+<p>Déclarez explicitement le type correct pour chaque variable :</p>
+<pre><code class="language-kotlin">fun main() {
+    val a = 1000
+    val b = &quot;log message&quot;
+    val c = 3.14
+    val d = 100_000_000_000_000
+    val e = false
+    val f = '\n'
+}
+</code></pre>
+<details>
+    <summary>Réponse</summary>
+
+
+<pre><code class="language-kotlin">fun main() {
+    val a: Int = 1000
+    val b: String = &quot;log message&quot;
+    val c: Double = 3.14
+    val d: Long = 100_000_000_000
+    val e: Boolean = false
+    val f: Char = '\n'
+}
+</code></pre>
+
+</details>
+<p><br></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../02-variables/" class="btn btn-neutral float-left" title="Variables"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../04-collections/" class="btn btn-neutral float-right" title="Collections">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../02-variables/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../04-collections/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

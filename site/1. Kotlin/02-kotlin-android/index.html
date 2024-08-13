@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Kotlin pour Android - Programmation Android</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Kotlin pour Android";
+        var mkdocs_page_input_path = "1. Kotlin/02-kotlin-android.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Programmation Android
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Programmation Android</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. Kotlin</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../01-kotlin/">Le langage de programmation Kotlin</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Kotlin pour Android</a>
+    <ul class="current">
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Survol de Kotlin</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Survol%20de%20Kotlin/01-survol/">Survol de Kotlin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Survol%20de%20Kotlin/02-variables/">Variables</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Survol%20de%20Kotlin/03-types/">Types de base</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Survol%20de%20Kotlin/04-collections/">Collections</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Survol%20de%20Kotlin/05-flot/">Flot de contrôle</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Survol%20de%20Kotlin/06-fonctions/">Fonctions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Survol%20de%20Kotlin/07-classes/">Classes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Survol%20de%20Kotlin/08-valeurs-nulles/">Sécurité contre les valeurs nulles</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">2. Android</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../2.%20Android/01-intro/">Introduction à la programmation mobile et Android</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../2.%20Android/02-intro-compose/">Introduction à Jetpack Compose</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../2.%20Android/03-premi%C3%A8re-app/">Première application avec Jetpack Compose</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Programmation Android</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">1. Kotlin</li>
+      <li class="breadcrumb-item active">Kotlin pour Android</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="kotlin-pour-android">Kotlin pour Android</h1>
+<p><a href="https://kotlinlang.org/docs/android-overview.html">Source</a></p>
+<p>Le développement mobile Android est <a href="https://developer.android.com/kotlin/first">Kotlin-first</a> depuis Google I/O 
+en 2019.</p>
+<p>Plus de 50% des développeurs Android professionnels utilisent Kotlin comme leur langage principal, tandis que seulement
+30% utilisent Java comme leur langage principal. 70% des développeurs dont le langage principal est Kotlin disent que
+Kotlin les rend plus productifs.</p>
+<p>En utilisant Kotlin pour le développement Android, vous pouvez bénéficier de :</p>
+<ul>
+<li><strong>Moins de code combiné à une plus grande lisibilité</strong>. Passez moins de temps à écrire votre code et à essayer de
+  comprendre le code des autres.</li>
+<li><strong>Moins d'erreurs communes</strong>. Les applications construites avec Kotlin ont 20% moins de chances de planter en se
+  basant
+  sur <a href="https://medium.com/androiddevelopers/fewer-crashes-and-more-stability-with-kotlin-b606c6a6ac04">les données internes de Google</a>.</li>
+<li><strong>Support de Kotlin dans les bibliothèques Jetpack</strong>. <a href="https://developer.android.com/jetpack/compose">Jetpack Compose</a>
+  est la boîte à outils moderne recommandée par Android pour la construction de l'interface utilisateur native en
+  Kotlin.
+  <a href="https://developer.android.com/kotlin/ktx">Les extensions KTX</a> ajoutent les fonctionnalités du langage Kotlin, comme
+  les coroutines, les fonctions d'extension, les lambdas et les paramètres nommés aux bibliothèques Android existantes.</li>
+<li><strong>Support pour le développement multiplateforme</strong>. Kotlin Multiplatform permet le développement non seulement pour
+  Android, mais aussi pour <a href="https://kotlinlang.org/lp/multiplatform/">iOS</a>, le backend, et les applications web.
+  <a href="https://developer.android.com/kotlin/multiplatform">Certaines bibliothèques Jetpack</a> sont déjà multiplateformes.
+  <a href="https://www.jetbrains.com/lp/compose-multiplatform/">Compose Multiplatform</a>, le cadre d'interface utilisateur
+  déclaratif de JetBrains basé sur Kotlin et Jetpack Compose, rend possible le partage des interfaces utilisateur entre
+  les plates-formes - iOS, Android, desktop et web.</li>
+<li><strong>Langage et environnement matures</strong>. Depuis sa création en 2011, Kotlin s'est développé continuellement, non
+  seulement en tant que langage, mais aussi en tant qu'écosystème tout entier avec un outillage robuste. Aujourd'hui, il
+  est intégré de manière transparente dans <a href="https://developer.android.com/studio">Android Studio</a>
+  et est activement utilisé par de nombreuses entreprises pour développer des applications Android.</li>
+<li><strong>Interopérabilité avec Java</strong>. Vous pouvez utiliser Kotlin en combinaison avec le langage de programmation Java dans
+  vos applications sans avoir à migrer tout votre code vers Kotlin.</li>
+<li><strong>Apprentissage facile</strong>. Kotlin est très facile à apprendre, surtout pour les développeurs Java.</li>
+<li><strong>Grande communauté</strong>. Kotlin bénéficie d'un grand soutien et de nombreuses contributions de la part de la communauté
+  qui s'étend dans le monde entier. Plus de 95% des mille meilleures applications Android utilisent Kotlin.</li>
+</ul>
+<p>De nombreuses startups et entreprises du Fortune 500 ont déjà développé des applications Android en utilisant Kotlin,
+voir la liste sur <a href="https://developer.android.com/kotlin/stories">le site web de Google pour les développeurs Android</a>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../01-kotlin/" class="btn btn-neutral float-left" title="Le langage de programmation Kotlin"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Survol%20de%20Kotlin/01-survol/" class="btn btn-neutral float-right" title="Survol de Kotlin">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../01-kotlin/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Survol%20de%20Kotlin/01-survol/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

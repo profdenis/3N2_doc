@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Flot de contrôle - Programmation Android</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Flot de contr\u00f4le";
+        var mkdocs_page_input_path = "1. Kotlin/Survol de Kotlin/05-flot.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Programmation Android
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Programmation Android</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. Kotlin</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../01-kotlin/">Le langage de programmation Kotlin</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../02-kotlin-android/">Kotlin pour Android</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Survol de Kotlin</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../01-survol/">Survol de Kotlin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../02-variables/">Variables</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../03-types/">Types de base</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../04-collections/">Collections</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Flot de contrôle</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#expressions-conditionnelles">Expressions conditionnelles</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#if">If</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#when">When</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#intervalles">Intervalles</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#boucles">Boucles</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#pour">Pour</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#tant-que">Tant que</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pratique">Pratique</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#exercice-1">Exercice 1</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#exercice-2">Exercice 2</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#exercice-3">Exercice 3</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#exercice-4">Exercice 4</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../06-fonctions/">Fonctions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../07-classes/">Classes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../08-valeurs-nulles/">Sécurité contre les valeurs nulles</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">2. Android</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/01-intro/">Introduction à la programmation mobile et Android</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/02-intro-compose/">Introduction à Jetpack Compose</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/03-premi%C3%A8re-app/">Première application avec Jetpack Compose</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Programmation Android</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">1. Kotlin</li>
+          <li class="breadcrumb-item">Survol de Kotlin</li>
+      <li class="breadcrumb-item active">Flot de contrôle</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="flot-de-controle">Flot de contrôle</h1>
+<p><a href="https://kotlinlang.org/docs/kotlin-tour-control-flow.html">Source</a></p>
+<p>Comme les autres langages de programmation, Kotlin est capable de prendre des décisions en fonction de l'évaluation d'un
+fragment de code à vrai. De tels fragments de code sont appelés <strong>expressions conditionnelles</strong>. Kotlin est également
+capable de créer et naviguer à travers des boucles.</p>
+<h2 id="expressions-conditionnelles">Expressions conditionnelles</h2>
+<p>Kotlin propose <code>if</code> et <code>when</code> pour vérifier des expressions conditionnelles.</p>
+<blockquote>
+<p>Si vous devez choisir entre <code>if</code> et <code>when</code>, nous vous recommandons d'utiliser <code>when</code>, car cela conduit à des
+programmes plus robustes et plus sûrs.
+</p>
+</blockquote>
+<h3 id="if">If</h3>
+<p>Pour utiliser <code>if</code>, ajoutez l'expression conditionnelle entre parenthèses <code>()</code> et l'action à effectuer si le résultat
+est vrai à l'intérieur des accolades <code>{}</code> :</p>
+<pre><code class="language-kotlin">fun main() {
+//sampleStart
+    val d: Int
+    val check = true
+
+    if (check) {
+        d = 1
+    } else {
+        d = 2
+    }
+
+    println(d)
+    // 1
+//sampleEnd
+}
+</code></pre>
+<p>Il n'y a pas d'opérateur ternaire <code>condition ? then : else</code> en Kotlin. En revanche, <code>if</code> peut être utilisé comme une
+expression. S'il n'y a qu'une seule ligne de code par action, les accolades <code>{}</code> sont facultatives :</p>
+<pre><code class="language-kotlin">fun main() {
+//sampleStart
+    val a = 1
+    val b = 2
+
+    println(if (a &gt; b) a else b) // Returns a value: 2
+//sampleEnd
+}
+</code></pre>
+<h3 id="when">When</h3>
+<p>Utilisez <code>when</code> lorsque vous avez une expression conditionnelle avec plusieurs branches. <code>when</code> peut être utilisé soit
+comme une instruction, soit comme une expression.</p>
+<p>Voici un exemple d'utilisation de <code>when</code> en tant qu'instruction :</p>
+<ul>
+<li>Placez l'expression conditionnelle entre parenthèses <code>()</code> et les actions à effectuer
+  à l'intérieur des accolades <code>{}</code>.</li>
+<li>Utilisez <code>-&gt;</code> dans chaque branche pour séparer chaque condition de chaque action.</li>
+</ul>
+<pre><code class="language-kotlin">fun main() {
+//sampleStart
+    val obj = &quot;Hello&quot;
+
+    when (obj) {
+        // Vérifie si obj est égal à &quot;1&quot;
+        &quot;1&quot; -&gt; println(&quot;Un&quot;)
+        // Vérifie si obj est égal à &quot;Hello&quot;
+        &quot;Hello&quot; -&gt; println(&quot;Salutation&quot;)
+        // Instruction par défaut
+        else -&gt; println(&quot;Inconnu&quot;)
+    }
+    // Salutation
+//sampleEnd
+}
+</code></pre>
+<blockquote>
+<p>Notez que toutes les conditions des branches sont vérifiées séquentiellement jusqu'à ce que l'une d'entre elles soit
+satisfaite. Seule la première branche adéquate est donc exécutée.
+</p>
+</blockquote>
+<p>Voici un exemple d'utilisation de <code>when</code> en tant qu'expression. La syntaxe <code>when</code> est immédiatement assignée à une
+variable :</p>
+<pre><code class="language-kotlin">fun main() {
+//sampleStart    
+    val obj = &quot;Hello&quot;
+
+    val result = when (obj) {
+        // Si obj est égal à &quot;1&quot;, assigne &quot;Un&quot; à result
+        &quot;1&quot; -&gt; &quot;Un&quot;
+        // Si obj est égal à &quot;Hello&quot;, assigne &quot;Salutation&quot; à result
+        &quot;Hello&quot; -&gt; &quot;Salutation&quot;
+        // Assign &quot;Inconnu&quot; à result si aucune des conditions précédentes n'est satisfaite
+        else -&gt; &quot;Inconnu&quot;
+    }
+    println(result)
+    // Salutation
+//sampleEnd
+}
+</code></pre>
+<p>Si <code>when</code> est utilisé comme une expression, la branche <code>else</code> est obligatoire, à moins que le compilateur puisse
+détecter
+que tous les cas possibles sont couverts par les conditions des branches.</p>
+<p>L'exemple précédent a montré que <code>when</code> est utile pour faire correspondre une variable. <code>when</code> est également utile
+lorsque vous avez besoin de vérifier une chaîne d'expressions booléennes :</p>
+<pre><code class="language-kotlin">fun main() {
+//sampleStart
+    val temp = 18
+
+    val description = when {
+        // Si temp &lt; 0 est vrai, assigne &quot;voir froid&quot; à description
+        temp &lt; 0 -&gt; &quot;très froid&quot;
+        // Si temp &lt; 10 est vrai, assigne &quot;un peu froid&quot; à description
+        temp &lt; 10 -&gt; &quot;un peu froid&quot;
+        // Si temp &lt; 20 est vrai, assigne &quot;chaud&quot; à description
+        temp &lt; 20 -&gt; &quot;chaud&quot;
+        // Assigne &quot;très chaud&quot; à description si aucune des conditions précédentes n'est satisfaite
+        else -&gt; &quot;très chaud&quot;
+    }
+    println(description)
+    // chaud
+//sampleEnd
+}
+</code></pre>
+<h2 id="intervalles">Intervalles</h2>
+<p>Avant de parler des boucles, il est utile de savoir comment construire des intervalles pour que les boucles puissent les
+parcourir.</p>
+<p>La façon la plus courante de créer un intervalle en Kotlin est d'utiliser l'opérateur <code>..</code>. Par exemple, <code>1..4</code> équivaut
+à <code>1, 2, 3, 4</code>.</p>
+<p>Pour déclarer un intervalle qui n'inclut pas la valeur de fin, utilisez l'opérateur <code>..&lt;</code>. Par exemple, <code>1..&lt;4</code> équivaut
+à <code>1, 2, 3</code>.</p>
+<p>Pour déclarer un intervalle en ordre inverse, utilisez <code>downTo.</code>. Par exemple, <code>4 downTo 1</code> équivaut à <code>4, 3, 2, 1</code>.</p>
+<p>Pour déclarer un intervalle qui augmente en pas qui n'est pas de 1, utilisez <code>step</code> et la valeur d'incrément souhaitée.
+Par exemple, <code>1..5 step 2</code> équivaut à <code>1, 3, 5</code>.</p>
+<p>Il est également possible de faire la même chose avec des intervalles de caractères <code>Char</code> :</p>
+<ul>
+<li><code>'a'..'d'</code> équivaut à <code>'a', 'b', 'c', 'd'</code></li>
+<li><code>'z' downTo 's' step 2</code> équivaut à <code>'z', 'x', 'v', 't'</code></li>
+</ul>
+<h2 id="boucles">Boucles</h2>
+<p>Les deux structures de boucle les plus courantes en programmation sont <code>for</code> et <code>while</code>. Utilisez <code>for</code> pour itérer sur
+une série de valeurs et effectuer une action. Utilisez <code>while</code> pour poursuivre une action jusqu'à ce qu'une condition
+particulière soit satisfaite.</p>
+<h3 id="pour">Pour</h3>
+<p>En utilisant votre nouvelle connaissance des intervalles, vous pouvez créer une boucle <code>for</code> qui itère sur les numéros 1
+à 5 et imprime le numéro à chaque fois.</p>
+<p>Placez l'itérateur et l'intervalle entre parenthèses <code>()</code> avec le mot-clé <code>in</code>. Ajoutez l'action que vous voulez
+terminer à l'intérieur des accolades <code>{}</code> :</p>
+<pre><code class="language-kotlin">fun main() {
+//sampleStart
+    for (number in 1..5) {
+        // number est l'itérateur et 1..5 est l'intervalle
+        print(number)
+    }
+    // 12345
+//sampleEnd
+}
+</code></pre>
+<p>Les collections peuvent également être parcourues par des boucles :</p>
+<pre><code class="language-kotlin">fun main() {
+//sampleStart
+    val cakes = listOf(&quot;carotte&quot;, &quot;fromage&quot;, &quot;chocolat&quot;)
+
+    for (cake in cakes) {
+        println(&quot;Miam, c'est un gâteau à la $cake!&quot;)
+    }
+    // Miam, c'est un gâteau à la carotte!
+    // Miam, c'est un gâteau au fromage!
+    // Miam, c'est un gâteau au chocolat!
+//sampleEnd
+}
+</code></pre>
+<h3 id="tant-que">Tant que</h3>
+<p><code>while</code> peut être utilisé de deux façons :</p>
+<ul>
+<li>Pour exécuter un bloc de code tant qu'une expression conditionnelle est vraie. (<code>while</code>)</li>
+<li>Pour exécuter le bloc de code en premier, puis vérifier l'expression conditionnelle. (<code>do-while</code>)</li>
+</ul>
+<p>Dans le premier cas d'utilisation (<code>while</code>) :</p>
+<ul>
+<li>Déclarez l'expression conditionnelle pour que votre boucle continue entre parenthèses <code>()</code>.</li>
+<li>Ajoutez l'action que vous voulez effectuer à l'intérieur des accolades <code>{}</code>.</li>
+</ul>
+<blockquote>
+<p>Les exemples suivants utilisent
+l'<a href="https://kotlinlang.org/docs/operator-overloading.html#increments-and-decrements">opérateur d'incrémentation</a> <code>++</code>
+pour incrémenter la valeur de la variable <code>gâteauxMangés</code>.
+</p>
+</blockquote>
+<pre><code class="language-kotlin">fun main() {
+//sampleStart
+    var gâteauxMangés = 0
+    while (gâteauxMangés &lt; 3) {
+        println(&quot;Mange un gâteau&quot;)
+        gâteauxMangés++
+    }
+    // Mange un gâteau
+    // Mange un gâteau
+    // Mange un gâteau
+//sampleEnd
+}
+</code></pre>
+<p>Dans le second cas (<code>do-while</code>) :</p>
+<ul>
+<li>Déclarez l'expression conditionnelle pour que votre boucle continue entre parenthèses <code>()</code>.</li>
+<li>Définissez l'action que vous voulez effectuer entre les accolades <code>{}</code> avec le mot-clé <code>do</code>.</li>
+</ul>
+<pre><code class="language-kotlin">fun main() {
+//sampleStart
+    var gâteauxMangés = 0
+    var gâteauxCuits = 0
+    while (gâteauxMangés &lt; 3) {
+        println(&quot;Mange un gâteau&quot;)
+        gâteauxMangés++
+    }
+    do {
+        println(&quot;Cuit un gâteau&quot;)
+        gâteauxCuits++
+    } while (gâteauxCuits &lt; gâteauxMangés)
+    // Mange un gâteau
+    // Mange un gâteau
+    // Mange un gâteau
+    // Cuit un gâteau
+    // Cuit un gâteau
+    // Cuit un gâteau
+//sampleEnd
+}
+</code></pre>
+<p>Pour plus d'informations et d'exemples sur les expressions conditionnelles et les boucles,
+voir <a href="https://kotlinlang.org/docs/control-flow.html">Conditions et boucles</a>.</p>
+<p>Maintenant que vous connaissez les fondamentaux du flux de contrôle de Kotlin, il est temps d'apprendre comment écrire
+vos propres <a href="../06-fonctions/">fonctions</a>.</p>
+<h2 id="pratique">Pratique</h2>
+<h3 id="exercice-1">Exercice 1</h3>
+<p>En utilisant une expression <code>when</code>, mettez à jour le programme suivant de sorte que lorsque vous saisissez les noms des
+boutons du GameBoy, les actions soient affichées en sortie.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Bouton</strong></th>
+<th><strong>Action</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>Oui</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Non</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Menu</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Rien</td>
+</tr>
+<tr>
+<td>Autre</td>
+<td>Il n'y a pas de bouton de ce genre</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-kotlin">fun main() {
+    val bouton = &quot;A&quot;
+
+    println(
+        // Écrivez votre code ici
+    )
+}
+</code></pre>
+<details>
+    <summary>Réponse</summary>
+
+
+<pre><code class="language-kotlin">fun main() {
+    val bouton = &quot;A&quot;
+    println(
+        when (bouton) {
+            &quot;A&quot; -&gt; &quot;Oui&quot;
+            &quot;B&quot; -&gt; &quot;Non&quot;
+            &quot;X&quot; -&gt; &quot;Menu&quot;
+            &quot;Y&quot; -&gt; &quot;Rien&quot;
+            else -&gt; &quot;Il n'y a pas de bouton de ce genre&quot;
+        }
+    )
+}
+</code></pre>
+
+
+</details>
+<p><br></p>
+<h3 id="exercice-2">Exercice 2</h3>
+<p>Vous avez un programme qui compte les tranches de pizza jusqu'à ce qu'il y ait une pizza entière avec 8 tranches.
+Refactorisez ce programme de deux façons :</p>
+<ul>
+<li>Utilisez une boucle <code>while</code>.</li>
+<li>Utilisez une boucle <code>do-while</code>.</li>
+</ul>
+<pre><code class="language-kotlin">fun main() {
+    var tranchesPizza = 0
+    // Commencez le refactoring ici
+    tranchesPizza++
+    println(&quot;Il n'y a que $tranchesPizza tranche/s de pizza :(&quot;)
+    tranchesPizza++
+    println(&quot;Il n'y a que $tranchesPizza tranche/s de pizza :(&quot;)
+    tranchesPizza++
+    println(&quot;Il n'y a que $tranchesPizza tranche/s de pizza :(&quot;)
+    tranchesPizza++
+    println(&quot;Il n'y a que $tranchesPizza tranche/s de pizza :(&quot;)
+    tranchesPizza++
+    println(&quot;Il n'y a que $tranchesPizza tranche/s de pizza :(&quot;)
+    tranchesPizza++
+    println(&quot;Il n'y a que $tranchesPizza tranche/s de pizza :(&quot;)
+    tranchesPizza++
+    println(&quot;Il n'y a que $tranchesPizza tranche/s de pizza :(&quot;)
+    tranchesPizza++
+    // Terminez le refactoring ici
+    println(&quot;Il y a $tranchesPizza tranches de pizza. Hourra! Nous avons une pizza entière! :D&quot;)
+}
+</code></pre>
+<details>
+    <summary>Réponse</summary>
+
+
+<pre><code class="language-kotlin">fun main() {
+    var tranchesPizza = 0
+    while (tranchesPizza &lt; 7 ) {
+        tranchesPizza++
+        println(&quot;Il n 'y a que $tranchesPizza tranche/s de pizza :(&quot;)
+    }
+    tranchesPizza++
+    println(&quot;Il y a $tranchesPizza tranches de pizza. Hourra!Nous avons une pizza entière!:D&quot;)
+}
+</code></pre>
+
+
+</details>
+<p><br></p>
+<details>
+    <summary>Réponse</summary>
+
+
+<pre><code class="language-kotlin">fun main() {
+    var tranchesPizza = 0
+    tranchesPizza++
+    do {
+        println(&quot;Il n 'y a que $tranchesPizza tranche/s de pizza :(&quot;)
+        tranchesPizza++
+    } while (tranchesPizza &lt; 8 )
+    println(&quot;Il y a $tranchesPizza tranches de pizza. Hourra!Nous avons une pizza entière!:D&quot;)
+}
+</code></pre>
+
+
+</details>
+<p><br></p>
+<h3 id="exercice-3">Exercice 3</h3>
+<p>Écrivez un programme qui simule le jeu <a href="https://fr.wikipedia.org/wiki/Fizz_buzz">Fizz buzz</a>. Votre tâche est d'imprimer
+les nombres de 1 à 100 de manière incrémentielle, en remplaçant tout nombre divisible par trois par le mot "fizz", et
+tout nombre divisible par cinq par le mot "buzz". Tout nombre divisible à la fois par 3 et 5 doit être remplacé par le
+mot "fizzbuzz".</p>
+<details>
+    <summary>Indice</summary>
+
+Utilisez une boucle <code>for</code> pour compter les numéros et une expression <code>when</code> pour décider de ce
+qu'il faut imprimer à chaque étape.
+</details>
+<p><br></p>
+<pre><code class="language-kotlin">fun main() {
+    // Écrivez votre code ici
+}
+</code></pre>
+<details>
+    <summary>Réponse</summary>
+
+
+<pre><code class="language-kotlin">fun main() {
+    for (number in 1..100) {
+        println(
+            when {
+                number % 15 == 0 -&gt; &quot;fizzbuzz&quot;
+                number % 3 == 0 -&gt; &quot;fizz&quot;
+                number % 5 == 0 -&gt; &quot;buzz&quot;
+                else -&gt; &quot;$number&quot;
+            }
+        )
+    }
+}
+</code></pre>
+
+
+</details>
+<p><br></p>
+<h3 id="exercice-4">Exercice 4</h3>
+<p>Vous avez une liste de mots. Utilisez <code>for</code> et <code>if</code> pour imprimer seulement les mots qui commencent par la lettre <code>l</code>.</p>
+<details>
+    <summary>Indice</summary>
+
+Utilisez la fonction <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/starts-with.html">
+<code>.startsWith()</code></a> pour le type <code>String</code>.
+</details>
+<p><br></p>
+<pre><code class="language-kotlin">fun main() {
+    val mots = listOf(&quot;dinosaure&quot;, &quot;limousine&quot;, &quot;magazine&quot;, &quot;langue&quot;)
+    // Écrivez votre code ici
+}
+</code></pre>
+<details>
+    <summary>Réponse</summary>
+
+
+<pre><code class="language-kotlin">fun main() {
+    val mots = listOf(&quot;dinosaure&quot;, &quot;limousine&quot;, &quot;magazine&quot;, &quot;langue&quot;)
+    for (m in mots) {
+        if (m.startsWith(&quot;l&quot;))
+            println(m)
+    }
+}
+</code></pre>
+
+</details>
+<p><br></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../04-collections/" class="btn btn-neutral float-left" title="Collections"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../06-fonctions/" class="btn btn-neutral float-right" title="Fonctions">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../04-collections/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../06-fonctions/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

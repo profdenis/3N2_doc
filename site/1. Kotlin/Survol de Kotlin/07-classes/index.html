@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Classes - Programmation Android</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Classes";
+        var mkdocs_page_input_path = "1. Kotlin/Survol de Kotlin/07-classes.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Programmation Android
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Programmation Android</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. Kotlin</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../01-kotlin/">Le langage de programmation Kotlin</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../02-kotlin-android/">Kotlin pour Android</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Survol de Kotlin</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../01-survol/">Survol de Kotlin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../02-variables/">Variables</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../03-types/">Types de base</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../04-collections/">Collections</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../05-flot/">Flot de contrôle</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../06-fonctions/">Fonctions</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Classes</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#proprietes">Propriétés</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#creer-une-instance">Créer une instance</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#acceder-aux-proprietes">Accéder aux propriétés</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fonctions-membres">Fonctions membres</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#classes-de-donnees">Classes de données</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#imprimer-comme-une-chaine">Imprimer comme une chaîne</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#comparer-les-instances">Comparer les instances</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#copier-une-instance">Copier une instance</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pratique">Pratique</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#exercice-1">Exercice 1</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#exercice-2">Exercice 2</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../08-valeurs-nulles/">Sécurité contre les valeurs nulles</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">2. Android</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/01-intro/">Introduction à la programmation mobile et Android</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/02-intro-compose/">Introduction à Jetpack Compose</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/03-premi%C3%A8re-app/">Première application avec Jetpack Compose</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Programmation Android</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">1. Kotlin</li>
+          <li class="breadcrumb-item">Survol de Kotlin</li>
+      <li class="breadcrumb-item active">Classes</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="classes">Classes</h1>
+<p><a href="https://kotlinlang.org/docs/kotlin-tour-classes.html">Source</a></p>
+<p>Kotlin prend en charge la programmation orientée objet avec des classes et des objets. Les objets sont utiles pour
+stocker des données dans votre programme. Les classes vous permettent de déclarer un ensemble de caractéristiques pour
+un objet. Lorsque vous créez des objets à partir d'une classe, vous pouvez gagner du temps et des efforts, car vous
+n'avez pas à déclarer ces caractéristiques à chaque fois.</p>
+<p>Pour déclarer une classe, utilisez le mot-clé <code>class</code> :</p>
+<pre><code class="language-kotlin">class Client
+</code></pre>
+<h2 id="proprietes">Propriétés</h2>
+<p>Les caractéristiques d'un objet de classe peuvent être déclarées dans des propriétés. Vous pouvez déclarer des
+propriétés pour une classe :</p>
+<ul>
+<li>Dans les parenthèses <code>()</code> après le nom de la classe.</li>
+</ul>
+<pre><code class="language-kotlin">class Contact(val id: Int, var email: String)
+</code></pre>
+<ul>
+<li>Au sein du corps de la classe défini par des accolades <code>{}</code>.</li>
+</ul>
+<pre><code class="language-kotlin">class Contact(val id: Int, var email: String) {
+    val category: String = &quot;&quot;
+}
+</code></pre>
+<p>Nous vous recommandons de déclarer les propriétés en lecture seule (<code>val</code>) à moins qu'elles ne doivent être modifiées
+après la création d'une instance de la classe.</p>
+<p>Vous pouvez déclarer des propriétés sans <code>val</code> ou <code>var</code> dans les parenthèses, mais ces propriétés ne sont pas
+accessibles après la création d'une instance.</p>
+<blockquote>
+<ul>
+<li>Le contenu entre parenthèses <code>()</code> s'appelle l'<strong>en-tête de la classe</strong>.</li>
+<li>Vous pouvez utiliser une <a href="https://kotlinlang.org/docs/coding-conventions.html#trailing-commas">virgule finale</a> lors
+    &gt; de la déclaration des propriétés de classe.</li>
+</ul>
+</blockquote>
+<p>Tout comme avec les paramètres de fonction, les propriétés de classe peuvent avoir des valeurs par défaut :</p>
+<pre><code class="language-kotlin">class Contact(val id: Int, var email: String = &quot;example@gmail.com&quot;) {
+    val category: String = &quot;travail&quot;
+}
+</code></pre>
+<h2 id="creer-une-instance">Créer une instance</h2>
+<p>Pour créer un objet à partir d'une classe, vous déclarez une <strong>instance</strong> de classe à l'aide d'un <strong>constructeur</strong>.</p>
+<p>Par défaut, Kotlin crée automatiquement un constructeur avec les paramètres déclarés dans l'en-tête de la classe.</p>
+<p>Par exemple :</p>
+<pre><code class="language-kotlin">class Contact(val id: Int, var email: String)
+
+fun main() {
+    val contact = Contact(1, &quot;mary@gmail.com&quot;)
+}
+</code></pre>
+<p>Dans cet exemple :</p>
+<ul>
+<li><code>Contact</code> est une classe.</li>
+<li><code>contact</code> est une instance de la classe <code>Contact</code>.</li>
+<li><code>id</code> et <code>email</code> sont des propriétés.</li>
+<li><code>id</code> et <code>email</code> sont utilisés avec le constructeur par défaut pour créer <code>contact</code>.</li>
+</ul>
+<p>Les classes Kotlin peuvent avoir de nombreux constructeurs, y compris ceux que vous définissez vous-même. Pour en savoir
+plus sur la façon de déclarer
+plusieurs constructeurs, voir <a href="https://kotlinlang.org/docs/classes.html#constructors">Constructeurs</a>.</p>
+<h2 id="acceder-aux-proprietes">Accéder aux propriétés</h2>
+<p>Pour accéder à une propriété d'une instance, écrivez le nom de la propriété après le nom de l'instance, précédé d'un
+point <code>.</code> :</p>
+<pre><code class="language-kotlin">class Contact(val id: Int, var email: String)
+
+fun main() {
+    val contact = Contact(1, &quot;mary@gmail.com&quot;)
+
+    // Affiche la valeur de la propriété : email
+    println(contact.email)
+    // mary@gmail.com
+
+    // Met à jour la valeur de la propriété : email
+    contact.email = &quot;jane@gmail.com&quot;
+
+    // Affiche la nouvelle valeur de la propriété : email
+    println(contact.email)
+    // jane@gmail.com
+}
+</code></pre>
+<blockquote>
+<p>Pour concaténer la valeur d'une propriété dans le cadre d'une chaîne de caractères, vous pouvez utiliser des modèles
+de chaîne de caractères (<code>$</code>).
+Par exemple :
+<code>kotlin
+println("Leur adresse email est : ${contact.email}")</code>
+</p>
+</blockquote>
+<h2 id="fonctions-membres">Fonctions membres</h2>
+<p>En plus de déclarer des propriétés dans le cadre des caractéristiques d'un objet, vous pouvez également définir le
+comportement d'un objet
+avec des fonctions membres.</p>
+<p>En Kotlin, les fonctions membres doivent être déclarées à l'intérieur du corps de la classe. Pour appeler une fonction
+membre sur une instance, écrivez le
+nom de la fonction après le nom de l'instance, précédé d'un point <code>.</code>. Par exemple :</p>
+<pre><code class="language-kotlin">class Contact(val id: Int, var email: String) {
+    fun printId() {
+        println(id)
+    }
+}
+
+fun main() {
+    val contact = Contact(1, &quot;mary@gmail.com&quot;)
+    // Appelle la fonction membre printId()
+    contact.printId()
+    // 1
+}
+</code></pre>
+<h2 id="classes-de-donnees">Classes de données</h2>
+<p>Kotlin dispose de <strong>classes de données</strong> particulièrement utiles pour stocker des données. Les classes de données ont la
+même fonctionnalité que
+les classes, mais elles viennent automatiquement avec des fonctions membres supplémentaires. Ces fonctions membres vous
+permettent de facilement imprimer
+l'instance en sortie lisible, de comparer les instances d'une classe, de copier les instances, et plus encore. Comme ces
+fonctions sont
+automatiquement disponibles, vous n'avez pas à passer de temps à écrire le même code standard pour chacune de vos
+classes.</p>
+<p>Pour déclarer une classe de données, utilisez le mot-clé <code>data</code> :</p>
+<pre><code class="language-kotlin">data class Utilisateur(val nom: String, val id: Int)
+</code></pre>
+<p>Les fonctions membres prédéfinies les plus utiles des classes de données sont :</p>
+<table>
+<thead>
+<tr>
+<th><strong>Fonction</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.toString()</code></td>
+<td>Imprime une chaîne de caractères lisible de l'instance de la classe et ses propriétés.</td>
+</tr>
+<tr>
+<td><code>.equals()</code> or <code>==</code></td>
+<td>Compare les instances d'une classe.</td>
+</tr>
+<tr>
+<td><code>.copy()</code></td>
+<td>Crée une instance de classe en copiant une autre, potentiellement avec des propriétés différentes.</td>
+</tr>
+</tbody>
+</table>
+<p>Voir les sections suivantes pour des exemples d'utilisation de chaque fonction :</p>
+<ul>
+<li>Imprimer comme une chaîne</li>
+<li>Comparer les instances</li>
+<li>Copier une instance</li>
+</ul>
+<h3 id="imprimer-comme-une-chaine">Imprimer comme une chaîne</h3>
+<p>Pour imprimer une chaîne de caractères lisible d'une instance de classe, vous pouvez appeler explicitement la
+fonction <code>.toString()</code>, ou utiliser des fonctions d'impression
+(<code>println()</code> et <code>print()</code>) qui appellent automatiquement <code>.toString()</code> pour vous :</p>
+<pre><code class="language-kotlin">class User(val nom: String, val id: Int)
+
+fun main() {
+    //sampleStart
+    val utilisateur = User(&quot;Alex&quot;, 1)
+
+    // Utilise automatiquement la fonction toString() afin que la sortie soit facile à lire
+    println(utilisateur)
+    // User(nom=Alex, id=1)
+    //sampleEnd
+}
+</code></pre>
+<p>Cela est particulièrement utile lors du débogage ou de la création de journaux.</p>
+<h3 id="comparer-les-instances">Comparer les instances</h3>
+<p>Pour comparer les instances de classes de données, utilisez l'opérateur d'égalité <code>==</code> :</p>
+<pre><code class="language-kotlin">data class User(val name: String, val id: Int)
+
+fun main() {
+    //sampleStart
+    val utilisateur = User(&quot;Alex&quot;, 1)
+    val secondUtilisateur = User(&quot;Alex&quot;, 1)
+    val troisiemeUtilisateur = User(&quot;Max&quot;, 2)
+
+    // Compare l'utilisateur au deuxième utilisateur
+    println(&quot;utilisateur == secondUtilisateur : ${utilisateur == secondUtilisateur}&quot;)
+    // utilisateur == secondUtilisateur : true
+
+    // Compare l'utilisateur au troisième utilisateur
+    println(&quot;utilisateur == troisiemeUtilisateur : ${utilisateur == troisiemeUtilisateur}&quot;)
+    // utilisateur == troisiemeUtilisateur : false
+    //sampleEnd
+}
+</code></pre>
+<h3 id="copier-une-instance">Copier une instance</h3>
+<p>Pour créer une copie exacte d'une instance de classe de données, appelez la fonction <code>.copy()</code> sur l'instance.</p>
+<p>Pour créer une copie d'une instance de classe de données <strong>et</strong> changer certaines propriétés, appelez la
+fonction <code>.copy()</code> sur l'instance
+<strong>et</strong> ajoutez des valeurs de remplacement pour les propriétés en tant que paramètres de fonction.</p>
+<p>Par exemple :</p>
+<pre><code class="language-kotlin">data class User(val name: String, val id: Int)
+
+fun main() {
+    //sampleStart
+    val utilisateur = User(&quot;Alex&quot;, 1)
+    val secondUtilisateur = User(&quot;Alex&quot;, 1)
+    val troisiemeUtilisateur = User(&quot;Max&quot;, 2)
+
+    // Crée une copie exacte de l'utilisateur
+    println(utilisateur.copy())
+    // User(name=Alex, id=1)
+
+    // Crée une copie de l'utilisateur avec le nom : &quot;Max&quot;
+    println(utilisateur.copy(&quot;Max&quot;))
+    // User(name=Max, id=1)
+
+    // Crée une copie de l'utilisateur avec id : 3
+    println(utilisateur.copy(id = 3))
+    // User(name=Alex, id=3)
+    //sampleEnd
+}
+</code></pre>
+<p>Créer une copie d'une instance est plus sûr que de modifier l'instance d'origine, car tout code qui dépend de l'instance
+d'origine n'est pas affecté par la copie et ce que vous en faites.</p>
+<p>Pour plus d'informations sur les classes de données,
+voir <a href="https://kotlinlang.org/docs/data-classes.html">Classes de données</a>.</p>
+<p>Le dernier chapitre de ce tour est à propos de la <a href="../08-valeurs-nulles/">sécurité contre null</a> de Kotlin.</p>
+<h2 id="pratique">Pratique</h2>
+<h3 id="exercice-1">Exercice 1</h3>
+<p>Définissez une classe de données <code>Employé</code> avec deux propriétés : une pour un nom, et une autre pour un salaire.
+Assurez-vous que la propriété
+pour le salaire est modifiable, sinon vous n'obtiendrez pas d'augmentation de salaire à la fin de l'année ! La fonction
+principale démontre comment
+vous pouvez utiliser cette classe de données.</p>
+<pre><code class="language-kotlin">// Écrivez votre code ici
+
+fun main() {
+    val emp = Employe(&quot;Mary&quot;, 20)
+    println(emp)
+    emp.salaire += 10
+    println(emp)
+}
+</code></pre>
+<details>
+    <summary>Réponse</summary>
+
+
+<pre><code class="language-kotlin">data class Employé(val nom: String, var salaire: Int)
+
+fun main() {
+    val emp = Employé(&quot;Mary&quot;, 20)
+    println(emp)
+    emp.salaire += 10
+    println(emp)
+}
+</code></pre>
+
+
+</details>
+<p><br></p>
+<h3 id="exercice-2">Exercice 2</h3>
+<p>Pour tester votre code, vous avez besoin d'un générateur capable de créer des employés aléatoires. Définissez une classe
+avec une liste fixe de noms potentiels
+(à l'intérieur du corps de la classe), et qui est configurée par un salaire minimum et maximum (à l'intérieur de
+l'en-tête de la classe). Encore une fois, la fonction principale démontre comment vous pouvez utiliser cette classe.</p>
+<details>
+    <summary>Indice</summary>
+
+Les listes ont une fonction d'extension
+appelée <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/random.html"><code>.random()</code></a>
+qui renvoie un élément aléatoire dans une liste.
+
+</details>
+<p><br></p>
+<details>
+    <summary>Indice</summary>
+
+        <code>Random.nextInt(from = ..., until = ...)</code> vous donne un nombre aléatoire de type <code>Int</code> dans des limites spécifiées.
+</details>
+<p><br></p>
+<pre><code class="language-kotlin">import kotlin.random.Random
+
+data class Employe(val nom: String, var salaire: Int)
+
+// Écrivez votre code ici
+
+fun main() {
+    val empGen = GenerateurEmployeAleatoire(10, 30)
+    println(empGen.genererEmploye())
+    println(empGen.genererEmploye())
+    println(empGen.genererEmploye())
+    empGen.salaireMin = 50
+    empGen.salaireMax = 100
+    println(empGen.genererEmploye())
+}
+</code></pre>
+<details>
+    <summary>Réponse</summary>
+
+
+<pre><code class="language-kotlin">import kotlin.random.Random
+data class Employe(val nom: String, var salaire: Int)
+class GenerateurEmployeAleatoire(var salaireMin: Int, var salaireMax: Int) {
+    val noms = listOf(&quot;John&quot;, &quot;Mary&quot;, &quot;Ann&quot;, &quot;Paul&quot;, &quot;Jack&quot;, &quot;Elizabeth&quot;)
+    fun genererEmploye() = Employe(noms.random(), Random.nextInt(from = salaireMin, until = salaireMax))
+}
+fun main() {
+    val empGen = GenerateurEmployeAleatoire(10, 30)
+    println(empGen.genererEmploye())
+    println(empGen.genererEmploye())
+    println(empGen.genererEmploye())
+    empGen.salaireMin = 50
+    empGen.salaireMax = 100
+    println(empGen.genererEmploye())
+}
+</code></pre>
+
+</details>
+<p><br></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../06-fonctions/" class="btn btn-neutral float-left" title="Fonctions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../08-valeurs-nulles/" class="btn btn-neutral float-right" title="Sécurité contre les valeurs nulles">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../06-fonctions/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../08-valeurs-nulles/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

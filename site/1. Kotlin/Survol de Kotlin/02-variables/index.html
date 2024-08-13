@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Variables - Programmation Android</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Variables";
+        var mkdocs_page_input_path = "1. Kotlin/Survol de Kotlin/02-variables.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Programmation Android
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Programmation Android</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. Kotlin</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../01-kotlin/">Le langage de programmation Kotlin</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../02-kotlin-android/">Kotlin pour Android</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Survol de Kotlin</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../01-survol/">Survol de Kotlin</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Variables</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#variables_1">Variables</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#gabarits-de-chaine">Gabarits de chaîne</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pratique">Pratique</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#exercice">Exercice</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../03-types/">Types de base</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../04-collections/">Collections</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../05-flot/">Flot de contrôle</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../06-fonctions/">Fonctions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../07-classes/">Classes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../08-valeurs-nulles/">Sécurité contre les valeurs nulles</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">2. Android</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/01-intro/">Introduction à la programmation mobile et Android</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/02-intro-compose/">Introduction à Jetpack Compose</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/03-premi%C3%A8re-app/">Première application avec Jetpack Compose</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Programmation Android</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">1. Kotlin</li>
+          <li class="breadcrumb-item">Survol de Kotlin</li>
+      <li class="breadcrumb-item active">Variables</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="variables">Variables</h1>
+<p><a href="https://kotlinlang.org/docs/kotlin-tour-hello-world.html">Source</a></p>
+<p>Voici un programme simple qui imprime "Hello, world!" :</p>
+<pre><code class="language-kotlin">fun main() {
+    println(&quot;Hello, world!&quot;)
+    // Hello, world!
+}
+</code></pre>
+<p>En Kotlin :</p>
+<ul>
+<li><code>fun</code> est utilisé pour déclarer une fonction</li>
+<li>la fonction <code>main()</code> est le point de départ de votre programme</li>
+<li>le corps d'une fonction est écrit entre accolades <code>{}</code></li>
+<li>les fonctions <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/println.html"><code>println()</code></a>
+  et <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/print.html"><code>print()</code></a> affichent leurs arguments en sortie
+  standard</li>
+</ul>
+<blockquote>
+<p>Les fonctions sont discutées plus en détail dans quelques chapitres. Jusque-là, tous les exemples utilisent la
+fonction <code>main()</code>.</p>
+</blockquote>
+<h2 id="variables_1">Variables</h2>
+<p>Tous les programmes doivent être capables de stocker des données, et les variables vous aident à faire justement cela.
+En Kotlin, vous pouvez déclarer :</p>
+<ul>
+<li>des variables en lecture seule avec <code>val</code></li>
+<li>des variables modifiables avec <code>var</code></li>
+</ul>
+<p>Pour attribuer une valeur, utilisez l'opérateur d'affectation <code>=</code>.</p>
+<p>Par exemple :</p>
+<pre><code class="language-kotlin">fun main() { 
+//sampleStart
+    val popcorn = 5    // Il y a 5 boîtes de popcorn
+    val hotdog = 7     // Il y a 7 hot-dogs
+    var clients = 10   // Il y a 10 clients dans la queue
+
+    // Certains clients quittent la queue
+    clients = 8
+    println(clients)
+    // 8
+//sampleEnd
+}
+</code></pre>
+<blockquote>
+<p>Les variables peuvent être déclarées en dehors de la fonction <code>main()</code> au début de votre programme. On dit que les
+variables déclarées de cette manière sont déclarées au <strong>niveau supérieur</strong>.
+</p>
+</blockquote>
+<p>Comme <code>clients</code> est une variable modifiable, sa valeur peut être réattribuée après la déclaration.</p>
+<blockquote>
+<p>Nous recommandons que vous déclariez toutes les variables en lecture seule (<code>val</code>) par défaut. Déclarez des variables
+modifiables (<code>var</code>) seulement si nécessaire.
+</p>
+</blockquote>
+<h2 id="gabarits-de-chaine">Gabarits de chaîne</h2>
+<p>Il est utile de savoir comment imprimer le contenu des variables en sortie standard. Vous pouvez le faire avec les
+<strong>gabarits de chaîne</strong>. Vous pouvez utiliser des expressions de modèle pour accéder aux données stockées dans les
+variables et d'autres objets, et les convertir en chaînes. Une valeur de chaîne est une séquence de caractères entre
+guillemets doubles <code>"</code>. Les expressions de gabarit commencent toujours par un signe dollar <code>$</code>.</p>
+<p>Pour évaluer un bout de code dans une expression de gabarit, placez le code entre accolades <code>{}</code> après le signe
+dollar <code>$</code>.</p>
+<p>Par exemple :</p>
+<pre><code class="language-kotlin">fun main() { 
+//sampleStart
+    val clients = 10
+    println(&quot;Il y a $clients clients&quot;)
+    // Il y a 10 clients
+
+    println(&quot;Il y a ${clients + 1} clients&quot;)
+    // Il y a 11 clients
+//sampleEnd
+}
+</code></pre>
+<p>Pour plus d'informations, voir <a href="https://kotlinlang.org/docs/strings.html">Gabarits de chaîne</a>.</p>
+<p>Vous remarquerez qu'il n'y a pas de types déclarés pour les variables. Kotlin a inféré le type lui-même : <code>Int</code>. Ce
+parcours explique les différents types de base de Kotlin et comment les déclarer dans
+le <a href="../03-types/">chapitre suivant</a>.</p>
+<h2 id="pratique">Pratique</h2>
+<h3 id="exercice">Exercice</h3>
+<p>Complétez le code pour que le programme imprime <code>"Mary a 20 ans"</code> en sortie standard :</p>
+<pre><code class="language-kotlin">fun main() {
+    val nom = &quot;Mary&quot;
+    val age = 20
+    // Ecrivez votre code ici
+}
+</code></pre>
+<details>
+    <summary>Réponse</summary>
+
+
+<pre><code class="language-kotlin">fun main() {
+    val nom = &quot;Mary&quot;
+    val age = 20
+    println(&quot;$nom a $age ans&quot;)
+}
+</code></pre>
+
+</details>
+<p><br></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../01-survol/" class="btn btn-neutral float-left" title="Survol de Kotlin"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../03-types/" class="btn btn-neutral float-right" title="Types de base">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../01-survol/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../03-types/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

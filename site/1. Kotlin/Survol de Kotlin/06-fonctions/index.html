@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Fonctions - Programmation Android</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Fonctions";
+        var mkdocs_page_input_path = "1. Kotlin/Survol de Kotlin/06-fonctions.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Programmation Android
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Programmation Android</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. Kotlin</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../01-kotlin/">Le langage de programmation Kotlin</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../02-kotlin-android/">Kotlin pour Android</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Survol de Kotlin</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../01-survol/">Survol de Kotlin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../02-variables/">Variables</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../03-types/">Types de base</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../04-collections/">Collections</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../05-flot/">Flot de contrôle</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Fonctions</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#arguments-nommes">Arguments nommés</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#valeurs-par-defaut-des-parametres">Valeurs par défaut des paramètres</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fonctions-sans-retour">Fonctions sans retour</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fonctions-a-expression-unique">Fonctions à expression unique</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pratique-des-fonctions">Pratique des fonctions</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#exercice-1">Exercice 1</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#exercice-2">Exercice 2</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#exercice-3">Exercice 3</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#expressions-lambda">Expressions lambda</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#assigner-a-une-variable">Assigner à une variable</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#passer-a-une-autre-fonction">Passer à une autre fonction</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#types-de-fonction">Types de fonction</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#retour-dune-fonction">Retour d'une fonction</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#invoquer-separement">Invoquer séparément</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#lambdas-de-fin">Lambdas de fin</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pratique-avec-les-expressions-lambda">Pratique avec les expressions lambda</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#exercice-1_1">Exercice 1</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#exercice-2_1">Exercice 2</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../07-classes/">Classes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../08-valeurs-nulles/">Sécurité contre les valeurs nulles</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">2. Android</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/01-intro/">Introduction à la programmation mobile et Android</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/02-intro-compose/">Introduction à Jetpack Compose</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/03-premi%C3%A8re-app/">Première application avec Jetpack Compose</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Programmation Android</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">1. Kotlin</li>
+          <li class="breadcrumb-item">Survol de Kotlin</li>
+      <li class="breadcrumb-item active">Fonctions</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="fonctions">Fonctions</h1>
+<p><a href="https://kotlinlang.org/docs/kotlin-tour-functions.html">Source</a></p>
+<p>Vous pouvez déclarer vos propres fonctions en Kotlin en utilisant le mot-clé <code>fun</code>.</p>
+<pre><code class="language-kotlin">fun hello() {
+    return println(&quot;Bonjour, monde!&quot;)
+}
+
+fun main() {
+    hello()
+    // Bonjour, monde!
+}
+</code></pre>
+<p>En Kotlin:</p>
+<ul>
+<li>les paramètres de fonction sont écrits entre parenthèses <code>()</code>.</li>
+<li>chaque paramètre doit avoir un type, et plusieurs paramètres doivent être séparés par des virgules <code>,</code> .</li>
+<li>le type de retour est écrit après les parenthèses de la fonction <code>()</code>, séparé par un deux-points <code>:</code>.</li>
+<li>le corps d'une fonction est écrit entre accolades <code>{}</code>.</li>
+<li>le mot-clé <code>return</code> est utilisé pour sortir ou retourner quelque chose d'une fonction.</li>
+</ul>
+<blockquote>
+<p>Si une fonction ne renvoie rien d'utile, le type de retour et le mot-clé <code>return</code> peuvent être omis. 
+</p>
+</blockquote>
+<p>Dans l'exemple suivant :</p>
+<ul>
+<li><code>x</code> et <code>y</code> sont des paramètres de fonction.</li>
+<li><code>x</code> et <code>y</code> ont le type <code>Int</code>.</li>
+<li>le type de retour de la fonction est <code>Int</code>.</li>
+<li>la fonction renvoie une somme de <code>x</code> et <code>y</code> lorsqu'elle est appelée.</li>
+</ul>
+<pre><code class="language-kotlin">fun sum(x: Int, y: Int): Int {
+    return x + y
+}
+
+fun main() {
+    println(sum(1, 2))
+    // 3
+}
+</code></pre>
+<blockquote>
+<p>Nous recommandons dans nos <a href="https://kotlinlang.org/docs/coding-conventions.html#function-names">conventions de codage</a>
+que vous nommiez les fonctions en commençant par une lettre minuscule et utilisez camel case sans tirets du bas.
+</p>
+</blockquote>
+<h2 id="arguments-nommes">Arguments nommés</h2>
+<p>Pour un code concis, lors de l'appel de votre fonction, vous n'avez pas besoin d'inclure les noms des paramètres.
+Cependant, l'inclusion des noms des paramètres
+rend votre code plus facile à lire. C'est ce qu'on appelle l'utilisation des <strong>arguments nommés</strong>. Si vous incluez les
+noms des paramètres, vous pouvez alors
+écrire les paramètres dans n'importe quel ordre.</p>
+<blockquote>
+<p>Dans l'exemple suivant,
+les <a href="https://kotlinlang.org/docs/strings.html#string-templates">templates de chaînes de caractères</a> (<code>$</code>) sont
+utilisés pour accéder aux valeurs des paramètres, les convertir en type <code>String</code>, puis les concaténer en une chaîne
+pour l'impression.
+</p>
+</blockquote>
+<pre><code class="language-kotlin">fun printMessageWithPrefix(message: String, prefix: String) {
+    println(&quot;[$prefix] $message&quot;)
+}
+
+fun main() {
+    // Utilise des arguments nommés avec l'ordre des paramètres inversé
+    printMessageWithPrefix(prefix = &quot;Log&quot;, message = &quot;Bonjour&quot;)
+    // [Log] Bonjour
+}
+</code></pre>
+<h2 id="valeurs-par-defaut-des-parametres">Valeurs par défaut des paramètres</h2>
+<p>Vous pouvez définir des valeurs par défaut pour vos paramètres de fonction. Tout paramètre ayant une valeur par défaut
+peut être omis lors de
+l'appel de votre fonction. Pour déclarer une valeur par défaut, utilisez l'opérateur d'affectation <code>=</code> après le type :</p>
+<pre><code class="language-kotlin">fun printMessageWithPrefix(message: String, prefix: String = &quot;Info&quot;) {
+    println(&quot;[$prefix] $message&quot;)
+}
+
+fun main() {
+    // Fonction appelée avec les deux paramètres
+    printMessageWithPrefix(&quot;Bonjour&quot;, &quot;Log&quot;)
+    // [Log] Bonjour
+
+    // Fonction appelée uniquement avec le paramètre message
+    printMessageWithPrefix(&quot;Bonjour&quot;)
+    // [Info] Bonjour
+
+    printMessageWithPrefix(prefix = &quot;Log&quot;, message = &quot;Bonjour&quot;)
+    // [Log] Bonjour
+}
+</code></pre>
+<blockquote>
+<p>Vous pouvez omettre des paramètres spécifiques ayant des valeurs par défaut, plutôt que de tous les omettre.
+Cependant, après le
+premier paramètre omis, vous devez nommer tous les paramètres suivants.
+</p>
+</blockquote>
+<h2 id="fonctions-sans-retour">Fonctions sans retour</h2>
+<p>Si votre fonction ne renvoie pas de valeur utile, alors son type de retour est <code>Unit</code>. <code>Unit</code> est un type avec une seule
+valeur -
+<code>Unit</code>. Vous n'avez pas à déclarer explicitement dans le corps de votre fonction que <code>Unit</code> est renvoyé. Cela signifie
+que vous n'avez pas
+à utiliser le mot-clé <code>return</code> ou déclarer un type de retour :</p>
+<pre><code class="language-kotlin">fun printMessage(message: String) {
+    println(message)
+    // `return Unit` ou `return` est optionnel
+}
+
+fun main() {
+    printMessage(&quot;Bonjour&quot;)
+    // Bonjour
+}
+</code></pre>
+<h2 id="fonctions-a-expression-unique">Fonctions à expression unique</h2>
+<p>Pour rendre votre code plus concis, vous pouvez utiliser des fonctions à expression unique. Par exemple, la
+fonction <code>sum()</code> peut être raccourcie :</p>
+<pre><code class="language-kotlin">fun sum(x: Int, y: Int): Int {
+    return x + y
+}
+
+fun main() {
+    println(sum(1, 2))
+    // 3
+}
+</code></pre>
+<p>Vous pouvez retirer les accolades <code>{}</code> et déclarer le corps de la fonction en utilisant l'opérateur d'affectation <code>=</code>.
+Et grâce à l'inférence de types de Kotlin,
+vous pouvez également omettre le type de retour. La fonction <code>sum()</code> devient alors une ligne :</p>
+<pre><code class="language-kotlin">fun sum(x: Int, y: Int) = x + y
+
+fun main() {
+    println(sum(1, 2))
+    // 3
+}
+</code></pre>
+<blockquote>
+<p>Omettre le type de retour n'est possible que lorsque votre fonction n'a pas de corps (<code>{}</code>). À moins que le type de
+retour de votre fonction
+ne soit <code>Unit</code>.
+</p>
+</blockquote>
+<h2 id="pratique-des-fonctions">Pratique des fonctions</h2>
+<h3 id="exercice-1">Exercice 1</h3>
+<p>Écrivez une fonction appelée <code>circleArea</code> qui prend le rayon d'un cercle au format entier comme paramètre et affiche
+l'aire de ce cercle.</p>
+<blockquote>
+<p>Dans cet exercice, vous importez un package afin de pouvoir accéder à la valeur de pi via <code>PI</code>. Pour plus
+d'informations sur
+l'importation de packages, voir <a href="https://kotlinlang.org/docs/packages.html">Packages and imports</a>.
+</p>
+</blockquote>
+<pre><code class="language-kotlin">import kotlin.math.PI
+
+fun circleArea() {
+    // Écrivez votre code ici
+}
+
+fun main() {
+    println(circleArea(2))
+}
+</code></pre>
+<details>
+    <summary>Réponse</summary>
+
+
+<pre><code class="language-kotlin">import kotlin.math.PI
+
+fun circleArea(radius: Int): Double {
+    return PI * radius * radius
+}
+fun main() {
+    println(circleArea(2)) // 12.566370614359172
+}
+</code></pre>
+
+
+</details>
+<p><br></p>
+<h3 id="exercice-2">Exercice 2</h3>
+<p>Réécrivez la fonction <code>circleArea</code> de l'exercice précédent comme une fonction à expression unique.</p>
+<pre><code class="language-kotlin">import kotlin.math.PI
+
+// Écrivez votre code ici
+
+fun main() {
+    println(circleArea(2))
+}
+</code></pre>
+<details>
+    <summary>Réponse</summary>
+
+
+<pre><code class="language-kotlin">import kotlin.math.PI
+
+fun circleArea(radius: Int): Double = PI * radius * radius
+
+fun main() {
+    println(circleArea(2)) // 12.566370614359172
+}
+</code></pre>
+
+
+</details>
+<p><br></p>
+<h3 id="exercice-3">Exercice 3</h3>
+<p>Vous avez une fonction qui traduit un intervalle de temps donné en heures, minutes et secondes en secondes. Dans la
+plupart des cas, vous devez passer seulement un ou deux paramètres de fonction alors que le reste est égal à 0.
+Améliorez la fonction et le code qui l'appelle en utilisant des valeurs par défaut pour les paramètres et des arguments
+nommés afin que le code soit plus facile à lire.</p>
+<pre><code class="language-kotlin">fun intervalInSeconds(hours: Int, minutes: Int, seconds: Int) =
+    ((hours * 60) + minutes) * 60 + seconds
+
+fun main() {
+    println(intervalInSeconds(1, 20, 15))
+    println(intervalInSeconds(0, 1, 25))
+    println(intervalInSeconds(2, 0, 0))
+    println(intervalInSeconds(0, 10, 0))
+    println(intervalInSeconds(1, 0, 1))
+}
+</code></pre>
+<details>
+    <summary>Réponse</summary>
+
+
+<pre><code class="language-kotlin">fun intervalInSeconds(hours: Int = 0, minutes: Int = 0, seconds: Int = 0) =
+    ((hours * 60) + minutes) * 60 + seconds
+
+fun main() {
+    println(intervalInSeconds(1, 20, 15))
+    println(intervalInSeconds(minutes = 1, seconds = 25))
+    println(intervalInSeconds(hours = 2))
+    println(intervalInSeconds(minutes = 10))
+    println(intervalInSeconds(hours = 1, seconds = 1))
+}
+</code></pre>
+
+
+</details>
+<p><br></p>
+<h2 id="expressions-lambda">Expressions lambda</h2>
+<p>Kotlin vous permet d'écrire un code encore plus concis pour les fonctions en utilisant des expressions lambda.</p>
+<p>Par exemple, la fonction <code>uppercaseString()</code> suivante :</p>
+<pre><code class="language-kotlin">fun uppercaseString(text: String): String {
+    return text.uppercase()
+}
+fun main() {
+    println(uppercaseString(&quot;bonjour&quot;))
+    // BONJOUR
+}
+</code></pre>
+<p>Peut également être écrite comme une expression lambda :</p>
+<pre><code class="language-kotlin">fun main() {
+    println({ text: String -&gt; text.uppercase() }(&quot;bonjour&quot;))
+    // BONJOUR
+}
+</code></pre>
+<p>Les expressions lambda peuvent être difficiles à comprendre à première vue, alors décomposons-les. Les expressions
+lambda sont écrites entre accolades <code>{}</code>.</p>
+<p>Dans l'expression lambda, vous écrivez :</p>
+<ul>
+<li>les paramètres suivis par un <code>-&gt;</code>.</li>
+<li>le corps de la fonction après le <code>-&gt;</code>.</li>
+</ul>
+<p>Dans l'exemple précédent :</p>
+<ul>
+<li><code>text</code> est un paramètre de fonction.</li>
+<li><code>text</code> a le type <code>String</code>.</li>
+<li>la fonction renvoie le résultat de la
+  fonction <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/uppercase.html"><code>.uppercase()</code></a>
+  appelée sur <code>text</code>.</li>
+</ul>
+<blockquote>
+<p>Si vous déclarez une lambda sans paramètres, alors il n'est pas nécessaire d'utiliser <code>-&gt;</code>. Par exemple :</p>
+</blockquote>
+<pre><code class="language-kotlin">{ println(&quot;Message de log&quot;) }
+</code></pre>
+<p>Les expressions lambda peuvent être utilisées de plusieurs façons. Vous pouvez :</p>
+<ul>
+<li>attribuer une lambda à une variable que vous pouvez ensuite invoquer plus tard</li>
+<li>passer une expression lambda comme paramètre à une autre fonction</li>
+<li>retourner une expression lambda d'une fonction</li>
+<li>invoquer une expression lambda indépendamment</li>
+</ul>
+<h3 id="assigner-a-une-variable">Assigner à une variable</h3>
+<p>Pour attribuer une expression lambda à une variable, utilisez l'opérateur d'affectation <code>=</code> :</p>
+<pre><code class="language-kotlin">fun main() {
+    val UpperCaseString = { text: String -&gt; text.uppercase() }
+    println(UpperCaseString(&quot;bonjour&quot;))
+    // BONJOUR
+}
+</code></pre>
+<h3 id="passer-a-une-autre-fonction">Passer à une autre fonction</h3>
+<p>Un excellent exemple de quand il est utile de passer une expression lambda à une fonction est d'utiliser la
+fonction <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/filter.html"><code>.filter()</code></a>
+sur des collections :</p>
+<pre><code class="language-kotlin">fun main() {
+    //sampleStart
+    val numbers = listOf(1, -2, 3, -4, 5, -6)
+    val positives = numbers.filter { x -&gt; x &gt; 0 }
+    val negatives = numbers.filter { x -&gt; x &lt; 0 }
+    println(positives)
+    // [1, 3, 5]
+    println(negatives)
+    // [-2, -4, -6]
+    //sampleEnd
+}
+</code></pre>
+<p>La fonction <code>.filter()</code> accepte une expression lambda en tant que prédicat :</p>
+<ul>
+<li><code>{ x -&gt; x &gt; 0 }</code> prend chaque élément de la liste et ne renvoie que ceux qui sont positifs.</li>
+<li><code>{ x -&gt; x &lt; 0 }</code> prend chaque élément de la liste et ne renvoie que ceux qui sont négatifs.</li>
+</ul>
+<blockquote>
+<p>Si une expression lambda est le seul paramètre de fonction, vous pouvez supprimer les parenthèses de fonction <code>()</code>.
+Il s'agit d'un exemple de <em>lambda de fin</em>, qui est discuté plus en détail à la fin de ce chapitre.
+</p>
+</blockquote>
+<p>Un autre bon exemple est l'utilisation de la
+fonction <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map.html"><code>.map()</code></a>
+pour transformer les éléments d'une collection :</p>
+<pre><code class="language-kotlin">fun main() {
+    //sampleStart
+    val numbers = listOf(1, -2, 3, -4, 5, -6)
+    val doubled = numbers.map { x -&gt; x * 2 }
+    val tripled = numbers.map { x -&gt; x * 3 }
+    println(doubled)
+    // [2, -4, 6, -8, 10, -12]
+    println(tripled)
+    // [3, -6, 9, -12, 15, -18]
+    //sampleEnd
+}
+</code></pre>
+<p>La fonction <code>.map()</code> accepte une expression lambda en tant que fonction de transformation :</p>
+<ul>
+<li><code>{ x -&gt; x * 2 }</code> prend chaque élément de la liste et renvoie cet élément multiplié par 2.</li>
+<li><code>{ x -&gt; x * 3 }</code> prend chaque élément de la liste et renvoie cet élément multiplié par 3.</li>
+</ul>
+<h3 id="types-de-fonction">Types de fonction</h3>
+<p>Avant de pouvoir renvoyer une expression lambda d'une fonction, vous devez d'abord comprendre les <strong>types de fonction</strong>.</p>
+<p>Vous avez déjà appris les types de base, mais les fonctions elles-mêmes ont aussi un type.
+L'inférence de type de Kotlin peut déduire le type d'une fonction à partir du type de paramètre.
+Mais il peut y avoir des moments où vous devez explicitement spécifier le type de la fonction.
+Le compilateur a besoin du type de fonction pour savoir ce qui est autorisé et ce qui ne l'est pas pour cette fonction.</p>
+<p>La syntaxe pour un type de fonction a :</p>
+<ul>
+<li>le type de chaque paramètre écrit entre parenthèses <code>()</code> et séparé par des virgules <code>,</code>.</li>
+<li>le type de retour écrit après <code>-&gt;</code>.</li>
+</ul>
+<p>Par exemple : <code>(String) -&gt; String</code> ou <code>(Int, Int) -&gt; Int</code>.</p>
+<p>Voici à quoi ressemble une expression lambda si un type de fonction pour <code>upperCaseString()</code> est défini :</p>
+<pre><code class="language-kotlin">val upperCaseString: (String) -&gt; String = { text -&gt; text.uppercase() }
+
+fun main() {
+    println(upperCaseString(&quot;bonjour&quot;))
+    // BONJOUR
+}
+</code></pre>
+<p>Si votre expression lambda n'a pas de paramètres, alors les parenthèses <code>()</code> sont laissées vides. Par
+exemple : <code>() -&gt; Unit</code></p>
+<blockquote>
+<p>Vous devez déclarer les types de paramètres et de retour soit dans l'expression lambda, soit en tant que type de
+fonction. Sinon, le
+compilateur ne pourra pas savoir quelle est le type de votre expression lambda.</p>
+<p>Par exemple, la ligne suivante ne fonctionnera pas :</p>
+<p><code>val upperCaseString = { str -&gt; str.uppercase() }</code>
+</p>
+</blockquote>
+<h3 id="retour-dune-fonction">Retour d'une fonction</h3>
+<p>Des expressions lambda peuvent être renvoyées par une fonction. Ainsi, pour que le compilateur comprenne quel est le
+type de l'expression lambda renvoyée, vous devez déclarer un type de fonction.</p>
+<p>Dans l'exemple suivant, la fonction <code>toSeconds()</code> a un type de fonction <code>(Int) -&gt; Int</code> car elle renvoie toujours une
+expression lambda qui prend un paramètre de type <code>Int</code> et renvoie une valeur <code>Int</code>.</p>
+<p>Cet exemple utilise une expression <code>when</code> pour déterminer quelle expression lambda est renvoyée lorsque <code>toSeconds()</code>
+est appelée :</p>
+<pre><code class="language-kotlin">fun toSeconds(time: String): (Int) -&gt; Int = when (time) {
+    &quot;heure&quot; -&gt; { value -&gt; value * 60 * 60 }
+    &quot;minute&quot; -&gt; { value -&gt; value * 60 }
+    &quot;seconde&quot; -&gt; { value -&gt; value }
+    else -&gt; { value -&gt; value }
+}
+
+fun main() {
+    val tempsEnMinutes = listOf(2, 10, 15, 1)
+    val min2sec = toSeconds(&quot;minute&quot;)
+    val tempsTotalEnSecondes = tempsEnMinutes.map(min2sec).sum()
+    println(&quot;Le temps total est de $tempsTotalEnSecondes secondes&quot;)
+    // Le temps total est de 1680 secondes
+}
+</code></pre>
+<h3 id="invoquer-separement">Invoquer séparément</h3>
+<p>Les expressions lambda peuvent être invoquées seules en ajoutant des parenthèses <code>()</code> après les accolades <code>{}</code> et en
+incluant
+tous les paramètres dans les parenthèses :</p>
+<pre><code class="language-kotlin">fun main() {
+    //sampleStart
+    println({ text: String -&gt; text.uppercase() }(&quot;bonjour&quot;))
+    // BONJOUR
+    //sampleEnd
+}
+</code></pre>
+<h3 id="lambdas-de-fin">Lambdas de fin</h3>
+<p>Comme vous l'avez déjà vu, si une expression lambda est le seul paramètre d'une fonction, vous pouvez supprimer les
+parenthèses de fonction <code>()</code>. Si une expression lambda est passée en tant que dernier paramètre d'une fonction, alors
+l'expression peut être écrite en dehors des parenthèses de fonction <code>()</code>. Dans les deux cas, cette syntaxe est appelée
+un <strong>lambda de fin</strong>.</p>
+<p>Par exemple, la fonction <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/fold.html"><code>.fold()</code></a> accepte
+une valeur initiale et une opération :</p>
+<pre><code class="language-kotlin">fun main() {
+    //sampleStart
+    // La valeur initiale est zéro.
+    // L'opération somme la valeur initiale avec chaque élément de la liste cumulativement.
+    println(listOf(1, 2, 3).fold(0, { x, item -&gt; x + item })) // 6
+
+    // Sinon, sous la forme d'un lambda de fin
+    println(listOf(1, 2, 3).fold(0) { x, item -&gt; x + item })  // 6
+    //sampleEnd
+}
+</code></pre>
+<p>Pour plus d'informations sur les expressions lambda,
+consultez <a href="https://kotlinlang.org/docs/lambdas.html#lambda-expressions-and-anonymous-functions">Expressions lambda et fonctions anonymes</a>.</p>
+<p>La prochaine étape de notre tour est d'apprendre à propos des <a href="../07-classes/">classes</a> en Kotlin.</p>
+<h2 id="pratique-avec-les-expressions-lambda">Pratique avec les expressions lambda</h2>
+<h3 id="exercice-1_1">Exercice 1</h3>
+<p>Vous disposez d'une liste d'actions prises en charge par un service web, d'un préfixe commun pour toutes les requêtes et
+d'un identifiant d'une ressource particulière.
+Pour demander une action <code>titre</code> sur la ressource avec l'ID : 5, vous devez créer l'URL
+suivante : <code>https://example.com/informations-livre/5/titre</code>.
+Utilisez une expression lambda pour créer une liste d'URL à partir de la liste des actions.</p>
+<pre><code class="language-kotlin">fun main() {
+    val actions = listOf(&quot;titre&quot;, &quot;année&quot;, &quot;auteur&quot;)
+    val prefix = &quot;https://example.com/informations-livre&quot;
+    val id = 5
+    val urls = // Écrivez votre code ici
+        println(urls)
+}
+</code></pre>
+<details>
+    <summary>Réponse</summary>
+
+
+<pre><code class="language-kotlin">fun main() {
+    val actions = listOf(&quot;titre&quot;, &quot;année&quot;, &quot;auteur&quot;)
+    val prefix = &quot;https://example.com/informations-livre&quot;
+    val id = 5
+    val urls = actions.map { action -&gt; &quot;$prefix/$id/$action&quot; }
+    println(urls)
+}
+</code></pre>
+
+</details>
+<p><br></p>
+<h3 id="exercice-2_1">Exercice 2</h3>
+<p>Écrivez une fonction qui prend une valeur <code>Int</code> et une action (une fonction de type <code>() -&gt; Unit</code>) qui répète ensuite
+l'action le nombre de fois donné. Ensuite, utilisez cette fonction pour imprimer "Bonjour" 5 fois.</p>
+<pre><code class="language-kotlin">fun repeatN(n: Int, action: () -&gt; Unit) {
+    // Écrivez votre code ici
+}
+
+fun main() {
+    // Écrivez votre code ici
+}
+</code></pre>
+<details>
+    <summary>Réponse</summary>
+
+
+<pre><code class="language-kotlin">fun repeatN(n: Int, action: () -&gt; Unit) {
+    for (i in 1..n) {
+        action()
+    }
+}
+fun main() {
+    repeatN(5) {
+        println(&quot;Bonjour&quot;)
+    }
+}
+</code></pre>
+
+</details>
+<p><br></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../05-flot/" class="btn btn-neutral float-left" title="Flot de contrôle"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../07-classes/" class="btn btn-neutral float-right" title="Classes">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../05-flot/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../07-classes/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
