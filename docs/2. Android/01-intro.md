@@ -1,4 +1,4 @@
-# Introduction à la programmation mobile et Android
+# 1. Introduction à la programmation mobile et Android
 
 La programmation mobile représente un domaine passionnant et en constante évolution dans le monde du développement
 logiciel. Elle offre aux développeurs la possibilité de créer des applications qui accompagnent les utilisateurs
@@ -187,3 +187,15 @@ Android, en incluant les phases de test et de déploiement :
 Ce processus est itératif, et de nombreuses étapes peuvent se chevaucher ou être répétées au fur et à mesure du
 développement et de l'évolution de l'application. Il est crucial de rester flexible et réactif aux changements du
 marché, aux retours des utilisateurs et aux avancées technologiques tout au long du cycle de vie de l'application.
+
+
+-------
+<small>
+   <cite>
+      **Note** : _Page rédigée en partie avec l'aide d'un assistant IA, principalement
+      à l'aide de Perplexity AI, avec les _LLM_ `GPT-4 Omni` et `Claude 3.5 Sonnet`. L'IA
+      a été utilisée pour générer des explications, des exemples et des suggestions de
+      structure. Toutes les informations ont été vérifiées, éditées et complétées par
+      l'auteur._
+   </cite>
+</small>

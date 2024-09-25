@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>6. Application Hockey Version 2 - Programmation Android</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "6. Application Hockey Version 2";
+        var mkdocs_page_input_path = "2. Android/06-hockey-v2.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Programmation Android
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Programmation Android</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. Kotlin</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1.%20Kotlin/01-kotlin/">Le langage de programmation Kotlin</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1.%20Kotlin/02-kotlin-android/">Kotlin pour Android</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Survol de Kotlin</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/01-survol/">Survol de Kotlin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/02-variables/">Variables</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/03-types/">Types de base</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/04-collections/">Collections</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/05-flot/">Flot de contrôle</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/06-fonctions/">Fonctions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/07-classes/">Classes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/08-valeurs-nulles/">Sécurité contre les valeurs nulles</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">2. Android</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../01-intro/">1. Introduction à la programmation mobile et Android</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../02-intro-compose/">2. Introduction à Jetpack Compose</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../03-premi%C3%A8re-app/">3. Première application avec Jetpack Compose</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../04-hockey-v1/">4. Application Hockey Version 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../05-etats-evenements/">5. Gestion des états et des événements</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">6. Application Hockey Version 2</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#explication-de-playerlistwithsearch">Explication de PlayerListWithSearch</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#fonction-getplayers">Fonction getPlayers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#composable-playerlistwithsearch">Composable PlayerListWithSearch</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#connexions-entre-textfield-mutablestateof-onvaluechange-et-getplayers">Connexions entre TextField, mutableStateOf, onValueChange, et getPlayers()</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-mutablestateof-et-etat-composable">1. mutableStateOf et État Composable</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-textfield-et-onvaluechange">2. TextField et onValueChange</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3-connexion-avec-getplayers">3. Connexion avec getPlayers()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#4-flux-de-donnees-et-recomposition">4. Flux de données et recomposition</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../07-localisation/">7. Localisation</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Programmation Android</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">2. Android</li>
+      <li class="breadcrumb-item active">6. Application Hockey Version 2</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="6-application-hockey-version-2">6. Application Hockey Version 2</h1>
+<h2 id="explication-de-playerlistwithsearch">Explication de <code>PlayerListWithSearch</code></h2>
+<p>Cette nouvelle version ajoute une fonctionnalité de recherche à la liste des joueurs. Voici une explication détaillée
+des modifications :</p>
+<h3 id="fonction-getplayers">Fonction <code>getPlayers</code></h3>
+<pre><code class="language-kotlin">fun getPlayers(name: String? = null): List&lt;Player&gt; =
+    if (name == null)
+        getSamplePlayers()
+    else
+        getSamplePlayers().filter { it.name.lowercase().contains(name.lowercase()) }.toList()
+</code></pre>
+<p>Cette fonction permet de filtrer la liste des joueurs en fonction d'un critère de recherche :</p>
+<ul>
+<li>Si <code>name</code> est <code>null</code>, elle retourne tous les joueurs.</li>
+<li>Sinon, elle filtre la liste pour ne retourner que les joueurs dont le nom contient la chaîne de recherche (insensible
+  à la casse).</li>
+</ul>
+<h3 id="composable-playerlistwithsearch">Composable <code>PlayerListWithSearch</code></h3>
+<pre><code class="language-kotlin">@Composable
+fun PlayerListWithSearch(modifier: Modifier = Modifier) {
+    var searchCriteria by rememberSaveable { mutableStateOf(&quot;&quot;) }
+    Column {
+        TextField(
+            value = searchCriteria,
+            onValueChange = { searchCriteria = it },
+            modifier = modifier
+        )
+        LazyColumn(modifier = modifier.fillMaxSize()) {
+            items(getPlayers(searchCriteria)) {
+                PlayerCard(player = it)
+            }
+        }
+    }
+}
+</code></pre>
+<p>Ce composable remplace <code>PlayerList</code> et ajoute une fonctionnalité de recherche :</p>
+<ol>
+<li>
+<p><code>searchCriteria</code> :</p>
+<ul>
+<li>Utilise <code>rememberSaveable</code> pour conserver l'état de la recherche même lors des recompositions.</li>
+<li><code>mutableStateOf("")</code> initialise la valeur de recherche à une chaîne vide.</li>
+</ul>
+</li>
+<li>
+<p><code>Column</code> :</p>
+<ul>
+<li>Organise verticalement le champ de recherche et la liste des joueurs.</li>
+</ul>
+</li>
+<li>
+<p><code>TextField</code> :</p>
+<ul>
+<li>Permet à l'utilisateur d'entrer un critère de recherche.</li>
+<li><code>value = searchCriteria</code> affiche la valeur actuelle.</li>
+<li><code>onValueChange = { searchCriteria = it }</code> met à jour <code>searchCriteria</code> à chaque modification.</li>
+</ul>
+</li>
+<li>
+<p><code>LazyColumn</code> :</p>
+<ul>
+<li>Similaire à la version précédente, mais utilise maintenant <code>getPlayers(searchCriteria)</code>.</li>
+<li>Cela filtre dynamiquement la liste des joueurs en fonction du critère de recherche.</li>
+</ul>
+</li>
+<li>
+<p><code>items</code> :</p>
+<ul>
+<li>Crée une <code>PlayerCard</code> pour chaque joueur filtré.</li>
+</ul>
+</li>
+</ol>
+<p>Cette nouvelle version offre une expérience utilisateur plus interactive, permettant de rechercher des joueurs
+spécifiques dans la liste. La liste se met à jour automatiquement à chaque modification du texte dans le champ de
+recherche, grâce à l'utilisation de l'état (<code>searchCriteria</code>) et de la recomposition automatique de Jetpack Compose.</p>
+<p>Certainement. Voici une explication plus détaillée des connexions entre ces éléments, formatée en markdown avec le code
+Kotlin approprié :</p>
+<h2 id="connexions-entre-textfield-mutablestateof-onvaluechange-et-getplayers">Connexions entre <code>TextField</code>, <code>mutableStateOf</code>, <code>onValueChange</code>, et <code>getPlayers()</code></h2>
+<h3 id="1-mutablestateof-et-etat-composable">1. <code>mutableStateOf</code> et État Composable</h3>
+<pre><code class="language-kotlin">var searchCriteria by rememberSaveable { mutableStateOf(&quot;&quot;) }
+</code></pre>
+<ul>
+<li><code>mutableStateOf("")</code> crée un état mutable initialisé avec une chaîne vide.</li>
+<li><code>rememberSaveable</code> permet de conserver cet état même lors des recompositions ou des changements de configuration.</li>
+<li><code>by</code> est utilisé pour déléguer la propriété, permettant d'accéder et de modifier <code>searchCriteria</code> directement.</li>
+</ul>
+<h3 id="2-textfield-et-onvaluechange">2. <code>TextField</code> et <code>onValueChange</code></h3>
+<pre><code class="language-kotlin">TextField(
+    value = searchCriteria,
+    onValueChange = { searchCriteria = it },
+    modifier = modifier
+)
+</code></pre>
+<ul>
+<li><code>value = searchCriteria</code> : Le <code>TextField</code> affiche la valeur actuelle de <code>searchCriteria</code>.</li>
+<li><code>onValueChange = { searchCriteria = it }</code> : Lorsque l'utilisateur tape dans le champ :<ul>
+<li><code>it</code> représente la nouvelle valeur du champ.</li>
+<li>Cette nouvelle valeur est assignée à <code>searchCriteria</code>.</li>
+<li>Cela déclenche une recomposition du composable.</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-connexion-avec-getplayers">3. Connexion avec <code>getPlayers()</code></h3>
+<pre><code class="language-kotlin">LazyColumn(modifier = modifier.fillMaxSize()) {
+    items(getPlayers(searchCriteria)) {
+        PlayerCard(player = it)
+    }
+}
+</code></pre>
+<ul>
+<li><code>getPlayers(searchCriteria)</code> est appelé avec la valeur actuelle de <code>searchCriteria</code>.</li>
+<li>Chaque fois que <code>searchCriteria</code> change :<ul>
+<li><code>getPlayers()</code> est rappelé avec la nouvelle valeur.</li>
+<li>La liste des joueurs est filtrée en fonction de cette nouvelle valeur.</li>
+<li><code>LazyColumn</code> se recompose avec la nouvelle liste filtrée.</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-flux-de-donnees-et-recomposition">4. Flux de données et recomposition</h3>
+<ol>
+<li>L'utilisateur tape dans le <code>TextField</code>.</li>
+<li><code>onValueChange</code> est appelé, mettant à jour <code>searchCriteria</code>.</li>
+<li>La mise à jour de <code>searchCriteria</code> déclenche une recomposition.</li>
+<li>Lors de la recomposition :<ul>
+<li><code>TextField</code> affiche la nouvelle valeur de <code>searchCriteria</code>.</li>
+<li><code>getPlayers(searchCriteria)</code> est appelé avec la nouvelle valeur.</li>
+<li><code>LazyColumn</code> se recompose avec la nouvelle liste filtrée.</li>
+</ul>
+</li>
+</ol>
+<p>Cette architecture réactive permet une mise à jour en temps réel de l'interface utilisateur. Chaque frappe dans le champ
+de recherche déclenche une chaîne de réactions qui aboutit à l'affichage filtré des joueurs, offrant une expérience
+utilisateur fluide et réactive.</p>
+<hr />
+<p><small>
+   <cite>
+      <strong>Note</strong> : <em>Page rédigée en partie avec l'aide d'un assistant IA, principalement
+      à l'aide de Perplexity AI, avec les _LLM</em> <code>GPT-4 Omni</code> et <code>Claude 3.5 Sonnet</code>. L'IA
+      a été utilisée pour générer des explications, des exemples et des suggestions de
+      structure. Toutes les informations ont été vérifiées, éditées et complétées par
+      l'auteur._
+   </cite>
+</small></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../05-etats-evenements/" class="btn btn-neutral float-left" title="5. Gestion des états et des événements"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../07-localisation/" class="btn btn-neutral float-right" title="7. Localisation">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../05-etats-evenements/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../07-localisation/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

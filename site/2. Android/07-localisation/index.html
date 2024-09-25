@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>7. Localisation - Programmation Android</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "7. Localisation";
+        var mkdocs_page_input_path = "2. Android/07-localisation.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Programmation Android
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Programmation Android</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. Kotlin</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1.%20Kotlin/01-kotlin/">Le langage de programmation Kotlin</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1.%20Kotlin/02-kotlin-android/">Kotlin pour Android</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Survol de Kotlin</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/01-survol/">Survol de Kotlin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/02-variables/">Variables</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/03-types/">Types de base</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/04-collections/">Collections</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/05-flot/">Flot de contrôle</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/06-fonctions/">Fonctions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/07-classes/">Classes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/08-valeurs-nulles/">Sécurité contre les valeurs nulles</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">2. Android</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../01-intro/">1. Introduction à la programmation mobile et Android</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../02-intro-compose/">2. Introduction à Jetpack Compose</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../03-premi%C3%A8re-app/">3. Première application avec Jetpack Compose</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../04-hockey-v1/">4. Application Hockey Version 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../05-etats-evenements/">5. Gestion des états et des événements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../06-hockey-v2/">6. Application Hockey Version 2</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">7. Localisation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#principes-generaux-de-la-localisation">Principes généraux de la localisation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exemple-simple-avec-des-string-en-anglais-et-francais">Exemple simple avec des String en anglais et français</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#etape-1-configurer-les-ressources-linguistiques">Étape 1 : Configurer les ressources linguistiques</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#etape-2-utiliser-les-chaines-localisees-dans-jetpack-compose">Étape 2 : Utiliser les chaînes localisées dans Jetpack Compose</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#formatage-des-dates">Formatage des dates</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exemple-complet">Exemple complet</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Programmation Android</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">2. Android</li>
+      <li class="breadcrumb-item active">7. Localisation</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="7-localisation">7. Localisation</h1>
+<p>Voici un guide pour intégrer la localisation dans une application Android développée avec Jetpack Compose :</p>
+<h2 id="principes-generaux-de-la-localisation">Principes généraux de la localisation</h2>
+<p>La localisation d'une application Android consiste à adapter son contenu et son interface utilisateur à différentes
+langues et cultures. Voici les principes clés à suivre :</p>
+<ol>
+<li>Externalisez toutes les chaînes de caractères dans des fichiers de ressources.</li>
+<li>Utilisez des identifiants neutres pour les ressources (ex: "welcome_message" au lieu de "english_welcome").</li>
+<li>Évitez de coder en dur du texte dans votre code.</li>
+<li>Tenez compte des différences culturelles (formats de date, unités de mesure, etc.).</li>
+<li>Prévoyez de l'espace supplémentaire dans votre interface pour les traductions plus longues.</li>
+<li>Testez votre application dans différentes langues et configurations.</li>
+</ol>
+<h2 id="exemple-simple-avec-des-string-en-anglais-et-francais">Exemple simple avec des <code>String</code> en anglais et français</h2>
+<h3 id="etape-1-configurer-les-ressources-linguistiques">Étape 1 : Configurer les ressources linguistiques</h3>
+<p>1- Dans le dossier <code>res</code>, créez un dossier <code>values-fr</code> pour les ressources en français.</p>
+<p>2- Dans <code>res/values/strings.xml</code> (anglais par défaut) :</p>
+<pre><code class="language-xml">    &lt;resources&gt;
+        &lt;string name=&quot;app_name&quot;&gt;My App&lt;/string&gt;
+        &lt;string name=&quot;welcome_message&quot;&gt;Welcome to My App!&lt;/string&gt;
+        &lt;string name=&quot;language_selection&quot;&gt;Select a language&lt;/string&gt;
+    &lt;/resources&gt;
+</code></pre>
+<p>3- Dans <code>res/values-fr/strings.xml</code> :</p>
+<pre><code class="language-xml">&lt;resources&gt;
+   &lt;string name=&quot;app_name&quot;&gt;Mon Application&lt;/string&gt;
+   &lt;string name=&quot;welcome_message&quot;&gt;Bienvenue dans Mon Application !&lt;/string&gt;
+   &lt;string name=&quot;language_selection&quot;&gt;Sélectionnez une langue&lt;/string&gt;
+&lt;/resources&gt;
+</code></pre>
+<h3 id="etape-2-utiliser-les-chaines-localisees-dans-jetpack-compose">Étape 2 : Utiliser les chaînes localisées dans Jetpack Compose</h3>
+<pre><code class="language-kotlin">@Composable
+fun WelcomeScreen() {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(
+            text = stringResource(R.string.welcome_message),
+            style = MaterialTheme.typography.h4
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+        Text(
+            text = stringResource(R.string.language_selection),
+            style = MaterialTheme.typography.body1
+        )
+    }
+}
+</code></pre>
+<h2 id="formatage-des-dates">Formatage des dates</h2>
+<p>Pour formater les dates en fonction de la locale de l'utilisateur, utilisez la classe <code>DateTimeFormatter</code> avec
+<code>ofLocalizedDate()</code> :</p>
+<pre><code class="language-kotlin">import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
+
+@Composable
+fun DisplayLocalizedDate() {
+    val currentDate = LocalDate.now()
+    val dateFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG)
+    val formattedDate = remember(currentDate) {
+        currentDate.format(dateFormatter)
+    }
+
+    Text(
+        text = formattedDate,
+        style = MaterialTheme.typography.body1
+    )
+}
+</code></pre>
+<p>Ce code affichera la date actuelle dans le format long approprié pour la locale de l'utilisateur. Par exemple :</p>
+<ul>
+<li>En anglais (US) : "September 18, 2024"</li>
+<li>En français : "18 septembre 2024"</li>
+</ul>
+<p>En suivant ces étapes, votre application Jetpack Compose sera correctement localisée en anglais et en français, avec la
+possibilité d'ajouter facilement d'autres langues à l'avenir[1][2][4].</p>
+<p>Citations:</p>
+<ul>
+<li>[1] <a href="https://www.translized.com/blog/android-localization-with-jetpack-compose---a-comprehensive-guide">https://www.translized.com/blog/android-localization-with-jetpack-compose---a-comprehensive-guide</a></li>
+<li>[2] <a href="https://phrase.com/blog/posts/localized-date-time-android/">https://phrase.com/blog/posts/localized-date-time-android/</a></li>
+<li>[3] <a href="https://www.youtube.com/watch?v=VdwDawvfH98">https://www.youtube.com/watch?v=VdwDawvfH98</a></li>
+<li>[4] <a href="https://phrase.com/blog/posts/internationalizing-jetpack-compose-android-apps/">https://phrase.com/blog/posts/internationalizing-jetpack-compose-android-apps/</a></li>
+<li>[5] <a href="https://www.adamormsby.com/posts/013-android-localization-formatting-dates/">https://www.adamormsby.com/posts/013-android-localization-formatting-dates/</a></li>
+</ul>
+<h2 id="exemple-complet">Exemple complet</h2>
+<p>Voici un exemple complet d'une application simple utilisant Jetpack Compose avec localisation, sans les
+boutons pour changer la langue. Cette application affichera un message de bienvenue localisé et la date actuelle
+formatée selon la locale de l'appareil.</p>
+<pre><code class="language-kotlin">import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            MyApp()
+        }
+    }
+}
+
+@Composable
+fun MyApp() {
+    MaterialTheme {
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+            color = MaterialTheme.colors.background
+        ) {
+            LocalizedContent()
+        }
+    }
+}
+
+@Composable
+fun LocalizedContent() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(
+            text = stringResource(R.string.welcome_message),
+            style = MaterialTheme.typography.h4
+        )
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        DisplayLocalizedDate()
+    }
+}
+
+@Composable
+fun DisplayLocalizedDate() {
+    val currentDate = remember { LocalDate.now() }
+    val dateFormatter = remember { DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG) }
+    val formattedDate = remember(currentDate) {
+        currentDate.format(dateFormatter)
+    }
+
+    Text(
+        text = formattedDate,
+        style = MaterialTheme.typography.body1
+    )
+}
+</code></pre>
+<p>Pour que cette application fonctionne correctement, vous devez également configurer les fichiers de ressources
+suivants :</p>
+<ul>
+<li>Dans <code>res/values/strings.xml</code> (anglais par défaut) :</li>
+</ul>
+<pre><code class="language-xml">&lt;resources&gt;
+    &lt;string name=&quot;app_name&quot;&gt;My Localized App&lt;/string&gt;
+    &lt;string name=&quot;welcome_message&quot;&gt;Welcome to My Localized App!&lt;/string&gt;
+&lt;/resources&gt;
+</code></pre>
+<ul>
+<li>Dans <code>res/values-fr/strings.xml</code> (pour le français) :</li>
+</ul>
+<pre><code class="language-xml">&lt;resources&gt;
+    &lt;string name=&quot;app_name&quot;&gt;Mon Application Localisée&lt;/string&gt;
+    &lt;string name=&quot;welcome_message&quot;&gt;Bienvenue dans Mon Application Localisée !&lt;/string&gt;
+&lt;/resources&gt;
+</code></pre>
+<ul>
+<li>Assurez-vous d'avoir les dépendances nécessaires dans votre fichier <code>build.gradle</code> (Module : app) :</li>
+</ul>
+<pre><code class="language-gradle">dependencies {
+    implementation &quot;androidx.compose.ui:ui:1.5.0&quot;
+    implementation &quot;androidx.compose.material:material:1.5.0&quot;
+    implementation &quot;androidx.compose.ui:ui-tooling-preview:1.5.0&quot;
+    implementation &quot;androidx.activity:activity-compose:1.7.2&quot;
+}
+</code></pre>
+<p>Cette application simple affiche :</p>
+<ol>
+<li>Un message de bienvenue localisé</li>
+<li>La date actuelle formatée selon la locale de l'appareil</li>
+</ol>
+<p>L'application utilisera automatiquement les ressources appropriées en fonction de la langue configurée sur l'appareil de
+l'utilisateur. Si l'appareil est configuré en français, il utilisera les chaînes de caractères du fichier
+<code>values-fr/strings.xml</code>. Pour toute autre langue, il utilisera les chaînes par défaut du fichier <code>values/strings.xml</code>.</p>
+<p>Pour tester différentes langues, vous pouvez changer la langue de votre appareil ou de l'émulateur dans les paramètres
+système. L'application s'adaptera automatiquement à la nouvelle langue sans nécessiter de redémarrage.
+915445</p>
+<hr />
+<p><small>
+   <cite>
+      <strong>Note</strong> : <em>Page rédigée en partie avec l'aide d'un assistant IA, principalement
+      à l'aide de Perplexity AI, avec les _LLM</em> <code>GPT-4 Omni</code> et <code>Claude 3.5 Sonnet</code>. L'IA
+      a été utilisée pour générer des explications, des exemples et des suggestions de
+      structure. Toutes les informations ont été vérifiées, éditées et complétées par
+      l'auteur._
+   </cite>
+</small></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../06-hockey-v2/" class="btn btn-neutral float-left" title="6. Application Hockey Version 2"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../06-hockey-v2/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

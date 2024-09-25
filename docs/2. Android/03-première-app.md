@@ -1,4 +1,4 @@
-# Première application avec Jetpack Compose
+# 3. Première application avec Jetpack Compose
 
 Voici un exemple simple d'une application "Bonjour !" utilisant Jetpack Compose. Je vais vous
 présenter le code, puis expliquer chaque élément important étape par étape.
@@ -240,3 +240,16 @@ fun BonjourPreview() {
 Cette approche est typique du développement avec Jetpack Compose, où l'interface utilisateur est construite à partir de
 composants réutilisables et prévisualisables. C'est une base solide pour développer des applications plus complexes tout
 en maintenant un code propre et organisé.
+
+
+
+-------
+<small>
+   <cite>
+      **Note** : _Page rédigée en partie avec l'aide d'un assistant IA, principalement
+      à l'aide de Perplexity AI, avec les _LLM_ `GPT-4 Omni` et `Claude 3.5 Sonnet`. L'IA
+      a été utilisée pour générer des explications, des exemples et des suggestions de
+      structure. Toutes les informations ont été vérifiées, éditées et complétées par
+      l'auteur._
+   </cite>
+</small>
