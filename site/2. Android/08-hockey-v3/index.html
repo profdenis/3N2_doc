@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>4. Application Hockey Version 1 - Programmation Android</title>
+    <title>8. Application Hockey Version 3 - Programmation Android</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "4. Application Hockey Version 1";
-        var mkdocs_page_input_path = "2. Android/04-hockey-v1.md";
+        var mkdocs_page_name = "8. Application Hockey Version 3";
+        var mkdocs_page_input_path = "2. Android/08-hockey-v3.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -79,17 +79,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../03-premi%C3%A8re-app/">3. Première application avec Jetpack Compose</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">4. Application Hockey Version 1</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#explication-detaillee-des-fonctions-composables">Explication détaillée des fonctions composables</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#playercard">PlayerCard</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#playerlist">PlayerList</a>
-    </li>
-        </ul>
-    </li>
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../04-hockey-v1/">4. Application Hockey Version 1</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../05-etats-evenements/">5. Gestion des états et des événements</a>
                   </li>
@@ -97,7 +87,9 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../07-orientation/">7. Orientation de l'écran</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../08-hockey-v3/">8. Application Hockey Version 3</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">8. Application Hockey Version 3</a>
+    <ul class="current">
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../10-localisation/">10. Localisation</a>
                   </li>
@@ -117,7 +109,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">2. Android</li>
-      <li class="breadcrumb-item active">4. Application Hockey Version 1</li>
+      <li class="breadcrumb-item active">8. Application Hockey Version 3</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -126,83 +118,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="4-application-hockey-version-1">4. Application Hockey Version 1</h1>
-<p>Ce code définit une structure pour représenter des joueurs de hockey et crée des composants d'interface utilisateur en
-utilisant Jetpack Compose pour afficher ces joueurs dans une liste. Il comprend une classe de données pour les joueurs,
-une fonction pour générer des exemples de joueurs, et deux fonctions composables principales : une pour afficher une
-carte de joueur individuelle et une autre pour afficher une liste de ces cartes.</p>
-<h2 id="explication-detaillee-des-fonctions-composables">Explication détaillée des fonctions composables</h2>
-<h3 id="playercard"><code>PlayerCard</code></h3>
-<pre><code class="language-kotlin">@Composable
-fun PlayerCard(player: Player, modifier: Modifier = Modifier) {
-    // ...
-}
-</code></pre>
-<p>Cette fonction composable crée une carte pour afficher les informations d'un joueur individuel.</p>
-<ul>
-<li>Elle prend en paramètre un objet <code>Player</code> et un <code>Modifier</code> optionnel.</li>
-<li>Utilise un composant <code>Card</code> pour créer une carte avec des coins arrondis et une bordure.</li>
-<li>À l'intérieur de la carte, elle organise le contenu dans une <code>Column</code> (colonne verticale).</li>
-<li>La première <code>Row</code> (ligne horizontale) contient l'image du joueur.</li>
-<li>La deuxième <code>Row</code> affiche le numéro et le nom du joueur.</li>
-</ul>
-<p>Composants utilisés :</p>
-<ul>
-<li><code>Card</code> : Crée une surface élevée avec une ombre et un contenu.</li>
-<li><code>Column</code> : Organise les éléments verticalement.</li>
-<li><code>Row</code> : Organise les éléments horizontalement.</li>
-<li><code>Image</code> : Affiche l'image du joueur.</li>
-<li><code>Text</code> : Affiche le texte (numéro et nom du joueur).</li>
-<li><code>Spacer</code> : Crée un espace entre les éléments.</li>
-</ul>
-<p>Modificateurs utilisés :</p>
-<ul>
-<li><code>fillMaxWidth()</code> : Remplit toute la largeur disponible.</li>
-<li><code>padding()</code> : Ajoute de l'espace autour des éléments.</li>
-<li><code>background()</code> : Définit la couleur de fond.</li>
-<li><code>width()</code> : Définit une largeur spécifique.</li>
-</ul>
-<h3 id="playerlist"><code>PlayerList</code></h3>
-<pre><code class="language-kotlin">@Composable
-fun PlayerList(modifier: Modifier = Modifier) {
-    LazyColumn(modifier = modifier) {
-        items(getSamplePlayers()) {
-            PlayerCard(player = it)
-        }
-    }
-}
-</code></pre>
-<p>Cette fonction composable crée une liste déroulante de cartes de joueurs.</p>
-<ul>
-<li>Elle utilise <code>LazyColumn</code>, qui est optimisée pour afficher de longues listes d'éléments.</li>
-<li>La fonction <code>items()</code> est utilisée pour générer dynamiquement les éléments de la liste à partir de la liste de joueurs
-  retournée par <code>getSamplePlayers()</code>.</li>
-<li>Pour chaque joueur dans la liste, elle crée une <code>PlayerCard</code>.</li>
-</ul>
-<p>Composant principal :</p>
-<ul>
-<li><code>LazyColumn</code> : Un conteneur de défilement vertical qui charge et affiche uniquement les éléments visibles à l'écran,
-  ce qui le rend efficace pour les longues listes.</li>
-</ul>
-<p>Ces deux fonctions composables travaillent ensemble pour créer une interface utilisateur interactive et efficace pour
-afficher une liste de joueurs de hockey. <code>PlayerCard</code> gère l'affichage des détails individuels des joueurs, tandis que
-<code>PlayerList</code> organise ces cartes dans une liste déroulante.</p>
-<hr />
-<p><small>
-   <cite>
-      <strong>Note</strong> : <em>Page rédigée en partie avec l'aide d'un assistant IA, principalement
-      à l'aide de Perplexity AI, avec les _LLM</em> <code>GPT-4 Omni</code> et <code>Claude 3.5 Sonnet</code>. L'IA
-      a été utilisée pour générer des explications, des exemples et des suggestions de
-      structure. Toutes les informations ont été vérifiées, éditées et complétées par
-      l'auteur._
-   </cite>
-</small></p>
+                <h1 id="8-application-hockey-version-3">8. Application Hockey Version 3</h1>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../03-premi%C3%A8re-app/" class="btn btn-neutral float-left" title="3. Première application avec Jetpack Compose"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../05-etats-evenements/" class="btn btn-neutral float-right" title="5. Gestion des états et des événements">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../07-orientation/" class="btn btn-neutral float-left" title="7. Orientation de l'écran"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../10-localisation/" class="btn btn-neutral float-right" title="10. Localisation">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -225,10 +147,10 @@ afficher une liste de joueurs de hockey. <code>PlayerCard</code> gère l'afficha
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../03-premi%C3%A8re-app/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../07-orientation/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../05-etats-evenements/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../10-localisation/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

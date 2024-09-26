@@ -1,4 +1,4 @@
-# 7. Localisation
+# 10. Localisation
 
 Voici un guide pour intégrer la localisation dans une application Android développée avec Jetpack Compose :
 

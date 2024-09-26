@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>7. Orientation de l'écran - Programmation Android</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "7. Orientation de l\u0027\u00e9cran";
+        var mkdocs_page_input_path = "2. Android/07-orientation.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Programmation Android
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Programmation Android</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. Kotlin</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1.%20Kotlin/01-kotlin/">Le langage de programmation Kotlin</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1.%20Kotlin/02-kotlin-android/">Kotlin pour Android</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Survol de Kotlin</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/01-survol/">Survol de Kotlin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/02-variables/">Variables</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/03-types/">Types de base</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/04-collections/">Collections</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/05-flot/">Flot de contrôle</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/06-fonctions/">Fonctions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/07-classes/">Classes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/08-valeurs-nulles/">Sécurité contre les valeurs nulles</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">2. Android</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../01-intro/">1. Introduction à la programmation mobile et Android</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../02-intro-compose/">2. Introduction à Jetpack Compose</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../03-premi%C3%A8re-app/">3. Première application avec Jetpack Compose</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../04-hockey-v1/">4. Application Hockey Version 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../05-etats-evenements/">5. Gestion des états et des événements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../06-hockey-v2/">6. Application Hockey Version 2</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">7. Orientation de l'écran</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#exemple-complet">Exemple complet</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../08-hockey-v3/">8. Application Hockey Version 3</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../10-localisation/">10. Localisation</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Programmation Android</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">2. Android</li>
+      <li class="breadcrumb-item active">7. Orientation de l'écran</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="7-orientation-de-lecran">7. Orientation de l'écran</h1>
+<p>Pour détecter l'orientation de l'écran (portrait ou paysage) avec Jetpack Compose, vous pouvez utiliser le
+<code>LocalConfiguration</code> composable. Voici comment procéder :</p>
+<p>1- Importez les dépendances nécessaires :</p>
+<pre><code class="language-kotlin">import android.content.res.Configuration
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalConfiguration
+</code></pre>
+<p>2- Utilisez le <code>LocalConfiguration</code> dans votre composable pour obtenir la configuration actuelle :</p>
+<pre><code class="language-kotlin">@Composable
+fun MyScreen() {
+    val configuration = LocalConfiguration.current
+
+    when (configuration.orientation) {
+        Configuration.ORIENTATION_LANDSCAPE -&gt; {
+            // Code pour l'orientation paysage
+            Text(&quot;L'écran est en mode paysage&quot;)
+        }
+        else -&gt; {
+            // Code pour l'orientation portrait
+            Text(&quot;L'écran est en mode portrait&quot;)
+        }
+    }
+}
+</code></pre>
+<p>3- Pour observer les changements d'orientation, vous pouvez utiliser un <code>State</code> :</p>
+<pre><code class="language-kotlin">@Composable
+fun OrientationAwareLayout() {
+    val configuration = LocalConfiguration.current
+    val orientation by remember { mutableStateOf(configuration.orientation) }
+
+    LaunchedEffect(configuration) {
+        snapshotFlow { configuration.orientation }
+            .collect { orientation = it }
+    }
+
+    when (orientation) {
+        Configuration.ORIENTATION_LANDSCAPE -&gt; {
+            // Mise en page pour le mode paysage
+        }
+        else -&gt; {
+            // Mise en page pour le mode portrait
+        }
+    }
+}
+</code></pre>
+<p>Cette approche permet à votre composable de se recomposer automatiquement lorsque l'orientation change[2].</p>
+<p>En utilisant ces méthodes, vous pouvez créer des interfaces utilisateur réactives qui s'adaptent à l'orientation de
+l'écran. Cela est particulièrement utile pour optimiser l'expérience utilisateur sur différents appareils et dans
+différentes configurations d'écran[1][2].</p>
+<p>Citations:</p>
+<ul>
+<li>[1] <a href="https://developer.android.com/guide/practices/device-compatibility-mode?hl=fr">https://developer.android.com/guide/practices/device-compatibility-mode?hl=fr</a></li>
+<li>[2] <a href="https://www.geeksforgeeks.org/detect-screen-orientation-in-android-using-jetpack-compose/">https://www.geeksforgeeks.org/detect-screen-orientation-in-android-using-jetpack-compose/</a></li>
+<li>[3] <a href="https://blog.ippon.fr/2023/04/28/developper-app-jetpack-compose-smartphones-pliables/">https://blog.ippon.fr/2023/04/28/developper-app-jetpack-compose-smartphones-pliables/</a></li>
+<li>[4] <a href="https://developer.android.com/develop/ui/compose/touch-input/pointer-input/drag-swipe-fling?hl=fr">https://developer.android.com/develop/ui/compose/touch-input/pointer-input/drag-swipe-fling?hl=fr</a></li>
+<li>[5] <a href="https://developer.android.com/develop/ui/compose/touch-input/stylus-input/advanced-stylus-features?hl=fr">https://developer.android.com/develop/ui/compose/touch-input/stylus-input/advanced-stylus-features?hl=fr</a></li>
+<li>[6] <a href="https://stackoverflow.com/questions/64753944/orientation-on-jetpack-compose">https://stackoverflow.com/questions/64753944/orientation-on-jetpack-compose</a></li>
+<li>[7] <a href="https://appmaster.io/fr/blog/comment-creer-une-interface-utilisateur-adaptative-avec-jetpack-compose">https://appmaster.io/fr/blog/comment-creer-une-interface-utilisateur-adaptative-avec-jetpack-compose</a></li>
+</ul>
+<h2 id="exemple-complet">Exemple complet</h2>
+<pre><code class="language-kotlin">import android.content.res.Configuration
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.unit.dp
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun OrientationResponsiveLayout(modifier: Modifier = Modifier) {
+    var text1 by remember { mutableStateOf(&quot;&quot;) }
+    var text2 by remember { mutableStateOf(&quot;&quot;) }
+
+    val configuration = LocalConfiguration.current
+    val isLandscape = configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+
+    if (isLandscape) {
+        Column(
+            modifier = modifier
+                .fillMaxSize()
+                .padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                TextField(
+                    value = text1,
+                    onValueChange = { text1 = it },
+                    label = { Text(&quot;Champ 1&quot;) },
+                    modifier = Modifier.weight(1f).padding(end = 8.dp)
+                )
+                TextField(
+                    value = text2,
+                    onValueChange = { text2 = it },
+                    label = { Text(&quot;Champ 2&quot;) },
+                    modifier = Modifier.weight(1f).padding(start = 8.dp)
+                )
+            }
+            Spacer(modifier = Modifier.height(16.dp))
+            Button(onClick = { /* Action du bouton */ }) {
+                Text(&quot;Valider&quot;)
+            }
+        }
+    } else {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            TextField(
+                value = text1,
+                onValueChange = { text1 = it },
+                label = { Text(&quot;Champ 1&quot;) },
+                modifier = Modifier.fillMaxWidth()
+            )
+            TextField(
+                value = text2,
+                onValueChange = { text2 = it },
+                label = { Text(&quot;Champ 2&quot;) },
+                modifier = Modifier.fillMaxWidth()
+            )
+            Button(onClick = { /* Action du bouton */ }) {
+                Text(&quot;Valider&quot;)
+            }
+        }
+    }
+}
+</code></pre>
+<p>Dans cet exemple :</p>
+<ol>
+<li>
+<p>Nous utilisons <code>LocalConfiguration.current</code> pour obtenir la configuration actuelle de l'écran[5].</p>
+</li>
+<li>
+<p>Nous vérifions si l'orientation est en mode paysage en comparant <code>configuration.orientation</code> avec <code>Configuration.ORIENTATION_LANDSCAPE</code>[5].</p>
+</li>
+<li>
+<p>En mode portrait (par défaut) :</p>
+</li>
+<li>Nous utilisons une <code>Column</code> pour agencer verticalement deux <code>TextField</code> et un <code>Button</code>[5].</li>
+<li>
+<p>Les éléments sont espacés uniformément grâce à <code>verticalArrangement = Arrangement.spacedBy(16.dp)</code>.</p>
+</li>
+<li>
+<p>En mode paysage :</p>
+</li>
+<li>Nous utilisons une <code>Column</code> principale pour l'agencement global.</li>
+<li>À l'intérieur, nous utilisons une <code>Row</code> pour placer les deux <code>TextField</code> côte à côte.</li>
+<li>
+<p>Le <code>Button</code> est placé en dessous de la <code>Row</code> avec un <code>Spacer</code> pour ajouter un espacement.</p>
+</li>
+<li>
+<p>Les <code>TextField</code> utilisent <code>Modifier.weight(1f)</code> en mode paysage pour occuper un espace égal dans la <code>Row</code>[2].</p>
+</li>
+<li>
+<p>Nous utilisons <code>remember</code> et <code>mutableStateOf</code> pour gérer l'état des champs de texte, permettant ainsi à l'utilisateur d'interagir avec eux[5].</p>
+</li>
+</ol>
+<p>Ce composable s'adaptera automatiquement à l'orientation de l'écran, offrant une mise en page optimisée pour les modes portrait et paysage. Il démontre comment créer des interfaces utilisateur réactives qui s'adaptent aux différentes configurations d'écran en utilisant Jetpack Compose.</p>
+<p>Citations:</p>
+<ul>
+<li>[1] <a href="https://developer.android.com/develop/ui/compose/layouts/adaptive">https://developer.android.com/develop/ui/compose/layouts/adaptive</a></li>
+<li>[2] <a href="https://www.blog.finotes.com/post/creating-responsive-layouts-in-android-using-jetpack-compose">https://www.blog.finotes.com/post/creating-responsive-layouts-in-android-using-jetpack-compose</a></li>
+<li>[3] <a href="https://stackoverflow.com/questions/67157309/how-to-create-responsive-layouts-with-jetpack-compose">https://stackoverflow.com/questions/67157309/how-to-create-responsive-layouts-with-jetpack-compose</a></li>
+<li>[4] <a href="https://composables.com/jetpack-compose-tutorials/responsive-layout">https://composables.com/jetpack-compose-tutorials/responsive-layout</a></li>
+<li>[5] <a href="https://www.geeksforgeeks.org/detect-screen-orientation-in-android-using-jetpack-compose/">https://www.geeksforgeeks.org/detect-screen-orientation-in-android-using-jetpack-compose/</a></li>
+<li>[6] <a href="https://eevis.codes/blog/2024-07-18/dont-lock-the-screen-orientation-handling-orientation-in-compose/">https://eevis.codes/blog/2024-07-18/dont-lock-the-screen-orientation-handling-orientation-in-compose/</a></li>
+</ul>
+<hr />
+<p><small>
+   <cite>
+      <strong>Note</strong> : <em>Page rédigée en partie avec l'aide d'un assistant IA, principalement
+      à l'aide de Perplexity AI, avec les _LLM</em> <code>GPT-4 Omni</code> et <code>Claude 3.5 Sonnet</code>. L'IA
+      a été utilisée pour générer des explications, des exemples et des suggestions de
+      structure. Toutes les informations ont été vérifiées, éditées et complétées par
+      l'auteur._
+   </cite>
+</small></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../06-hockey-v2/" class="btn btn-neutral float-left" title="6. Application Hockey Version 2"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../08-hockey-v3/" class="btn btn-neutral float-right" title="8. Application Hockey Version 3">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../06-hockey-v2/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../08-hockey-v3/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
