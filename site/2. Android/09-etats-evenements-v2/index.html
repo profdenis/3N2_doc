@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>9. Gestion des états et des événements - Programmation Android</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "9. Gestion des \u00e9tats et des \u00e9v\u00e9nements";
+        var mkdocs_page_input_path = "2. Android/09-etats-evenements-v2.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Programmation Android
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Programmation Android</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. Kotlin</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1.%20Kotlin/01-kotlin/">Le langage de programmation Kotlin</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1.%20Kotlin/02-kotlin-android/">Kotlin pour Android</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Survol de Kotlin</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/01-survol/">Survol de Kotlin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/02-variables/">Variables</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/03-types/">Types de base</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/04-collections/">Collections</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/05-flot/">Flot de contrôle</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/06-fonctions/">Fonctions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/07-classes/">Classes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/08-valeurs-nulles/">Sécurité contre les valeurs nulles</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">2. Android</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../01-intro/">1. Introduction à la programmation mobile et Android</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../02-intro-compose/">2. Introduction à Jetpack Compose</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../03-premi%C3%A8re-app/">3. Première application avec Jetpack Compose</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../04-hockey-v1/">4. Application Hockey Version 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../05-etats-evenements/">5. Gestion des états et des événements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../06-hockey-v2/">6. Application Hockey Version 2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../07-orientation/">7. Orientation de l'écran</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../08-hockey-v3/">8. Application Hockey Version 3</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">9. Gestion des états et des événements</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#exemple-exemplesentrees">Exemple : ExemplesEntrees</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#premiere-version">Première version</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#description-generale">Description générale</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#focus-sur-fruitselector">Focus sur FruitSelector</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#deuxieme-version">Deuxième version</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#refactorisation-de-fruitselector">Refactorisation de FruitSelector</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#modifications-dans-app">Modifications dans App</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#avantages-de-cette-refactorisation">Avantages de cette refactorisation</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#focus-sur-les-variables-detat">Focus sur les variables d'état</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../10-localisation/">10. Localisation</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Programmation Android</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">2. Android</li>
+      <li class="breadcrumb-item active">9. Gestion des états et des événements</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="9-gestion-des-etats-et-des-evenements">9. Gestion des états et des événements</h1>
+<h2 id="exemple-exemplesentrees">Exemple : ExemplesEntrees</h2>
+<p>Exemple sur <a href="https://github.com/profdenis/ExemplesEntrees">GitHub</a></p>
+<h3 id="premiere-version">Première version</h3>
+<pre><code class="language-kotlin">@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun FruitSelector(modifier: Modifier = Modifier) {
+    val fruits = listOf(&quot;Pomme&quot;, &quot;Banane&quot;, &quot;Orange&quot;, &quot;Fraise&quot;, &quot;Kiwi&quot;)
+    var expanded by remember { mutableStateOf(false) }
+    var selectedFruit by remember { mutableStateOf(&quot;&quot;) }
+
+    Column(modifier = modifier.padding(16.dp)) {
+        ExposedDropdownMenuBox(
+            expanded = expanded,
+            onExpandedChange = { expanded = !expanded }
+        ) {
+            TextField(
+                value = selectedFruit,
+                onValueChange = {},
+                readOnly = true,
+                label = { Text(&quot;Choisissez un fruit&quot;) },
+                trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
+                modifier = Modifier
+                    .menuAnchor()
+                    .fillMaxWidth()
+            )
+
+            ExposedDropdownMenu(
+                expanded = expanded,
+                onDismissRequest = { expanded = false }
+            ) {
+                fruits.forEach { fruit -&gt;
+                    DropdownMenuItem(
+                        text = { Text(fruit) },
+                        onClick = {
+                            selectedFruit = fruit
+                            expanded = false
+                        }
+                    )
+                }
+            }
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        if (selectedFruit.isNotEmpty()) {
+            Text(&quot;Fruit sélectionné : $selectedFruit&quot;)
+        }
+    }
+}
+
+@Composable
+fun App(modifier: Modifier = Modifier) {
+    Column(modifier = modifier) {
+        TextLengthCounter()
+        Spacer(modifier = Modifier.height(100.dp))
+        FruitSelector()
+    }
+}
+</code></pre>
+<p>Bien sûr, je vais vous donner une description générale de ces deux fonctions, en me concentrant particulièrement sur
+<code>FruitSelector</code>.</p>
+<h4 id="description-generale">Description générale</h4>
+<ol>
+<li>
+<p><code>FruitSelector</code> : C'est une fonction composable qui crée un sélecteur de fruits sous forme de menu déroulant.</p>
+</li>
+<li>
+<p><code>App</code> : C'est la fonction composable principale qui structure l'interface utilisateur de l'application en combinant
+   différents composants.</p>
+</li>
+</ol>
+<h4 id="focus-sur-fruitselector">Focus sur FruitSelector</h4>
+<p>La fonction <code>FruitSelector</code> est un composant Jetpack Compose qui crée un menu déroulant permettant à l'utilisateur de
+sélectionner un fruit parmi une liste prédéfinie. Voici ses principales caractéristiques :</p>
+<ol>
+<li>
+<p><strong>Liste de fruits</strong> : Une liste statique de fruits est définie au début de la fonction.</p>
+</li>
+<li>
+<p><strong>États</strong> :</p>
+<ul>
+<li><code>expanded</code> : Un état booléen qui contrôle si le menu déroulant est ouvert ou fermé.</li>
+<li><code>selectedFruit</code> : Un état qui stocke le fruit actuellement sélectionné.</li>
+</ul>
+</li>
+<li>
+<p><strong>Interface utilisateur</strong> :</p>
+<ul>
+<li>Utilise <code>ExposedDropdownMenuBox</code> pour créer le conteneur du menu déroulant.</li>
+<li>Affiche un <code>TextField</code> qui sert de déclencheur pour ouvrir le menu. Ce champ est en lecture seule et affiche le
+  fruit sélectionné.</li>
+<li>Le menu déroulant (<code>ExposedDropdownMenu</code>) contient la liste des fruits, chacun représenté par un
+  <code>DropdownMenuItem</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Interaction</strong> :</p>
+<ul>
+<li>Lorsqu'un fruit est sélectionné, le menu se ferme et le fruit choisi est affiché dans le TextField.</li>
+<li>Un texte supplémentaire s'affiche en dessous pour confirmer le fruit sélectionné.</li>
+</ul>
+</li>
+<li>
+<p><strong>Mise en page</strong> :</p>
+<ul>
+<li>Utilise une <code>Column</code> pour organiser verticalement les éléments.</li>
+<li>Ajoute des espacements et du rembourrage pour améliorer l'apparence.</li>
+</ul>
+</li>
+<li>
+<p><strong>Personnalisation</strong> :</p>
+<ul>
+<li>Accepte un <code>modifier</code> en paramètre pour permettre une personnalisation supplémentaire si nécessaire.</li>
+</ul>
+</li>
+</ol>
+<p>Cette fonction démontre l'utilisation de plusieurs concepts importants de Jetpack Compose, tels que la gestion d'état,
+les composants d'interface utilisateur Material 3, et la création de composants interactifs. Elle offre une interface
+utilisateur intuitive pour la sélection d'éléments dans une liste, ce qui est une fonctionnalité courante dans de
+nombreuses applications.</p>
+<h3 id="deuxieme-version">Deuxième version</h3>
+<pre><code class="language-kotlin">@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun FruitSelector(
+    modifier: Modifier = Modifier,
+    fruits: List&lt;String&gt;,
+    selectedFruit: String,
+    onFruitSelected: (String) -&gt; Unit = {}
+) {
+    var expanded by remember { mutableStateOf(false) }
+
+    Column(modifier = modifier.padding(16.dp)) {
+        ExposedDropdownMenuBox(
+            expanded = expanded,
+            onExpandedChange = { expanded = !expanded }
+        ) {
+            TextField(
+                value = selectedFruit,
+                onValueChange = {},
+                readOnly = true,
+                label = { Text(&quot;Choisissez un fruit&quot;) },
+                trailingIcon = {
+                    ExposedDropdownMenuDefaults
+                        .TrailingIcon(expanded = expanded)
+                },
+                modifier = Modifier
+                    .menuAnchor()
+                    .fillMaxWidth()
+            )
+
+            ExposedDropdownMenu(
+                expanded = expanded,
+                onDismissRequest = { expanded = false }
+            ) {
+                fruits.forEach { fruit -&gt;
+                    DropdownMenuItem(
+                        text = { Text(fruit) },
+                        onClick = {
+                            onFruitSelected(fruit)
+                            expanded = false
+                        }
+                    )
+                }
+            }
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        if (selectedFruit.isNotEmpty()) {
+            Text(&quot;Fruit sélectionné : $selectedFruit&quot;)
+        }
+    }
+}
+
+@Composable
+fun App(modifier: Modifier = Modifier) {
+    var selectedFruit1 by rememberSaveable { mutableStateOf(&quot;&quot;) }
+    var selectedFruit2 by rememberSaveable { mutableStateOf(&quot;&quot;) }
+
+    Column(modifier = modifier) {
+        TextLengthCounter()
+        Spacer(modifier = Modifier.height(100.dp))
+        FruitSelector(
+            fruits = listOf(&quot;Pomme&quot;, &quot;Banane&quot;, &quot;Orange&quot;, &quot;Fraise&quot;, &quot;Kiwi&quot;),
+            selectedFruit = selectedFruit1,
+            onFruitSelected = { fruit -&gt; selectedFruit1 = fruit }
+        )
+        Spacer(modifier = Modifier.height(10.dp))
+        FruitSelector(
+            fruits = listOf(&quot;Poire&quot;, &quot;Mangue&quot;, &quot;Orange&quot;, &quot;Bleuet&quot;, &quot;Pamplemousse&quot;),
+            selectedFruit = selectedFruit2,
+            onFruitSelected = { fruit -&gt; selectedFruit2 = fruit }
+        )
+        Spacer(modifier = Modifier.height(10.dp))
+        Text(&quot;Fruit sélectionné 1 : ${selectedFruit1 ?: &quot;Aucun&quot;}&quot;)
+        Text(&quot;Fruit sélectionné 2 : ${selectedFruit2 ?: &quot;Aucun&quot;}&quot;)
+    }
+}
+</code></pre>
+<p>Cette nouvelle version de l'application démontre une refactorisation importante, principalement axée sur l'élévation de
+l'état (state hoisting) et la réutilisabilité des composants. Examinons en détail les changements et leurs
+implications :</p>
+<h4 id="refactorisation-de-fruitselector">Refactorisation de FruitSelector</h4>
+<ol>
+<li>
+<p><strong>Élévation de l'état</strong> :</p>
+<ul>
+<li><code>selectedFruit</code> n'est plus géré à l'intérieur de <code>FruitSelector</code>. Il est maintenant passé en tant que paramètre.</li>
+<li>Une nouvelle fonction <code>onFruitSelected</code> est ajoutée comme paramètre pour gérer les changements de sélection.</li>
+</ul>
+</li>
+<li>
+<p><strong>Paramètres ajoutés</strong> :</p>
+<ul>
+<li><code>fruits: List&lt;String&gt;</code> : La liste des fruits est maintenant un paramètre, rendant le composant plus flexible.</li>
+<li><code>selectedFruit: String</code> : L'état du fruit sélectionné est passé en paramètre.</li>
+<li><code>onFruitSelected: (String) -&gt; Unit</code> : Une fonction de rappel pour gérer la sélection d'un fruit.</li>
+</ul>
+</li>
+<li>
+<p><strong>État local restant</strong> :</p>
+<ul>
+<li><code>expanded</code> reste un état local car il concerne uniquement l'affichage du menu déroulant.</li>
+</ul>
+</li>
+</ol>
+<h4 id="modifications-dans-app">Modifications dans App</h4>
+<ol>
+<li>
+<p><strong>Gestion de l'état</strong> :</p>
+<ul>
+<li>Deux nouvelles variables d'état sont introduites : <code>selectedFruit1</code> et <code>selectedFruit2</code>.</li>
+<li>Ces états sont créés avec <code>rememberSaveable</code> pour persister à travers les recompositions et les changements de
+  configuration.</li>
+</ul>
+</li>
+<li>
+<p><strong>Utilisation de FruitSelector</strong> :</p>
+<ul>
+<li>Deux instances de <code>FruitSelector</code> sont créées, chacune avec sa propre liste de fruits et son propre état.</li>
+<li>L'état et la fonction de mise à jour sont passés à chaque <code>FruitSelector</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Affichage des sélections</strong> :</p>
+<ul>
+<li>Les fruits sélectionnés sont affichés en bas de l'App, démontrant que l'état est maintenant géré au niveau
+  supérieur.</li>
+</ul>
+</li>
+</ol>
+<h4 id="avantages-de-cette-refactorisation">Avantages de cette refactorisation</h4>
+<ol>
+<li>
+<p><strong>Réutilisabilité</strong> : <code>FruitSelector</code> peut maintenant être utilisé plusieurs fois avec différentes listes de fruits.</p>
+</li>
+<li>
+<p><strong>Séparation des responsabilités</strong> : La gestion de l'état est séparée de l'affichage, rendant le code plus modulaire.</p>
+</li>
+<li>
+<p><strong>Contrôle accru</strong> : L'App a maintenant un contrôle total sur l'état des sélections, permettant des interactions plus
+   complexes si nécessaire.</p>
+</li>
+<li>
+<p><strong>Testabilité améliorée</strong> : Il est plus facile de tester <code>FruitSelector</code> car son comportement dépend entièrement des
+   props passées.</p>
+</li>
+<li>
+<p><strong>Flexibilité</strong> : La liste de fruits peut être dynamique, provenant par exemple d'une API ou d'une base de données.</p>
+</li>
+</ol>
+<h4 id="focus-sur-les-variables-detat">Focus sur les variables d'état</h4>
+<ul>
+<li>
+<p>Dans <code>App</code>, <code>selectedFruit1</code> et <code>selectedFruit2</code> sont des variables d'état créées avec <code>rememberSaveable</code>. Cela
+  signifie qu'elles conserveront leur valeur même lors des changements de configuration (comme la rotation de l'écran).</p>
+</li>
+<li>
+<p>Dans <code>FruitSelector</code>, seul <code>expanded</code> reste une variable d'état locale, car elle ne concerne que l'affichage interne
+  du composant.</p>
+</li>
+</ul>
+<p>Cette refactorisation illustre des principes importants de Jetpack Compose, notamment l'élévation de l'état et la
+création de composants réutilisables et indépendants. Elle permet une meilleure gestion de l'état de l'application et
+une plus grande flexibilité dans la construction de l'interface utilisateur.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../08-hockey-v3/" class="btn btn-neutral float-left" title="8. Application Hockey Version 3"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../10-localisation/" class="btn btn-neutral float-right" title="10. Localisation">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../08-hockey-v3/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../10-localisation/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

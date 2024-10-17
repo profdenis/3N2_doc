@@ -89,7 +89,23 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">8. Application Hockey Version 3</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#differentes-versions-de-playerlistwithsearch">Différentes versions de PlayerListWithSearch</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#version-precedente">Version précédente</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#description-generale">Description générale</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#description-detaillee">Description détaillée</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#nouvelle-version">Nouvelle version</a>
+    </li>
+        </ul>
+    </li>
     </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../09-etats-evenements-v2/">9. Gestion des états et des événements</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../10-localisation/">10. Localisation</a>
                   </li>
@@ -119,12 +135,267 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="8-application-hockey-version-3">8. Application Hockey Version 3</h1>
+<h2 id="differentes-versions-de-playerlistwithsearch">Différentes versions de <code>PlayerListWithSearch</code></h2>
+<h3 id="version-precedente">Version précédente</h3>
+<pre><code class="language-kotlin">@Composable
+fun PlayerListWithSearch(modifier: Modifier = Modifier) {
+    var nameSearch by rememberSaveable { mutableStateOf(&quot;&quot;) }
+    var numberSearch: Int? by rememberSaveable { mutableStateOf(null) }
+    Column(modifier = modifier) {
+        Column(modifier = Modifier.padding(top = 20.dp, bottom = 20.dp)) {
+            TextField(
+                value = nameSearch,
+                label = { Text(text = &quot;Nom&quot;) },
+                onValueChange = { nameSearch = it },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 20.dp, end = 20.dp)
+            )
+            TextField(
+                value = (numberSearch ?: &quot;&quot;).toString(),
+                label = { Text(text = &quot;Numéro&quot;) },
+                onValueChange = {
+                    numberSearch = if (it.isEmpty()) null else it.toIntOrNull() ?: numberSearch
+                },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 20.dp, end = 20.dp)
+            )
+        }
+
+        LazyColumn(modifier = Modifier.fillMaxSize()) {
+            items(getPlayers(nameSearch, numberSearch)) {
+                HockeyPlayerCard(player = it)
+            }
+        }
+    }
+}
+</code></pre>
+<h4 id="description-generale">Description générale</h4>
+<p>Ce code définit une fonction composable nommée <code>PlayerListWithSearch</code> qui crée une interface utilisateur pour afficher
+une liste de joueurs de hockey avec une fonctionnalité de recherche. L'interface comprend deux champs de texte pour la
+recherche (un pour le nom et un pour le numéro) et une liste déroulante des joueurs correspondant aux critères de
+recherche.</p>
+<h4 id="description-detaillee">Description détaillée</h4>
+<ol>
+<li>
+<p>Déclaration de la fonction :
+   <code>kotlin
+   @Composable
+   fun PlayerListWithSearch(modifier: Modifier = Modifier)</code></p>
+<ul>
+<li>C'est une fonction composable qui accepte un <code>modifier</code> optionnel comme paramètre.</li>
+</ul>
+</li>
+<li>
+<p>Variables d'état :
+   <code>kotlin
+   var nameSearch by rememberSaveable { mutableStateOf("") }
+   var numberSearch: Int? by rememberSaveable { mutableStateOf(null) }</code></p>
+<ul>
+<li><code>nameSearch</code> : Une chaîne de caractères pour stocker la recherche par nom.</li>
+<li><code>numberSearch</code> : Un entier nullable pour stocker la recherche par numéro.</li>
+<li>Ces variables utilisent <code>rememberSaveable</code> pour conserver leur état même après une reconfiguration.</li>
+</ul>
+</li>
+<li>
+<p>Structure principale :
+   <code>kotlin
+   Column(modifier = modifier) {
+       // Contenu
+   }</code></p>
+<ul>
+<li>Utilise un <code>Column</code> comme conteneur principal avec le modificateur passé en paramètre.</li>
+</ul>
+</li>
+<li>
+<p>Champs de recherche :
+   <code>kotlin
+   Column(modifier = Modifier.padding(top = 20.dp, bottom = 20.dp)) {
+       // Champs de texte
+   }</code></p>
+<ul>
+<li>Un <code>Column</code> interne avec un padding pour contenir les champs de recherche.</li>
+</ul>
+</li>
+<li>
+<p>Champ de recherche par nom :
+   <code>kotlin
+   TextField(
+       value = nameSearch,
+       label = { Text(text = "Nom") },
+       onValueChange = { nameSearch = it },
+       modifier = Modifier
+           .fillMaxWidth()
+           .padding(start = 20.dp, end = 20.dp)
+   )</code></p>
+<ul>
+<li>Un <code>TextField</code> pour la recherche par nom.</li>
+<li>La valeur est liée à <code>nameSearch</code>.</li>
+<li>Le label affiche "Nom".</li>
+<li><code>onValueChange</code> met à jour <code>nameSearch</code> avec la nouvelle valeur.</li>
+</ul>
+</li>
+<li>
+<p>Champ de recherche par numéro :
+   <code>kotlin
+   TextField(
+       value = (numberSearch ?: "").toString(),
+       label = { Text(text = "Numéro") },
+       onValueChange = {
+           numberSearch = if (it.isEmpty()) null else it.toIntOrNull() ?: numberSearch
+       },
+       modifier = Modifier
+           .fillMaxWidth()
+           .padding(start = 20.dp, end = 20.dp)
+   )</code></p>
+<ul>
+<li>Un <code>TextField</code> pour la recherche par numéro.</li>
+<li>La valeur affichée est la conversion en chaîne de <code>numberSearch</code> (ou une chaîne vide si null).</li>
+<li>Le label affiche "Numéro".</li>
+<li><code>onValueChange</code> tente de convertir l'entrée en entier, conservant la valeur précédente si la conversion échoue.</li>
+</ul>
+</li>
+<li>
+<p>Liste des joueurs :
+   <code>kotlin
+   LazyColumn(modifier = Modifier.fillMaxSize()) {
+       items(getPlayers(nameSearch, numberSearch)) {
+           HockeyPlayerCard(player = it)
+       }
+   }</code></p>
+<ul>
+<li>Utilise un <code>LazyColumn</code> pour afficher efficacement une liste potentiellement longue de joueurs.</li>
+<li><code>getPlayers(nameSearch, numberSearch)</code> est appelé pour obtenir la liste filtrée des joueurs.</li>
+<li>Chaque joueur est affiché en utilisant un composant <code>HockeyPlayerCard</code>.</li>
+</ul>
+</li>
+</ol>
+<p>Ce code crée une interface utilisateur interactive permettant aux utilisateurs de rechercher des joueurs de hockey par
+nom et numéro, avec une mise à jour dynamique de la liste affichée en fonction des critères de recherche.</p>
+<h3 id="nouvelle-version">Nouvelle version</h3>
+<pre><code class="language-kotlin">@Composable
+fun PlayerListWithSearch(modifier: Modifier = Modifier) {
+    var nameSearch by rememberSaveable { mutableStateOf(&quot;&quot;) }
+    var numberSearch: Int? by rememberSaveable { mutableStateOf(null) }
+    Column(modifier = modifier) {
+        SearchTextFields(
+            nameSearch = nameSearch,
+            onNameChange = { nameSearch = it },
+            numberSearch = numberSearch,
+            onNumberChange =
+            { numberSearch = if (it.isEmpty()) null else it.toIntOrNull() ?: numberSearch })
+
+        LazyColumn(modifier = Modifier.fillMaxSize()) {
+            items(getPlayers(nameSearch, numberSearch)) {
+                HockeyPlayerCard(player = it)
+            }
+        }
+    }
+}
+
+@Composable
+private fun SearchTextFields(
+    nameSearch: String,
+    onNameChange: (String) -&gt; Unit,
+    numberSearch: Int?,
+    onNumberChange: (String) -&gt; Unit,
+
+    ) {
+    Column(modifier = Modifier.padding(top = 20.dp, bottom = 20.dp)) {
+        TextField(
+            value = nameSearch,
+            label = { Text(text = &quot;Nom&quot;) },
+            onValueChange = onNameChange,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 20.dp, end = 20.dp)
+        )
+        TextField(
+            value = (numberSearch ?: &quot;&quot;).toString(),
+            label = { Text(text = &quot;Numéro&quot;) },
+            onValueChange = onNumberChange,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 20.dp, end = 20.dp)
+        )
+    }
+}
+</code></pre>
+<p>Cette refactorisation illustre bien comment on peut améliorer la structure et la
+réutilisabilité du code en Jetpack Compose. Voici une explication détaillée de la transition entre les deux versions, en
+mettant l'accent sur la gestion des variables d'état et des fonctions lambda :</p>
+<ol>
+<li>
+<p>Création du nouveau composable <code>SearchTextFields</code> :</p>
+<ul>
+<li>Un nouveau composable privé a été créé pour encapsuler la logique des champs de recherche.</li>
+<li>Cela améliore la lisibilité et la réutilisabilité du code.</li>
+</ul>
+</li>
+<li>
+<p>Paramètres du nouveau composable :</p>
+<ul>
+<li><code>nameSearch: String</code> : La valeur actuelle de la recherche par nom.</li>
+<li><code>onNameChange: (String) -&gt; Unit</code> : Une fonction lambda pour gérer les changements de nom.</li>
+<li><code>numberSearch: Int?</code> : La valeur actuelle de la recherche par numéro.</li>
+<li><code>onNumberChange: (String) -&gt; Unit</code> : Une fonction lambda pour gérer les changements de numéro.</li>
+</ul>
+</li>
+<li>
+<p>Passage des variables d'état :</p>
+<ul>
+<li>Dans <code>PlayerListWithSearch</code>, les variables d'état <code>nameSearch</code> et <code>numberSearch</code> sont passées directement à
+  <code>SearchTextFields</code>.</li>
+<li>Cela permet à <code>SearchTextFields</code> d'utiliser ces valeurs sans les posséder ou les modifier directement.</li>
+</ul>
+</li>
+<li>
+<p>Passage des fonctions lambda :</p>
+<ul>
+<li>Pour <code>onNameChange</code>, une simple lambda est passée : <code>{ nameSearch = it }</code>.
+  Cette lambda met à jour directement la variable d'état <code>nameSearch</code>.</li>
+<li>Pour <code>onNumberChange</code>, la logique de conversion est passée en tant que lambda :
+  <code>kotlin
+  { numberSearch = if (it.isEmpty()) null else it.toIntOrNull() ?: numberSearch }</code>
+  Cette lambda gère la conversion de la chaîne en entier et la mise à jour de <code>numberSearch</code>.</li>
+</ul>
+</li>
+<li>
+<p>Utilisation dans <code>SearchTextFields</code> :</p>
+<ul>
+<li>Les <code>TextField</code> utilisent maintenant les paramètres passés au lieu d'accéder directement aux variables d'état.</li>
+<li><code>value = nameSearch</code> et <code>value = (numberSearch ?: "").toString()</code> utilisent les valeurs passées.</li>
+<li><code>onValueChange = onNameChange</code> et <code>onValueChange = onNumberChange</code> utilisent les lambdas passées.</li>
+</ul>
+</li>
+<li>
+<p>Avantages de cette approche :</p>
+<ul>
+<li>Séparation des préoccupations : <code>SearchTextFields</code> ne gère que l'affichage et la collecte des entrées.</li>
+<li>État élevé (State hoisting) : L'état reste dans le composant parent, rendant <code>SearchTextFields</code> plus flexible et
+  réutilisable.</li>
+<li>Testabilité améliorée : Il est plus facile de tester <code>SearchTextFields</code> indépendamment.</li>
+</ul>
+</li>
+<li>
+<p>Implications pour la gestion de l'état :</p>
+<ul>
+<li>L'état (<code>nameSearch</code> et <code>numberSearch</code>) est toujours géré dans <code>PlayerListWithSearch</code>.</li>
+<li><code>SearchTextFields</code> devient un composant "sans état" (stateless), ne faisant que refléter l'état qui lui est passé.</li>
+</ul>
+</li>
+</ol>
+<p>Cette refactorisation est un excellent exemple de la façon dont on peut appliquer le principe de "state hoisting" en
+Jetpack Compose, en élevant l'état et les fonctions de modification d'état vers le composant parent. Cela rend le code
+plus modulaire, plus facile à maintenir et à tester, tout en conservant une séparation claire des responsabilités entre
+les composants.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../07-orientation/" class="btn btn-neutral float-left" title="7. Orientation de l'écran"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../10-localisation/" class="btn btn-neutral float-right" title="10. Localisation">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../09-etats-evenements-v2/" class="btn btn-neutral float-right" title="9. Gestion des états et des événements">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -150,7 +421,7 @@
       <span><a href="../07-orientation/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../10-localisation/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../09-etats-evenements-v2/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
