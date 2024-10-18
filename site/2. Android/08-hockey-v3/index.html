@@ -109,6 +109,8 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../10-localisation/">10. Localisation</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../11-json/">11. Lire et écrire des fichiers JSON</a>
+                  </li>
               </ul>
       </div>
     </div>
@@ -177,100 +179,84 @@ une liste de joueurs de hockey avec une fonctionnalité de recherche. L'interfac
 recherche (un pour le nom et un pour le numéro) et une liste déroulante des joueurs correspondant aux critères de
 recherche.</p>
 <h4 id="description-detaillee">Description détaillée</h4>
-<ol>
-<li>
-<p>Déclaration de la fonction :
-   <code>kotlin
-   @Composable
-   fun PlayerListWithSearch(modifier: Modifier = Modifier)</code></p>
+<p>1- Déclaration de la fonction :</p>
+<pre><code class="language-kotlin">@Composable
+fun PlayerListWithSearch(modifier: Modifier = Modifier)
+</code></pre>
 <ul>
 <li>C'est une fonction composable qui accepte un <code>modifier</code> optionnel comme paramètre.</li>
 </ul>
-</li>
-<li>
-<p>Variables d'état :
-   <code>kotlin
-   var nameSearch by rememberSaveable { mutableStateOf("") }
-   var numberSearch: Int? by rememberSaveable { mutableStateOf(null) }</code></p>
+<p>2- Variables d'état :</p>
+<pre><code class="language-kotlin">var nameSearch by rememberSaveable { mutableStateOf(&quot;&quot;) }
+var numberSearch: Int? by rememberSaveable { mutableStateOf(null) }
+</code></pre>
 <ul>
 <li><code>nameSearch</code> : Une chaîne de caractères pour stocker la recherche par nom.</li>
 <li><code>numberSearch</code> : Un entier nullable pour stocker la recherche par numéro.</li>
 <li>Ces variables utilisent <code>rememberSaveable</code> pour conserver leur état même après une reconfiguration.</li>
 </ul>
-</li>
-<li>
-<p>Structure principale :
-   <code>kotlin
-   Column(modifier = modifier) {
-       // Contenu
-   }</code></p>
+<p>3- Structure principale :</p>
+<pre><code class="language-kotlin">Column(modifier = modifier) {
+    // Contenu
+}
+</code></pre>
 <ul>
 <li>Utilise un <code>Column</code> comme conteneur principal avec le modificateur passé en paramètre.</li>
 </ul>
-</li>
-<li>
-<p>Champs de recherche :
-   <code>kotlin
-   Column(modifier = Modifier.padding(top = 20.dp, bottom = 20.dp)) {
-       // Champs de texte
-   }</code></p>
+<p>4- Champs de recherche :</p>
+<pre><code class="language-kotlin">Column(modifier = Modifier.padding(top = 20.dp, bottom = 20.dp)) {
+    // Champs de texte
+}
+</code></pre>
 <ul>
 <li>Un <code>Column</code> interne avec un padding pour contenir les champs de recherche.</li>
 </ul>
-</li>
-<li>
-<p>Champ de recherche par nom :
-   <code>kotlin
-   TextField(
-       value = nameSearch,
-       label = { Text(text = "Nom") },
-       onValueChange = { nameSearch = it },
-       modifier = Modifier
-           .fillMaxWidth()
-           .padding(start = 20.dp, end = 20.dp)
-   )</code></p>
+<p>5- Champ de recherche par nom :</p>
+<pre><code class="language-kotlin">TextField(
+    value = nameSearch,
+    label = { Text(text = &quot;Nom&quot;) },
+    onValueChange = { nameSearch = it },
+    modifier = Modifier
+        .fillMaxWidth()
+        .padding(start = 20.dp, end = 20.dp)
+)
+</code></pre>
 <ul>
 <li>Un <code>TextField</code> pour la recherche par nom.</li>
 <li>La valeur est liée à <code>nameSearch</code>.</li>
 <li>Le label affiche "Nom".</li>
 <li><code>onValueChange</code> met à jour <code>nameSearch</code> avec la nouvelle valeur.</li>
 </ul>
-</li>
-<li>
-<p>Champ de recherche par numéro :
-   <code>kotlin
-   TextField(
-       value = (numberSearch ?: "").toString(),
-       label = { Text(text = "Numéro") },
-       onValueChange = {
-           numberSearch = if (it.isEmpty()) null else it.toIntOrNull() ?: numberSearch
-       },
-       modifier = Modifier
-           .fillMaxWidth()
-           .padding(start = 20.dp, end = 20.dp)
-   )</code></p>
+<p>6- Champ de recherche par numéro :</p>
+<pre><code class="language-kotlin">TextField(
+    value = (numberSearch ?: &quot;&quot;).toString(),
+    label = { Text(text = &quot;Numéro&quot;) },
+    onValueChange = {
+        numberSearch = if (it.isEmpty()) null else it.toIntOrNull() ?: numberSearch
+    },
+    modifier = Modifier
+        .fillMaxWidth()
+        .padding(start = 20.dp, end = 20.dp)
+)
+</code></pre>
 <ul>
 <li>Un <code>TextField</code> pour la recherche par numéro.</li>
 <li>La valeur affichée est la conversion en chaîne de <code>numberSearch</code> (ou une chaîne vide si null).</li>
 <li>Le label affiche "Numéro".</li>
 <li><code>onValueChange</code> tente de convertir l'entrée en entier, conservant la valeur précédente si la conversion échoue.</li>
 </ul>
-</li>
-<li>
-<p>Liste des joueurs :
-   <code>kotlin
-   LazyColumn(modifier = Modifier.fillMaxSize()) {
-       items(getPlayers(nameSearch, numberSearch)) {
-           HockeyPlayerCard(player = it)
-       }
-   }</code></p>
+<p>7- Liste des joueurs :</p>
+<pre><code class="language-kotlin">LazyColumn(modifier = Modifier.fillMaxSize()) {
+    items(getPlayers(nameSearch, numberSearch)) {
+        HockeyPlayerCard(player = it)
+    }
+}
+</code></pre>
 <ul>
 <li>Utilise un <code>LazyColumn</code> pour afficher efficacement une liste potentiellement longue de joueurs.</li>
 <li><code>getPlayers(nameSearch, numberSearch)</code> est appelé pour obtenir la liste filtrée des joueurs.</li>
 <li>Chaque joueur est affiché en utilisant un composant <code>HockeyPlayerCard</code>.</li>
 </ul>
-</li>
-</ol>
 <p>Ce code crée une interface utilisateur interactive permettant aux utilisateurs de rechercher des joueurs de hockey par
 nom et numéro, avec une mise à jour dynamique de la liste affichée en fonction des critères de recherche.</p>
 <h3 id="nouvelle-version">Nouvelle version</h3>
@@ -322,9 +308,9 @@ private fun SearchTextFields(
     }
 }
 </code></pre>
-<p>Cette refactorisation illustre bien comment on peut améliorer la structure et la
-réutilisabilité du code en Jetpack Compose. Voici une explication détaillée de la transition entre les deux versions, en
-mettant l'accent sur la gestion des variables d'état et des fonctions lambda :</p>
+<p>Cette refactorisation illustre bien comment on peut améliorer la structure et la réutilisabilité du code en Jetpack
+Compose. Voici une explication détaillée de la transition entre les deux versions, en mettant l'accent sur la gestion
+des variables d'état et des fonctions lambda :</p>
 <ol>
 <li>
 <p>Création du nouveau composable <code>SearchTextFields</code> :</p>

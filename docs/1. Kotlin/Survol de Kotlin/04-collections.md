@@ -179,10 +179,10 @@ l'élément `"cerise"` en double est supprimé.
 
 > Pour prévenir les modifications indésirables, obtenez des vues en lecture seule des ensembles modifiables en les
 > affectant à `Set` :
->```kotlin
->    val fruits: MutableSet<String> = mutableSetOf("pomme", "banane", "cerise", "cerise")
->    val fruitsVerrouillés: Set<String> = fruits
->```
+> 
+>`val fruits: MutableSet<String> = mutableSetOf("pomme", "banane", "cerise", "cerise")`
+> 
+>`val fruitsVerrouillés: Set<String> = fruits`
 >
 
 

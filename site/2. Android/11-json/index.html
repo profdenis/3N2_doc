@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>11. Lire et écrire des fichiers JSON - Programmation Android</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "11. Lire et \u00e9crire des fichiers JSON";
+        var mkdocs_page_input_path = "2. Android/11-json.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Programmation Android
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Programmation Android</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. Kotlin</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1.%20Kotlin/01-kotlin/">Le langage de programmation Kotlin</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../1.%20Kotlin/02-kotlin-android/">Kotlin pour Android</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Survol de Kotlin</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/01-survol/">Survol de Kotlin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/02-variables/">Variables</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/03-types/">Types de base</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/04-collections/">Collections</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/05-flot/">Flot de contrôle</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/06-fonctions/">Fonctions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/07-classes/">Classes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/08-valeurs-nulles/">Sécurité contre les valeurs nulles</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">2. Android</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../01-intro/">1. Introduction à la programmation mobile et Android</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../02-intro-compose/">2. Introduction à Jetpack Compose</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../03-premi%C3%A8re-app/">3. Première application avec Jetpack Compose</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../04-hockey-v1/">4. Application Hockey Version 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../05-etats-evenements/">5. Gestion des états et des événements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../06-hockey-v2/">6. Application Hockey Version 2</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../07-orientation/">7. Orientation de l'écran</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../08-hockey-v3/">8. Application Hockey Version 3</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../09-etats-evenements-v2/">9. Gestion des états et des événements</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../10-localisation/">10. Localisation</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">11. Lire et écrire des fichiers JSON</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#enregistrement-et-lecture-de-donnees-json-en-kotlin">Enregistrement et lecture de données JSON en Kotlin</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#etape-1-preparation">Étape 1 : Préparation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#etape-2-enregistrement-des-donnees-dans-un-fichier-json">Étape 2 : Enregistrement des données dans un fichier JSON</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#etape-3-lecture-des-donnees-a-partir-dun-fichier-json">Étape 3 : Lecture des données à partir d'un fichier JSON</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#etape-4-utilisation-des-fonctions">Étape 4 : Utilisation des fonctions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#points-importants">Points importants</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#gestion-des-fichiers-dans-android">Gestion des fichiers dans Android</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#ecrasement-et-creation-de-fichiers">Écrasement et création de fichiers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#emplacement-du-fichier">Emplacement du fichier</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#bonnes-pratiques-pour-les-applications-android">Bonnes pratiques pour les applications Android</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#utiliser-le-contexte-de-lapplication">Utiliser le contexte de l'application</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#gestion-des-erreurs">Gestion des erreurs</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#verification-de-lexistence-du-fichier">Vérification de l'existence du fichier</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Programmation Android</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">2. Android</li>
+      <li class="breadcrumb-item active">11. Lire et écrire des fichiers JSON</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="11-lire-et-ecrire-des-fichiers-json">11. Lire et écrire des fichiers JSON</h1>
+<h2 id="enregistrement-et-lecture-de-donnees-json-en-kotlin">Enregistrement et lecture de données JSON en Kotlin</h2>
+<h3 id="etape-1-preparation">Étape 1 : Préparation</h3>
+<p>Prenons par exemple la classe <code>Player</code> est définie comme suit :</p>
+<pre><code class="language-kotlin">data class Player(
+    val id: Int,
+    val number: Int,
+    val name: String,
+    val image_resource: Int = R.drawable.nhl_logo
+)
+</code></pre>
+<p>Nous utiliserons la bibliothèque <code>Gson</code> pour la sérialisation et la désérialisation JSON. Ajoutez la dépendance suivante
+dans le fichier <code>build.gradle</code> du module directement dans la section dépendances du fichier <code>app/build.gradle.kts</code> :</p>
+<pre><code class="language-kotlin">implementation(&quot;com.google.code.gson:gson:2.10.1&quot;)
+</code></pre>
+<p>Une autre option offerte par Android Studio est de convertir cette dépendance au format utilisant les catalogues de
+versions (<em>Version Catalogs</em>). Vous pouvez accepter ce changement de format. La ligne plus haut sera remplacée par :</p>
+<pre><code class="language-kotlin">implementation(libs.gson)
+</code></pre>
+<p>Et deux lignes seront ajoutées <code>gradle/libs.versions.toml</code> pour <code>gson</code> :</p>
+<pre><code class="language-toml">[versions]
+gson = &quot;2.10.1&quot;
+
+[libraries]
+gson = { module = &quot;com.google.code.gson:gson&quot;, version.ref = &quot;gson&quot; }
+</code></pre>
+<h3 id="etape-2-enregistrement-des-donnees-dans-un-fichier-json">Étape 2 : Enregistrement des données dans un fichier JSON</h3>
+<p>Pour enregistrer une liste de <code>Player</code> dans un fichier JSON, nous allons créer une fonction d'extension :</p>
+<pre><code class="language-kotlin">import com.google.gson.Gson
+import java.io.File
+
+fun List&lt;Player&gt;.saveToFile(filename: String) {
+    val jsonString = Gson().toJson(this)
+    File(filename).writeText(jsonString)
+}
+</code></pre>
+<p>Cette fonction convertit la liste de <code>Player</code> en une chaîne JSON, puis l'écrit dans un fichier.</p>
+<h3 id="etape-3-lecture-des-donnees-a-partir-dun-fichier-json">Étape 3 : Lecture des données à partir d'un fichier JSON</h3>
+<p>Pour lire la liste de <code>Player</code> à partir d'un fichier JSON, nous allons créer une autre fonction :</p>
+<pre><code class="language-kotlin">import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import java.io.File
+
+fun readPlayersFromFile(filename: String): List&lt;Player&gt; {
+    val jsonString = File(filename).readText()
+    val playerListType = object : TypeToken&lt;List&lt;Player&gt;&gt;() {}.type
+    return Gson().fromJson(jsonString, playerListType)
+}
+</code></pre>
+<p>Cette fonction lit le contenu du fichier JSON, puis le convertit en une liste de <code>Player</code>.</p>
+<h3 id="etape-4-utilisation-des-fonctions">Étape 4 : Utilisation des fonctions</h3>
+<p>Voici un exemple d'utilisation de ces fonctions :</p>
+<pre><code class="language-kotlin">fun main() {
+    // Création d'une liste de joueurs
+    val players = listOf(
+        Player(1, 99, &quot;Wayne Gretzky&quot;),
+        Player(2, 87, &quot;Sidney Crosby&quot;),
+        Player(3, 9, &quot;Bobby Orr&quot;)
+    )
+
+    // Enregistrement des joueurs dans un fichier JSON
+    players.saveToFile(&quot;players.json&quot;)
+    println(&quot;Joueurs enregistrés dans players.json&quot;)
+
+    // Lecture des joueurs à partir du fichier JSON
+    val loadedPlayers = readPlayersFromFile(&quot;players.json&quot;)
+    println(&quot;Joueurs chargés à partir de players.json:&quot;)
+    loadedPlayers.forEach { println(it) }
+}
+</code></pre>
+<h3 id="points-importants">Points importants</h3>
+<ol>
+<li><strong>Sérialisation</strong> : C'est le processus de conversion d'objets en format JSON.</li>
+<li><strong>Désérialisation</strong> : C'est le processus inverse, convertissant le JSON en objets Kotlin.</li>
+<li><strong>Gestion des fichiers</strong> : Kotlin offre des méthodes simples pour lire et écrire des fichiers.</li>
+<li><strong>Bibliothèque Gson</strong> : Elle simplifie grandement le travail avec JSON en Kotlin.</li>
+<li><strong>Data class</strong> : L'utilisation de <code>data class</code> pour Player facilite la sérialisation/désérialisation.</li>
+</ol>
+<h2 id="gestion-des-fichiers-dans-android">Gestion des fichiers dans Android</h2>
+<h3 id="ecrasement-et-creation-de-fichiers">Écrasement et création de fichiers</h3>
+<ol>
+<li>
+<p><strong>Écrasement du fichier existant</strong>
+   Lorsque vous utilisez la méthode <code>File(filename).writeText(jsonString)</code>, si le fichier spécifié existe déjà, son
+   contenu sera effectivement écrasé. Cette opération remplace entièrement le contenu précédent par les nouvelles
+   données.</p>
+</li>
+<li>
+<p><strong>Création d'un nouveau fichier</strong>
+   Si le fichier spécifié n'existe pas, Android le créera automatiquement avant d'y écrire les données. Cela signifie
+   que vous n'avez pas besoin de vérifier l'existence du fichier ou de le créer manuellement.</p>
+</li>
+</ol>
+<h3 id="emplacement-du-fichier">Emplacement du fichier</h3>
+<p>L'emplacement du fichier dépend du chemin que vous spécifiez dans le paramètre <code>filename</code>. Dans le contexte d'une
+application Android, il est crucial de comprendre les différentes options de stockage :</p>
+<ol>
+<li>
+<p><strong>Stockage interne</strong></p>
+<ul>
+<li>Par défaut, si vous utilisez un chemin relatif, le fichier sera créé dans le répertoire privé de votre
+  application.</li>
+<li>Chemin typique : <code>/data/data/[nom_du_package_de_votre_app]/files/</code></li>
+<li>Ce répertoire est privé et accessible uniquement par votre application.</li>
+</ul>
+</li>
+<li>
+<p><strong>Stockage externe</strong></p>
+<ul>
+<li>Pour écrire sur le stockage externe (comme la carte SD), vous devez demander les permissions appropriées et
+  utiliser un chemin absolu (voir une autre section).</li>
+<li>Exemple : <code>Environment.getExternalStorageDirectory().absolutePath + "/MonDossier/monfichier.json"</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="bonnes-pratiques-pour-les-applications-android">Bonnes pratiques pour les applications Android</h3>
+<h4 id="utiliser-le-contexte-de-lapplication">Utiliser le contexte de l'application</h4>
+<p>Pour une meilleure gestion des fichiers dans une application Android, il est recommandé d'utiliser le contexte de
+l'application pour obtenir le répertoire approprié :</p>
+<pre><code class="language-kotlin">fun Context.saveToFile(players: List&lt;Player&gt;, filename: String) {
+    val file = File(this.filesDir, filename)
+    file.writeText(Gson().toJson(players))
+}
+
+fun Context.readPlayersFromFile(filename: String): List&lt;Player&gt; {
+    val file = File(this.filesDir, filename)
+    val jsonString = file.readText()
+    val playerListType = object : TypeToken&lt;List&lt;Player&gt;&gt;() {}.type
+    return Gson().fromJson(jsonString, playerListType)
+}
+</code></pre>
+<h4 id="gestion-des-erreurs">Gestion des erreurs</h4>
+<p>Il est important d'ajouter une gestion des erreurs pour traiter les cas où l'écriture ou la lecture pourrait
+échouer :</p>
+<pre><code class="language-kotlin">fun Context.saveToFile(players: List&lt;Player&gt;, filename: String) {
+    try {
+        val file = File(this.filesDir, filename)
+        file.writeText(Gson().toJson(players))
+    } catch (e: Exception) {
+        Log.e(&quot;FileIO&quot;, &quot;Erreur lors de l'écriture du fichier&quot;, e)
+    }
+}
+</code></pre>
+<h4 id="verification-de-lexistence-du-fichier">Vérification de l'existence du fichier</h4>
+<p>Avant de lire un fichier, il est judicieux de vérifier son existence :</p>
+<pre><code class="language-kotlin">fun Context.readPlayersFromFile(filename: String): List&lt;Player&gt;? {
+    val file = File(this.filesDir, filename)
+    return if (file.exists()) {
+        try {
+            val jsonString = file.readText()
+            val playerListType = object : TypeToken&lt;List&lt;Player&gt;&gt;() {}.type
+            Gson().fromJson(jsonString, playerListType)
+        } catch (e: Exception) {
+            Log.e(&quot;FileIO&quot;, &quot;Erreur lors de la lecture du fichier&quot;, e)
+            emptyList()
+        }
+    } else {
+        emptyList()
+    }
+}
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../10-localisation/" class="btn btn-neutral float-left" title="10. Localisation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../10-localisation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

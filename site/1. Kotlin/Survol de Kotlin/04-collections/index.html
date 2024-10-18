@@ -109,6 +109,8 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/10-localisation/">10. Localisation</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/11-json/">11. Lire et écrire des fichiers JSON</a>
+                  </li>
               </ul>
       </div>
     </div>
@@ -297,10 +299,9 @@ type, ajoutez le type entre des crochets <code>&lt;&gt;</code> après la déclar
 l'élément <code>"cerise"</code> en double est supprimé.</p>
 <blockquote>
 <p>Pour prévenir les modifications indésirables, obtenez des vues en lecture seule des ensembles modifiables en les
-affectant à <code>Set</code> :
-<code>kotlin
-   val fruits: MutableSet&lt;String&gt; = mutableSetOf("pomme", "banane", "cerise", "cerise")
-   val fruitsVerrouillés: Set&lt;String&gt; = fruits</code>
+affectant à <code>Set</code> :</p>
+<p><code>val fruits: MutableSet&lt;String&gt; = mutableSetOf("pomme", "banane", "cerise", "cerise")</code></p>
+<p><code>val fruitsVerrouillés: Set&lt;String&gt; = fruits</code>
 </p>
 <p>Comme les ensembles sont <strong>non ordonnés</strong>, vous ne pouvez pas accéder à un élément à un index particulier.
 </p>

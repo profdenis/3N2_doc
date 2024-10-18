@@ -49,83 +49,97 @@ recherche.
 
 #### Description détaillée
 
-1. Déclaration de la fonction :
-   ```kotlin
-   @Composable
-   fun PlayerListWithSearch(modifier: Modifier = Modifier)
-   ```
-    - C'est une fonction composable qui accepte un `modifier` optionnel comme paramètre.
+1- Déclaration de la fonction :
 
-2. Variables d'état :
-   ```kotlin
-   var nameSearch by rememberSaveable { mutableStateOf("") }
-   var numberSearch: Int? by rememberSaveable { mutableStateOf(null) }
-   ```
-    - `nameSearch` : Une chaîne de caractères pour stocker la recherche par nom.
-    - `numberSearch` : Un entier nullable pour stocker la recherche par numéro.
-    - Ces variables utilisent `rememberSaveable` pour conserver leur état même après une reconfiguration.
+```kotlin
+@Composable
+fun PlayerListWithSearch(modifier: Modifier = Modifier)
+```
 
-3. Structure principale :
-   ```kotlin
-   Column(modifier = modifier) {
-       // Contenu
-   }
-   ```
-    - Utilise un `Column` comme conteneur principal avec le modificateur passé en paramètre.
+- C'est une fonction composable qui accepte un `modifier` optionnel comme paramètre.
 
-4. Champs de recherche :
-   ```kotlin
-   Column(modifier = Modifier.padding(top = 20.dp, bottom = 20.dp)) {
-       // Champs de texte
-   }
-   ```
-    - Un `Column` interne avec un padding pour contenir les champs de recherche.
+2- Variables d'état :
 
-5. Champ de recherche par nom :
-   ```kotlin
-   TextField(
-       value = nameSearch,
-       label = { Text(text = "Nom") },
-       onValueChange = { nameSearch = it },
-       modifier = Modifier
-           .fillMaxWidth()
-           .padding(start = 20.dp, end = 20.dp)
-   )
-   ```
-    - Un `TextField` pour la recherche par nom.
-    - La valeur est liée à `nameSearch`.
-    - Le label affiche "Nom".
-    - `onValueChange` met à jour `nameSearch` avec la nouvelle valeur.
+```kotlin
+var nameSearch by rememberSaveable { mutableStateOf("") }
+var numberSearch: Int? by rememberSaveable { mutableStateOf(null) }
+```
 
-6. Champ de recherche par numéro :
-   ```kotlin
-   TextField(
-       value = (numberSearch ?: "").toString(),
-       label = { Text(text = "Numéro") },
-       onValueChange = {
-           numberSearch = if (it.isEmpty()) null else it.toIntOrNull() ?: numberSearch
-       },
-       modifier = Modifier
-           .fillMaxWidth()
-           .padding(start = 20.dp, end = 20.dp)
-   )
-   ```
-    - Un `TextField` pour la recherche par numéro.
-    - La valeur affichée est la conversion en chaîne de `numberSearch` (ou une chaîne vide si null).
-    - Le label affiche "Numéro".
-    - `onValueChange` tente de convertir l'entrée en entier, conservant la valeur précédente si la conversion échoue.
+- `nameSearch` : Une chaîne de caractères pour stocker la recherche par nom.
+- `numberSearch` : Un entier nullable pour stocker la recherche par numéro.
+- Ces variables utilisent `rememberSaveable` pour conserver leur état même après une reconfiguration.
 
-7. Liste des joueurs :
-   ```kotlin
-   LazyColumn(modifier = Modifier.fillMaxSize()) {
-       items(getPlayers(nameSearch, numberSearch)) {
-           HockeyPlayerCard(player = it)
-       }
-   }
-   ```
-    - Utilise un `LazyColumn` pour afficher efficacement une liste potentiellement longue de joueurs.
-    - `getPlayers(nameSearch, numberSearch)` est appelé pour obtenir la liste filtrée des joueurs.
-    - Chaque joueur est affiché en utilisant un composant `HockeyPlayerCard`.
+3- Structure principale :
+
+```kotlin
+Column(modifier = modifier) {
+    // Contenu
+}
+```
+
+- Utilise un `Column` comme conteneur principal avec le modificateur passé en paramètre.
+
+4- Champs de recherche :
+
+```kotlin
+Column(modifier = Modifier.padding(top = 20.dp, bottom = 20.dp)) {
+    // Champs de texte
+}
+```
+
+- Un `Column` interne avec un padding pour contenir les champs de recherche.
+
+5- Champ de recherche par nom :
+
+```kotlin
+TextField(
+    value = nameSearch,
+    label = { Text(text = "Nom") },
+    onValueChange = { nameSearch = it },
+    modifier = Modifier
+        .fillMaxWidth()
+        .padding(start = 20.dp, end = 20.dp)
+)
+```
+
+- Un `TextField` pour la recherche par nom.
+- La valeur est liée à `nameSearch`.
+- Le label affiche "Nom".
+- `onValueChange` met à jour `nameSearch` avec la nouvelle valeur.
+
+6- Champ de recherche par numéro :
+
+```kotlin
+TextField(
+    value = (numberSearch ?: "").toString(),
+    label = { Text(text = "Numéro") },
+    onValueChange = {
+        numberSearch = if (it.isEmpty()) null else it.toIntOrNull() ?: numberSearch
+    },
+    modifier = Modifier
+        .fillMaxWidth()
+        .padding(start = 20.dp, end = 20.dp)
+)
+```
+
+- Un `TextField` pour la recherche par numéro.
+- La valeur affichée est la conversion en chaîne de `numberSearch` (ou une chaîne vide si null).
+- Le label affiche "Numéro".
+- `onValueChange` tente de convertir l'entrée en entier, conservant la valeur précédente si la conversion échoue.
+
+7- Liste des joueurs :
+
+```kotlin
+LazyColumn(modifier = Modifier.fillMaxSize()) {
+    items(getPlayers(nameSearch, numberSearch)) {
+        HockeyPlayerCard(player = it)
+    }
+}
+```
+
+- Utilise un `LazyColumn` pour afficher efficacement une liste potentiellement longue de joueurs.
+- `getPlayers(nameSearch, numberSearch)` est appelé pour obtenir la liste filtrée des joueurs.
+- Chaque joueur est affiché en utilisant un composant `HockeyPlayerCard`.
 
 Ce code crée une interface utilisateur interactive permettant aux utilisateurs de rechercher des joueurs de hockey par
 nom et numéro, avec une mise à jour dynamique de la liste affichée en fonction des critères de recherche.
@@ -182,9 +196,9 @@ private fun SearchTextFields(
 }
 ```
 
-Cette refactorisation illustre bien comment on peut améliorer la structure et la
-réutilisabilité du code en Jetpack Compose. Voici une explication détaillée de la transition entre les deux versions, en
-mettant l'accent sur la gestion des variables d'état et des fonctions lambda :
+Cette refactorisation illustre bien comment on peut améliorer la structure et la réutilisabilité du code en Jetpack
+Compose. Voici une explication détaillée de la transition entre les deux versions, en mettant l'accent sur la gestion
+des variables d'état et des fonctions lambda :
 
 1. Création du nouveau composable `SearchTextFields` :
     - Un nouveau composable privé a été créé pour encapsuler la logique des champs de recherche.
