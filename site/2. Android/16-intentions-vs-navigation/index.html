@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>4. Application Hockey Version 1 - Programmation Android</title>
+    <title>16. Intentions vs. navigation - Programmation Android</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "4. Application Hockey Version 1";
-        var mkdocs_page_input_path = "2. Android/04-hockey-v1.md";
+        var mkdocs_page_name = "16. Intentions vs. navigation";
+        var mkdocs_page_input_path = "2. Android/16-intentions-vs-navigation.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -79,17 +79,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../03-premi%C3%A8re-app/">3. Première application avec Jetpack Compose</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">4. Application Hockey Version 1</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#explication-detaillee-des-fonctions-composables">Explication détaillée des fonctions composables</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#playercard">PlayerCard</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#playerlist">PlayerList</a>
-    </li>
-        </ul>
-    </li>
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../04-hockey-v1/">4. Application Hockey Version 1</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../05-etats-evenements/">5. Gestion des états et des événements</a>
                   </li>
@@ -113,7 +103,31 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../15-intentions/">15. Intentions</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../16-intentions-vs-navigation/">16. Intentions vs. navigation</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">16. Intentions vs. navigation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#intent-vs-navigation">Intent vs. Navigation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#navigation-compose">Navigation Compose</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#avantages">Avantages</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#inconvenients">Inconvénients</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#navigation-par-intent">Navigation par Intent</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#avantages_1">Avantages</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#inconvenients_1">Inconvénients</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#recommandation">Recommandation</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../17-images-distantes/">17. Affichage d'images et de vidéos distantes</a>
                   </li>
@@ -133,7 +147,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">2. Android</li>
-      <li class="breadcrumb-item active">4. Application Hockey Version 1</li>
+      <li class="breadcrumb-item active">16. Intentions vs. navigation</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -142,83 +156,63 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="4-application-hockey-version-1">4. Application Hockey Version 1</h1>
-<p>Ce code définit une structure pour représenter des joueurs de hockey et crée des composants d'interface utilisateur en
-utilisant Jetpack Compose pour afficher ces joueurs dans une liste. Il comprend une classe de données pour les joueurs,
-une fonction pour générer des exemples de joueurs, et deux fonctions composables principales : une pour afficher une
-carte de joueur individuelle et une autre pour afficher une liste de ces cartes.</p>
-<h2 id="explication-detaillee-des-fonctions-composables">Explication détaillée des fonctions composables</h2>
-<h3 id="playercard"><code>PlayerCard</code></h3>
-<pre><code class="language-kotlin">@Composable
-fun PlayerCard(player: Player, modifier: Modifier = Modifier) {
-    // ...
-}
-</code></pre>
-<p>Cette fonction composable crée une carte pour afficher les informations d'un joueur individuel.</p>
+                <h1 id="16-intentions-vs-navigation">16. Intentions vs. navigation</h1>
+<h2 id="intent-vs-navigation"><code>Intent</code> vs. <code>Navigation</code></h2>
+<h3 id="navigation-compose">Navigation Compose</h3>
+<h4 id="avantages">Avantages</h4>
 <ul>
-<li>Elle prend en paramètre un objet <code>Player</code> et un <code>Modifier</code> optionnel.</li>
-<li>Utilise un composant <code>Card</code> pour créer une carte avec des coins arrondis et une bordure.</li>
-<li>À l'intérieur de la carte, elle organise le contenu dans une <code>Column</code> (colonne verticale).</li>
-<li>La première <code>Row</code> (ligne horizontale) contient l'image du joueur.</li>
-<li>La deuxième <code>Row</code> affiche le numéro et le nom du joueur.</li>
+<li><strong>Sécurité de type</strong> : Vérifications à la compilation, réduisant les erreurs potentielles[8]</li>
+<li><strong>Intégration native</strong> avec Jetpack Compose et l'architecture moderne d'Android[8]</li>
+<li><strong>Code plus lisible et maintenable</strong>, moins de code répétitif[8]</li>
+<li><strong>Approche déclarative</strong> qui simplifie la navigation[8]</li>
 </ul>
-<p>Composants utilisés :</p>
+<h4 id="inconvenients">Inconvénients</h4>
 <ul>
-<li><code>Card</code> : Crée une surface élevée avec une ombre et un contenu.</li>
-<li><code>Column</code> : Organise les éléments verticalement.</li>
-<li><code>Row</code> : Organise les éléments horizontalement.</li>
-<li><code>Image</code> : Affiche l'image du joueur.</li>
-<li><code>Text</code> : Affiche le texte (numéro et nom du joueur).</li>
-<li><code>Spacer</code> : Crée un espace entre les éléments.</li>
+<li>Limité aux types de données de base pour les arguments de navigation[6]</li>
+<li>Nécessite l'ajout d'une dépendance supplémentaire[5]</li>
 </ul>
-<p>Modificateurs utilisés :</p>
+<h3 id="navigation-par-intent">Navigation par Intent</h3>
+<h4 id="avantages_1">Avantages</h4>
 <ul>
-<li><code>fillMaxWidth()</code> : Remplit toute la largeur disponible.</li>
-<li><code>padding()</code> : Ajoute de l'espace autour des éléments.</li>
-<li><code>background()</code> : Définit la couleur de fond.</li>
-<li><code>width()</code> : Définit une largeur spécifique.</li>
+<li><strong>Flexibilité</strong> : Utilisable dans n'importe quel projet Android[8]</li>
+<li><strong>Familiarité</strong> : Documentation extensive et support communautaire[8]</li>
+<li><strong>Capacité à passer des objets Parcelable</strong> facilement[6]</li>
+<li><strong>Intégration facile</strong> avec d'autres composants Android[8]</li>
 </ul>
-<h3 id="playerlist"><code>PlayerList</code></h3>
-<pre><code class="language-kotlin">@Composable
-fun PlayerList(modifier: Modifier = Modifier) {
-    LazyColumn(modifier = modifier) {
-        items(getSamplePlayers()) {
-            PlayerCard(player = it)
-        }
-    }
-}
-</code></pre>
-<p>Cette fonction composable crée une liste déroulante de cartes de joueurs.</p>
+<h4 id="inconvenients_1">Inconvénients</h4>
 <ul>
-<li>Elle utilise <code>LazyColumn</code>, qui est optimisée pour afficher de longues listes d'éléments.</li>
-<li>La fonction <code>items()</code> est utilisée pour générer dynamiquement les éléments de la liste à partir de la liste de joueurs
-  retournée par <code>getSamplePlayers()</code>.</li>
-<li>Pour chaque joueur dans la liste, elle crée une <code>PlayerCard</code>.</li>
+<li><strong>Pas de vérification à la compilation</strong> : Risques d'erreurs à l'exécution[8]</li>
+<li><strong>Plus verbeux</strong> : Nécessite plus de code pour la gestion de la navigation[8]</li>
+<li><strong>Gestion manuelle</strong> du cycle de vie et de l'état[8]</li>
 </ul>
-<p>Composant principal :</p>
+<h3 id="recommandation">Recommandation</h3>
+<p>Pour une nouvelle application utilisant Jetpack Compose :</p>
 <ul>
-<li><code>LazyColumn</code> : Un conteneur de défilement vertical qui charge et affiche uniquement les éléments visibles à l'écran,
-  ce qui le rend efficace pour les longues listes.</li>
+<li>Privilégier la <strong>Navigation Compose</strong> pour la navigation interne à l'application[8]</li>
+<li>Utiliser les <strong>Intents</strong> uniquement pour :<ul>
+<li>La navigation vers d'autres applications</li>
+<li>Les cas nécessitant le passage d'objets complexes</li>
+<li>L'intégration avec des composants Android traditionnels</li>
 </ul>
-<p>Ces deux fonctions composables travaillent ensemble pour créer une interface utilisateur interactive et efficace pour
-afficher une liste de joueurs de hockey. <code>PlayerCard</code> gère l'affichage des détails individuels des joueurs, tandis que
-<code>PlayerList</code> organise ces cartes dans une liste déroulante.</p>
-<hr />
-<p><small>
-   <cite>
-      <strong>Note</strong> : <em>Page rédigée en partie avec l'aide d'un assistant IA, principalement
-      à l'aide de Perplexity AI, avec les _LLM</em> <code>GPT-4 Omni</code> et <code>Claude 3.5 Sonnet</code>. L'IA
-      a été utilisée pour générer des explications, des exemples et des suggestions de
-      structure. Toutes les informations ont été vérifiées, éditées et complétées par
-      l'auteur._
-   </cite>
-</small></p>
+</li>
+</ul>
+<p>Cette approche hybride permet de bénéficier des avantages de la Navigation Compose tout en gardant la flexibilité des
+Intents quand nécessaire[8].</p>
+<p>Citations:
+[1] https://stackoverflow.com/questions/65088035/how-to-navigate-from-a-composable-to-an-activity-in-jetpack-compose
+[2] https://guides.peruzal.com/v1/android-guides/navigation/intents/
+[3] https://www.geeksforgeeks.org/start-a-new-activity-using-intent-in-android-using-jetpack-compose/
+[4] https://developer.android.com/develop/ui/compose/navigation
+[5] https://developer.android.com/develop/ui/compose/navigation?hl=fr
+[6] https://betterprogramming.pub/intent-based-compose-navigation-1087634b984a
+[7] https://blog.kotlin-academy.com/mastery-navigation-in-jetpack-compose-db00b0a0ef75?gi=007e50484ede
+[8] https://rommansabbir.com/typesafe-navigation-or-traditional-intent-passing</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../03-premi%C3%A8re-app/" class="btn btn-neutral float-left" title="3. Première application avec Jetpack Compose"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../05-etats-evenements/" class="btn btn-neutral float-right" title="5. Gestion des états et des événements">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../15-intentions/" class="btn btn-neutral float-left" title="15. Intentions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../17-images-distantes/" class="btn btn-neutral float-right" title="17. Affichage d'images et de vidéos distantes">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -241,10 +235,10 @@ afficher une liste de joueurs de hockey. <code>PlayerCard</code> gère l'afficha
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../03-premi%C3%A8re-app/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../15-intentions/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../05-etats-evenements/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../17-images-distantes/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
