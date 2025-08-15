@@ -10,9 +10,10 @@ capable de créer et naviguer à travers des boucles.
 
 Kotlin propose `if` et `when` pour vérifier des expressions conditionnelles.
 
-> Si vous devez choisir entre `if` et `when`, nous vous recommandons d'utiliser `when`, car cela conduit à des
-> programmes plus robustes et plus sûrs.
->
+!!! Note
+    Si vous devez choisir entre `if` et `when`, nous vous recommandons d'utiliser `when`, car cela conduit à des
+    programmes plus robustes et plus sûrs.
+
 
 ### If
 
@@ -80,9 +81,10 @@ fun main() {
 }
 ```
 
-> Notez que toutes les conditions des branches sont vérifiées séquentiellement jusqu'à ce que l'une d'entre elles soit
-> satisfaite. Seule la première branche adéquate est donc exécutée.
->
+!!! Note
+    Notez que toutes les conditions des branches sont vérifiées séquentiellement jusqu'à ce que l'une d'entre elles soit
+    satisfaite. Seule la première branche adéquate est donc exécutée.
+
 
 Voici un exemple d'utilisation de `when` en tant qu'expression. La syntaxe `when` est immédiatement assignée à une
 variable :
@@ -210,10 +212,11 @@ Dans le premier cas d'utilisation (`while`) :
 * Déclarez l'expression conditionnelle pour que votre boucle continue entre parenthèses `()`.
 * Ajoutez l'action que vous voulez effectuer à l'intérieur des accolades `{}`.
 
-> Les exemples suivants utilisent
-> l'[opérateur d'incrémentation](https://kotlinlang.org/docs/operator-overloading.html#increments-and-decrements) `++`
-> pour incrémenter la valeur de la variable `gâteauxMangés`.
->
+!!! Note
+    Les exemples suivants utilisent
+    l'[opérateur d'incrémentation](https://kotlinlang.org/docs/operator-overloading.html#increments-and-decrements) `++`
+    pour incrémenter la valeur de la variable `gâteauxMangés`.
+
 
 ```kotlin
 fun main() {

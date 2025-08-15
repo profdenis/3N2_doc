@@ -51,9 +51,10 @@ fun main() {
 }
 ```
 
-> `length` est une propriété de la classe [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/) qui
-> contient le nombre de caractères dans une chaîne.
->
+!!! Note
+    `length` est une propriété de la classe [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/) qui
+    contient le nombre de caractères dans une chaîne.
+
 
 ## Vérifier les valeurs nulles
 
@@ -97,12 +98,13 @@ fun main() {
 }
 ```
 
-> Les appels sécurisés peuvent être chaînés de manière à ce que si une propriété d'un objet contient une valeur `null`,
-> alors `null` est renvoyé sans qu'une erreur soit levée. Par exemple :
-> ```kotlin
->   person.company?.address?.country
-> ```
->
+!!! Note
+    Les appels sécurisés peuvent être chaînés de manière à ce que si une propriété d'un objet contient une valeur `null`,   
+    alors `null` est renvoyé sans qu'une erreur soit levée. Par exemple :
+    ```kotlin
+       person.company?.address?.country
+    ```
+
 
 
 L'opérateur d'appel sécurisé peut également être utilisé pour appeler en toute sécurité une fonction d'extension ou de

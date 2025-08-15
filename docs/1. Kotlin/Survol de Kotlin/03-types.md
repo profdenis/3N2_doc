@@ -31,8 +31,9 @@ fun main() {
 }
 ```
 
-> `+=`, `-=`, `*=`, `/=`, et `%=` sont des opérateurs d'affectation augmentés. Pour plus d'informations,
-> voir [Affectations augmentées](https://kotlinlang.org/docs/operator-overloading.html#augmented-assignments).
+!!! Note
+    `+=`, `-=`, `*=`, `/=`, et `%=` sont des opérateurs d'affectation augmentés. Pour plus d'informations,
+    voir [Affectations augmentées](https://kotlinlang.org/docs/operator-overloading.html#augmented-assignments).
 
 Au total, Kotlin a les types de base suivants :
 

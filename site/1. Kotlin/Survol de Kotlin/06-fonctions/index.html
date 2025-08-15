@@ -1,444 +1,1775 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="fr" >
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="shortcut icon" href="../../../img/favicon.ico" />
-    <title>Fonctions - Programmation Android</title>
-    <link rel="stylesheet" href="../../../css/theme.css" />
-    <link rel="stylesheet" href="../../../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
-        <link href="../../../style.css" rel="stylesheet" />
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
-      <script>
-        // Current page data
-        var mkdocs_page_name = "Fonctions";
-        var mkdocs_page_input_path = "1. Kotlin/Survol de Kotlin/06-fonctions.md";
-        var mkdocs_page_url = null;
-      </script>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://profdenis.github.io/3N2_doc/1.%20Kotlin/Survol%20de%20Kotlin/06-fonctions/">
+      
+      
+        <link rel="prev" href="../05-flot/">
+      
+      
+        <link rel="next" href="../07-classes/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.50">
     
-    <!--[if lt IE 9]>
-      <script src="../../../js/html5shiv.min.js"></script>
-    <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
-</head>
+    
+      
+        <title>Fonctions - Programmation Android</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a40c8224.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
 
-<body class="wy-body-for-nav" role="document">
 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-          <a href="../../.." class="icon icon-home"> Programmation Android
-        </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../style.css">
+    
+      <link rel="stylesheet" href="../../../assets/mkdocs_puml/puml.css">
+    
+      <link rel="stylesheet" href="../../../assets/mkdocs_puml/interaction.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../../..">Programmation Android</a>
-                </li>
-              </ul>
-              <p class="caption"><span class="caption-text">1. Kotlin</span></p>
-              <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../../01-kotlin/">Le langage de programmation Kotlin</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../02-kotlin-android/">Kotlin pour Android</a>
-                  </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" >Survol de Kotlin</a>
-    <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../01-survol/">Survol de Kotlin</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../02-variables/">Variables</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../03-types/">Types de base</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../04-collections/">Collections</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../05-flot/">Flot de contrôle</a>
-                </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="#">Fonctions</a>
-    <ul class="current">
-    <li class="toctree-l3"><a class="reference internal" href="#arguments-nommes">Arguments nommés</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#valeurs-par-defaut-des-parametres">Valeurs par défaut des paramètres</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#fonctions-sans-retour">Fonctions sans retour</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#fonctions-a-expression-unique">Fonctions à expression unique</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#pratique-des-fonctions">Pratique des fonctions</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#exercice-1">Exercice 1</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#exercice-2">Exercice 2</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#exercice-3">Exercice 3</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#expressions-lambda">Expressions lambda</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#assigner-a-une-variable">Assigner à une variable</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#passer-a-une-autre-fonction">Passer à une autre fonction</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#types-de-fonction">Types de fonction</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#retour-dune-fonction">Retour d'une fonction</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#invoquer-separement">Invoquer séparément</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#lambdas-de-fin">Lambdas de fin</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#pratique-avec-les-expressions-lambda">Pratique avec les expressions lambda</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#exercice-1_1">Exercice 1</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#exercice-2_1">Exercice 2</a>
-    </li>
-        </ul>
-    </li>
-    </ul>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../07-classes/">Classes</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../08-valeurs-nulles/">Sécurité contre les valeurs nulles</a>
-                </li>
-    </ul>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">2. Android</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/01-intro/">1. Introduction à la programmation mobile et Android</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/02-intro-compose/">2. Introduction à Jetpack Compose</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/03-premi%C3%A8re-app/">3. Première application avec Jetpack Compose</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/04-hockey-v1/">4. Application Hockey Version 1</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/05-etats-evenements/">5. Gestion des états et des événements</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/06-hockey-v2/">6. Application Hockey Version 2</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/07-orientation/">7. Orientation de l'écran</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/08-hockey-v3/">8. Application Hockey Version 3</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/09-etats-evenements-v2/">9. Gestion des états et des événements</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/10-localisation/">10. Localisation</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/11-json/">11. Lire et écrire des fichiers JSON</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/12-cycle-de-vie/">12. Cycle de vie et architecture</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/13-architecture/">13. Architecture</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/14-navigation/">14. Navigation dans Jetpack Compose</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/15-intentions/">15. Intentions</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/16-intentions-vs-navigation/">16. Intentions vs. navigation</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/17-images-distantes/">17. Affichage d'images et de vidéos distantes</a>
-                  </li>
-              </ul>
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fonctions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Programmation Android" class="md-header__button md-logo" aria-label="Programmation Android" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programmation Android
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Fonctions
+            
+          </span>
+        </div>
       </div>
     </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../..">Programmation Android</a>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
         
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
       </nav>
-      <div class="wy-nav-content">
-        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">1. Kotlin</li>
-          <li class="breadcrumb-item">Survol de Kotlin</li>
-      <li class="breadcrumb-item active">Fonctions</li>
-    <li class="wy-breadcrumbs-aside">
-    </li>
-  </ul>
-  <hr/>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div class="section" itemprop="articleBody">
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/profdenis/3N2_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    profdenis/3N2_doc
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Programmation Android
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../01-kotlin/" class="md-tabs__link">
+          
+  
+  1. Kotlin
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../2.%20Android/01-intro/" class="md-tabs__link">
+          
+  
+  2. Android
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
               
-                <h1 id="fonctions">Fonctions</h1>
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Programmation Android" class="md-nav__button md-logo" aria-label="Programmation Android" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Programmation Android
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/profdenis/3N2_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    profdenis/3N2_doc
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Programmation Android
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    1. Kotlin
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            1. Kotlin
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-kotlin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Le langage de programmation Kotlin
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-kotlin-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kotlin pour Android
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Survol de Kotlin
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Survol de Kotlin
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-survol/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Survol de Kotlin
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-variables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Variables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Types de base
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-collections/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Collections
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-flot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flot de contrôle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Fonctions
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Fonctions
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#arguments-nommes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arguments nommés
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#valeurs-par-defaut-des-parametres" class="md-nav__link">
+    <span class="md-ellipsis">
+      Valeurs par défaut des paramètres
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fonctions-sans-retour" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fonctions sans retour
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fonctions-a-expression-unique" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fonctions à expression unique
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pratique-des-fonctions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pratique des fonctions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pratique des fonctions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercice-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 3
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expressions-lambda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Expressions lambda
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Expressions lambda">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assigner-a-une-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assigner à une variable
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passer-a-une-autre-fonction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Passer à une autre fonction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#types-de-fonction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Types de fonction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retour-dune-fonction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retour d&rsquo;une fonction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#invoquer-separement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Invoquer séparément
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lambdas-de-fin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lambdas de fin
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pratique-avec-les-expressions-lambda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pratique avec les expressions lambda
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pratique avec les expressions lambda">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercice-1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 2
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-classes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Classes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-valeurs-nulles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sécurité contre les valeurs nulles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2. Android
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            2. Android
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/01-intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Introduction à la programmation mobile et Android
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/02-intro-compose/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Introduction à Jetpack Compose
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/03-premi%C3%A8re-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Première application avec Jetpack Compose
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/04-hockey-v1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Application Hockey Version 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/05-etats-evenements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Gestion des états et des événements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/06-hockey-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Application Hockey Version 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/07-orientation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Orientation de l&rsquo;écran
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/08-hockey-v3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Application Hockey Version 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/09-etats-evenements-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Gestion des états et des événements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/10-localisation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Localisation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/11-json/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Lire et écrire des fichiers JSON
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/12-cycle-de-vie/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Cycle de vie et architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/13-architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/14-navigation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Navigation dans Jetpack Compose
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/15-intentions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Intentions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/16-intentions-vs-navigation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Intentions vs. navigation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/17-images-distantes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Affichage d&rsquo;images et de vidéos distantes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#arguments-nommes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arguments nommés
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#valeurs-par-defaut-des-parametres" class="md-nav__link">
+    <span class="md-ellipsis">
+      Valeurs par défaut des paramètres
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fonctions-sans-retour" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fonctions sans retour
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fonctions-a-expression-unique" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fonctions à expression unique
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pratique-des-fonctions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pratique des fonctions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pratique des fonctions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercice-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 3
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expressions-lambda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Expressions lambda
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Expressions lambda">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assigner-a-une-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assigner à une variable
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passer-a-une-autre-fonction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Passer à une autre fonction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#types-de-fonction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Types de fonction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retour-dune-fonction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retour d&rsquo;une fonction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#invoquer-separement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Invoquer séparément
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lambdas-de-fin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lambdas de fin
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pratique-avec-les-expressions-lambda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pratique avec les expressions lambda
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pratique avec les expressions lambda">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercice-1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 2
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="fonctions">Fonctions<a class="headerlink" href="#fonctions" title="Permanent link">&para;</a></h1>
 <p><a href="https://kotlinlang.org/docs/kotlin-tour-functions.html">Source</a></p>
 <p>Vous pouvez déclarer vos propres fonctions en Kotlin en utilisant le mot-clé <code>fun</code>.</p>
-<pre><code class="language-kotlin">fun hello() {
-    return println(&quot;Bonjour, monde!&quot;)
-}
-
-fun main() {
-    hello()
-    // Bonjour, monde!
-}
-</code></pre>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">hello</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Bonjour, monde!&quot;</span><span class="p">)</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">}</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="n">hello</span><span class="p">()</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="c1">// Bonjour, monde!</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">}</span>
+</span></code></pre></div>
 <p>En Kotlin:</p>
 <ul>
 <li>les paramètres de fonction sont écrits entre parenthèses <code>()</code>.</li>
 <li>chaque paramètre doit avoir un type, et plusieurs paramètres doivent être séparés par des virgules <code>,</code> .</li>
 <li>le type de retour est écrit après les parenthèses de la fonction <code>()</code>, séparé par un deux-points <code>:</code>.</li>
-<li>le corps d'une fonction est écrit entre accolades <code>{}</code>.</li>
-<li>le mot-clé <code>return</code> est utilisé pour sortir ou retourner quelque chose d'une fonction.</li>
+<li>le corps d&rsquo;une fonction est écrit entre accolades <code>{}</code>.</li>
+<li>le mot-clé <code>return</code> est utilisé pour sortir ou retourner quelque chose d&rsquo;une fonction.</li>
 </ul>
-<blockquote>
-<p>Si une fonction ne renvoie rien d'utile, le type de retour et le mot-clé <code>return</code> peuvent être omis. 
-</p>
-</blockquote>
-<p>Dans l'exemple suivant :</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Si une fonction ne renvoie rien d&rsquo;utile, le type de retour et le mot-clé <code>return</code> peuvent être omis.</p>
+</div>
+<p>Dans l&rsquo;exemple suivant :</p>
 <ul>
 <li><code>x</code> et <code>y</code> sont des paramètres de fonction.</li>
 <li><code>x</code> et <code>y</code> ont le type <code>Int</code>.</li>
 <li>le type de retour de la fonction est <code>Int</code>.</li>
-<li>la fonction renvoie une somme de <code>x</code> et <code>y</code> lorsqu'elle est appelée.</li>
+<li>la fonction renvoie une somme de <code>x</code> et <code>y</code> lorsqu&rsquo;elle est appelée.</li>
 </ul>
-<pre><code class="language-kotlin">fun sum(x: Int, y: Int): Int {
-    return x + y
-}
-
-fun main() {
-    println(sum(1, 2))
-    // 3
-}
-</code></pre>
-<blockquote>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">}</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">sum</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">))</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="c1">// 3</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>Nous recommandons dans nos <a href="https://kotlinlang.org/docs/coding-conventions.html#function-names">conventions de codage</a>
-que vous nommiez les fonctions en commençant par une lettre minuscule et utilisez camel case sans tirets du bas.
-</p>
-</blockquote>
-<h2 id="arguments-nommes">Arguments nommés</h2>
-<p>Pour un code concis, lors de l'appel de votre fonction, vous n'avez pas besoin d'inclure les noms des paramètres.
-Cependant, l'inclusion des noms des paramètres
-rend votre code plus facile à lire. C'est ce qu'on appelle l'utilisation des <strong>arguments nommés</strong>. Si vous incluez les
+que vous nommiez les fonctions en commençant par une lettre minuscule et utilisez camel case sans tirets du bas.</p>
+</div>
+<h2 id="arguments-nommes">Arguments nommés<a class="headerlink" href="#arguments-nommes" title="Permanent link">&para;</a></h2>
+<p>Pour un code concis, lors de l&rsquo;appel de votre fonction, vous n&rsquo;avez pas besoin d&rsquo;inclure les noms des paramètres.
+Cependant, l&rsquo;inclusion des noms des paramètres
+rend votre code plus facile à lire. C&rsquo;est ce qu&rsquo;on appelle l&rsquo;utilisation des <strong>arguments nommés</strong>. Si vous incluez les
 noms des paramètres, vous pouvez alors
-écrire les paramètres dans n'importe quel ordre.</p>
-<blockquote>
-<p>Dans l'exemple suivant,
+écrire les paramètres dans n&rsquo;importe quel ordre.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Dans l&rsquo;exemple suivant,
 les <a href="https://kotlinlang.org/docs/strings.html#string-templates">templates de chaînes de caractères</a> (<code>$</code>) sont
 utilisés pour accéder aux valeurs des paramètres, les convertir en type <code>String</code>, puis les concaténer en une chaîne
-pour l'impression.
-</p>
-</blockquote>
-<pre><code class="language-kotlin">fun printMessageWithPrefix(message: String, prefix: String) {
-    println(&quot;[$prefix] $message&quot;)
-}
-
-fun main() {
-    // Utilise des arguments nommés avec l'ordre des paramètres inversé
-    printMessageWithPrefix(prefix = &quot;Log&quot;, message = &quot;Bonjour&quot;)
-    // [Log] Bonjour
-}
-</code></pre>
-<h2 id="valeurs-par-defaut-des-parametres">Valeurs par défaut des paramètres</h2>
+pour l&rsquo;impression.</p>
+</div>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">printMessageWithPrefix</span><span class="p">(</span><span class="n">message</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="n">prefix</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;[</span><span class="si">$</span><span class="n">prefix</span><span class="s">] </span><span class="si">$</span><span class="n">message</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">}</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="c1">// Utilise des arguments nommés avec l&#39;ordre des paramètres inversé</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="n">printMessageWithPrefix</span><span class="p">(</span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Log&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Bonjour&quot;</span><span class="p">)</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="c1">// [Log] Bonjour</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="valeurs-par-defaut-des-parametres">Valeurs par défaut des paramètres<a class="headerlink" href="#valeurs-par-defaut-des-parametres" title="Permanent link">&para;</a></h2>
 <p>Vous pouvez définir des valeurs par défaut pour vos paramètres de fonction. Tout paramètre ayant une valeur par défaut
 peut être omis lors de
-l'appel de votre fonction. Pour déclarer une valeur par défaut, utilisez l'opérateur d'affectation <code>=</code> après le type :</p>
-<pre><code class="language-kotlin">fun printMessageWithPrefix(message: String, prefix: String = &quot;Info&quot;) {
-    println(&quot;[$prefix] $message&quot;)
-}
-
-fun main() {
-    // Fonction appelée avec les deux paramètres
-    printMessageWithPrefix(&quot;Bonjour&quot;, &quot;Log&quot;)
-    // [Log] Bonjour
-
-    // Fonction appelée uniquement avec le paramètre message
-    printMessageWithPrefix(&quot;Bonjour&quot;)
-    // [Info] Bonjour
-
-    printMessageWithPrefix(prefix = &quot;Log&quot;, message = &quot;Bonjour&quot;)
-    // [Log] Bonjour
-}
-</code></pre>
-<blockquote>
+l&rsquo;appel de votre fonction. Pour déclarer une valeur par défaut, utilisez l&rsquo;opérateur d&rsquo;affectation <code>=</code> après le type :</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">printMessageWithPrefix</span><span class="p">(</span><span class="n">message</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">,</span><span class="w"> </span><span class="n">prefix</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Info&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;[</span><span class="si">$</span><span class="n">prefix</span><span class="s">] </span><span class="si">$</span><span class="n">message</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">}</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="c1">// Fonction appelée avec les deux paramètres</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="n">printMessageWithPrefix</span><span class="p">(</span><span class="s">&quot;Bonjour&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Log&quot;</span><span class="p">)</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="c1">// [Log] Bonjour</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="c1">// Fonction appelée uniquement avec le paramètre message</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="n">printMessageWithPrefix</span><span class="p">(</span><span class="s">&quot;Bonjour&quot;</span><span class="p">)</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="c1">// [Info] Bonjour</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="n">printMessageWithPrefix</span><span class="p">(</span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Log&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Bonjour&quot;</span><span class="p">)</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span><span class="c1">// [Log] Bonjour</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>Vous pouvez omettre des paramètres spécifiques ayant des valeurs par défaut, plutôt que de tous les omettre.
 Cependant, après le
-premier paramètre omis, vous devez nommer tous les paramètres suivants.
-</p>
-</blockquote>
-<h2 id="fonctions-sans-retour">Fonctions sans retour</h2>
+premier paramètre omis, vous devez nommer tous les paramètres suivants.</p>
+</div>
+<h2 id="fonctions-sans-retour">Fonctions sans retour<a class="headerlink" href="#fonctions-sans-retour" title="Permanent link">&para;</a></h2>
 <p>Si votre fonction ne renvoie pas de valeur utile, alors son type de retour est <code>Unit</code>. <code>Unit</code> est un type avec une seule
 valeur -
-<code>Unit</code>. Vous n'avez pas à déclarer explicitement dans le corps de votre fonction que <code>Unit</code> est renvoyé. Cela signifie
-que vous n'avez pas
+<code>Unit</code>. Vous n&rsquo;avez pas à déclarer explicitement dans le corps de votre fonction que <code>Unit</code> est renvoyé. Cela signifie
+que vous n&rsquo;avez pas
 à utiliser le mot-clé <code>return</code> ou déclarer un type de retour :</p>
-<pre><code class="language-kotlin">fun printMessage(message: String) {
-    println(message)
-    // `return Unit` ou `return` est optionnel
-}
-
-fun main() {
-    printMessage(&quot;Bonjour&quot;)
-    // Bonjour
-}
-</code></pre>
-<h2 id="fonctions-a-expression-unique">Fonctions à expression unique</h2>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">printMessage</span><span class="p">(</span><span class="n">message</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="c1">// `return Unit` ou `return` est optionnel</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">}</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="n">printMessage</span><span class="p">(</span><span class="s">&quot;Bonjour&quot;</span><span class="p">)</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="c1">// Bonjour</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="fonctions-a-expression-unique">Fonctions à expression unique<a class="headerlink" href="#fonctions-a-expression-unique" title="Permanent link">&para;</a></h2>
 <p>Pour rendre votre code plus concis, vous pouvez utiliser des fonctions à expression unique. Par exemple, la
 fonction <code>sum()</code> peut être raccourcie :</p>
-<pre><code class="language-kotlin">fun sum(x: Int, y: Int): Int {
-    return x + y
-}
-
-fun main() {
-    println(sum(1, 2))
-    // 3
-}
-</code></pre>
-<p>Vous pouvez retirer les accolades <code>{}</code> et déclarer le corps de la fonction en utilisant l'opérateur d'affectation <code>=</code>.
-Et grâce à l'inférence de types de Kotlin,
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">}</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">sum</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">))</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="c1">// 3</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Vous pouvez retirer les accolades <code>{}</code> et déclarer le corps de la fonction en utilisant l&rsquo;opérateur d&rsquo;affectation <code>=</code>.
+Et grâce à l&rsquo;inférence de types de Kotlin,
 vous pouvez également omettre le type de retour. La fonction <code>sum()</code> devient alors une ligne :</p>
-<pre><code class="language-kotlin">fun sum(x: Int, y: Int) = x + y
-
-fun main() {
-    println(sum(1, 2))
-    // 3
-}
-</code></pre>
-<blockquote>
-<p>Omettre le type de retour n'est possible que lorsque votre fonction n'a pas de corps (<code>{}</code>). À moins que le type de
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">sum</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">))</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="c1">// 3</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Omettre le type de retour n&rsquo;est possible que lorsque votre fonction n&rsquo;a pas de corps (<code>{}</code>). À moins que le type de
 retour de votre fonction
-ne soit <code>Unit</code>.
-</p>
-</blockquote>
-<h2 id="pratique-des-fonctions">Pratique des fonctions</h2>
-<h3 id="exercice-1">Exercice 1</h3>
-<p>Écrivez une fonction appelée <code>circleArea</code> qui prend le rayon d'un cercle au format entier comme paramètre et affiche
-l'aire de ce cercle.</p>
-<blockquote>
+ne soit <code>Unit</code>.</p>
+</div>
+<h2 id="pratique-des-fonctions">Pratique des fonctions<a class="headerlink" href="#pratique-des-fonctions" title="Permanent link">&para;</a></h2>
+<h3 id="exercice-1">Exercice 1<a class="headerlink" href="#exercice-1" title="Permanent link">&para;</a></h3>
+<p>Écrivez une fonction appelée <code>circleArea</code> qui prend le rayon d&rsquo;un cercle au format entier comme paramètre et affiche
+l&rsquo;aire de ce cercle.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>Dans cet exercice, vous importez un package afin de pouvoir accéder à la valeur de pi via <code>PI</code>. Pour plus
-d'informations sur
-l'importation de packages, voir <a href="https://kotlinlang.org/docs/packages.html">Packages and imports</a>.
-</p>
-</blockquote>
-<pre><code class="language-kotlin">import kotlin.math.PI
-
-fun circleArea() {
-    // Écrivez votre code ici
-}
-
-fun main() {
-    println(circleArea(2))
-}
-</code></pre>
+d&rsquo;informations sur l&rsquo;importation de packages, voir <a href="https://kotlinlang.org/docs/packages.html">Packages and imports</a>.</p>
+</div>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">import</span><span class="w"> </span><span class="nn">kotlin.math.PI</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">circleArea</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="c1">// Écrivez votre code ici</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="p">}</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">circleArea</span><span class="p">(</span><span class="m">2</span><span class="p">))</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="p">}</span>
+</span></code></pre></div>
 <details>
     <summary>Réponse</summary>
 
-
-<pre><code class="language-kotlin">import kotlin.math.PI
-
-fun circleArea(radius: Int): Double {
-    return PI * radius * radius
-}
-fun main() {
-    println(circleArea(2)) // 12.566370614359172
-}
-</code></pre>
-
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">import</span><span class="w"> </span><span class="nn">kotlin.math.PI</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">circleArea</span><span class="p">(</span><span class="n">radius</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="kt">Double</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">PI</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">radius</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">radius</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="p">}</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">circleArea</span><span class="p">(</span><span class="m">2</span><span class="p">))</span><span class="w"> </span><span class="c1">// 12.566370614359172</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="p">}</span>
+</span></code></pre></div>
 
 </details>
 <p><br></p>
-<h3 id="exercice-2">Exercice 2</h3>
-<p>Réécrivez la fonction <code>circleArea</code> de l'exercice précédent comme une fonction à expression unique.</p>
-<pre><code class="language-kotlin">import kotlin.math.PI
-
-// Écrivez votre code ici
-
-fun main() {
-    println(circleArea(2))
-}
-</code></pre>
+<h3 id="exercice-2">Exercice 2<a class="headerlink" href="#exercice-2" title="Permanent link">&para;</a></h3>
+<p>Réécrivez la fonction <code>circleArea</code> de l&rsquo;exercice précédent comme une fonction à expression unique.</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">import</span><span class="w"> </span><span class="nn">kotlin.math.PI</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="c1">// Écrivez votre code ici</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">circleArea</span><span class="p">(</span><span class="m">2</span><span class="p">))</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="p">}</span>
+</span></code></pre></div>
 <details>
     <summary>Réponse</summary>
 
-
-<pre><code class="language-kotlin">import kotlin.math.PI
-
-fun circleArea(radius: Int): Double = PI * radius * radius
-
-fun main() {
-    println(circleArea(2)) // 12.566370614359172
-}
-</code></pre>
-
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">import</span><span class="w"> </span><span class="nn">kotlin.math.PI</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">circleArea</span><span class="p">(</span><span class="n">radius</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="kt">Double</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PI</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">radius</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">radius</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">circleArea</span><span class="p">(</span><span class="m">2</span><span class="p">))</span><span class="w"> </span><span class="c1">// 12.566370614359172</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="p">}</span>
+</span></code></pre></div>
 
 </details>
 <p><br></p>
-<h3 id="exercice-3">Exercice 3</h3>
+<h3 id="exercice-3">Exercice 3<a class="headerlink" href="#exercice-3" title="Permanent link">&para;</a></h3>
 <p>Vous avez une fonction qui traduit un intervalle de temps donné en heures, minutes et secondes en secondes. Dans la
 plupart des cas, vous devez passer seulement un ou deux paramètres de fonction alors que le reste est égal à 0.
-Améliorez la fonction et le code qui l'appelle en utilisant des valeurs par défaut pour les paramètres et des arguments
+Améliorez la fonction et le code qui l&rsquo;appelle en utilisant des valeurs par défaut pour les paramètres et des arguments
 nommés afin que le code soit plus facile à lire.</p>
-<pre><code class="language-kotlin">fun intervalInSeconds(hours: Int, minutes: Int, seconds: Int) =
-    ((hours * 60) + minutes) * 60 + seconds
-
-fun main() {
-    println(intervalInSeconds(1, 20, 15))
-    println(intervalInSeconds(0, 1, 25))
-    println(intervalInSeconds(2, 0, 0))
-    println(intervalInSeconds(0, 10, 0))
-    println(intervalInSeconds(1, 0, 1))
-}
-</code></pre>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">intervalInSeconds</span><span class="p">(</span><span class="n">hours</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">minutes</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">seconds</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="p">((</span><span class="n">hours</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">60</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">minutes</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">60</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">seconds</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">intervalInSeconds</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="m">15</span><span class="p">))</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">intervalInSeconds</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">25</span><span class="p">))</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">intervalInSeconds</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">))</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">intervalInSeconds</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">))</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">intervalInSeconds</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">))</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="p">}</span>
+</span></code></pre></div>
 <details>
     <summary>Réponse</summary>
 
-
-<pre><code class="language-kotlin">fun intervalInSeconds(hours: Int = 0, minutes: Int = 0, seconds: Int = 0) =
-    ((hours * 60) + minutes) * 60 + seconds
-
-fun main() {
-    println(intervalInSeconds(1, 20, 15))
-    println(intervalInSeconds(minutes = 1, seconds = 25))
-    println(intervalInSeconds(hours = 2))
-    println(intervalInSeconds(minutes = 10))
-    println(intervalInSeconds(hours = 1, seconds = 1))
-}
-</code></pre>
-
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">intervalInSeconds</span><span class="p">(</span><span class="n">hours</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">minutes</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">seconds</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="p">((</span><span class="n">hours</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">60</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">minutes</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">60</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">seconds</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">intervalInSeconds</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="m">15</span><span class="p">))</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">intervalInSeconds</span><span class="p">(</span><span class="n">minutes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">seconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">25</span><span class="p">))</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">intervalInSeconds</span><span class="p">(</span><span class="n">hours</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">))</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">intervalInSeconds</span><span class="p">(</span><span class="n">minutes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">))</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">intervalInSeconds</span><span class="p">(</span><span class="n">hours</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">seconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">))</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="p">}</span>
+</span></code></pre></div>
 
 </details>
 <p><br></p>
-<h2 id="expressions-lambda">Expressions lambda</h2>
-<p>Kotlin vous permet d'écrire un code encore plus concis pour les fonctions en utilisant des expressions lambda.</p>
+<h2 id="expressions-lambda">Expressions lambda<a class="headerlink" href="#expressions-lambda" title="Permanent link">&para;</a></h2>
+<p>Kotlin vous permet d&rsquo;écrire un code encore plus concis pour les fonctions en utilisant des expressions lambda.</p>
 <p>Par exemple, la fonction <code>uppercaseString()</code> suivante :</p>
-<pre><code class="language-kotlin">fun uppercaseString(text: String): String {
-    return text.uppercase()
-}
-fun main() {
-    println(uppercaseString(&quot;bonjour&quot;))
-    // BONJOUR
-}
-</code></pre>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">uppercaseString</span><span class="p">(</span><span class="n">text</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">):</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">text</span><span class="p">.</span><span class="na">uppercase</span><span class="p">()</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="p">}</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">uppercaseString</span><span class="p">(</span><span class="s">&quot;bonjour&quot;</span><span class="p">))</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="c1">// BONJOUR</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="p">}</span>
+</span></code></pre></div>
 <p>Peut également être écrite comme une expression lambda :</p>
-<pre><code class="language-kotlin">fun main() {
-    println({ text: String -&gt; text.uppercase() }(&quot;bonjour&quot;))
-    // BONJOUR
-}
-</code></pre>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span><span class="n">println</span><span class="p">({</span><span class="w"> </span><span class="n">text</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">text</span><span class="p">.</span><span class="na">uppercase</span><span class="p">()</span><span class="w"> </span><span class="p">}(</span><span class="s">&quot;bonjour&quot;</span><span class="p">))</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="c1">// BONJOUR</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="p">}</span>
+</span></code></pre></div>
 <p>Les expressions lambda peuvent être difficiles à comprendre à première vue, alors décomposons-les. Les expressions
 lambda sont écrites entre accolades <code>{}</code>.</p>
-<p>Dans l'expression lambda, vous écrivez :</p>
+<p>Dans l&rsquo;expression lambda, vous écrivez :</p>
 <ul>
 <li>les paramètres suivis par un <code>-&gt;</code>.</li>
 <li>le corps de la fonction après le <code>-&gt;</code>.</li>
 </ul>
-<p>Dans l'exemple précédent :</p>
+<p>Dans l&rsquo;exemple précédent :</p>
 <ul>
 <li><code>text</code> est un paramètre de fonction.</li>
 <li><code>text</code> a le type <code>String</code>.</li>
@@ -446,78 +1777,79 @@ lambda sont écrites entre accolades <code>{}</code>.</p>
   fonction <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/uppercase.html"><code>.uppercase()</code></a>
   appelée sur <code>text</code>.</li>
 </ul>
-<blockquote>
-<p>Si vous déclarez une lambda sans paramètres, alors il n'est pas nécessaire d'utiliser <code>-&gt;</code>. Par exemple :</p>
-</blockquote>
-<pre><code class="language-kotlin">{ println(&quot;Message de log&quot;) }
-</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Si vous déclarez une lambda sans paramètres, alors il n&rsquo;est pas nécessaire d&rsquo;utiliser <code>-&gt;</code>. Par exemple :</p>
+</div>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p">{</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Message de log&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
 <p>Les expressions lambda peuvent être utilisées de plusieurs façons. Vous pouvez :</p>
 <ul>
 <li>attribuer une lambda à une variable que vous pouvez ensuite invoquer plus tard</li>
 <li>passer une expression lambda comme paramètre à une autre fonction</li>
-<li>retourner une expression lambda d'une fonction</li>
+<li>retourner une expression lambda d&rsquo;une fonction</li>
 <li>invoquer une expression lambda indépendamment</li>
 </ul>
-<h3 id="assigner-a-une-variable">Assigner à une variable</h3>
-<p>Pour attribuer une expression lambda à une variable, utilisez l'opérateur d'affectation <code>=</code> :</p>
-<pre><code class="language-kotlin">fun main() {
-    val UpperCaseString = { text: String -&gt; text.uppercase() }
-    println(UpperCaseString(&quot;bonjour&quot;))
-    // BONJOUR
-}
-</code></pre>
-<h3 id="passer-a-une-autre-fonction">Passer à une autre fonction</h3>
-<p>Un excellent exemple de quand il est utile de passer une expression lambda à une fonction est d'utiliser la
+<h3 id="assigner-a-une-variable">Assigner à une variable<a class="headerlink" href="#assigner-a-une-variable" title="Permanent link">&para;</a></h3>
+<p>Pour attribuer une expression lambda à une variable, utilisez l&rsquo;opérateur d&rsquo;affectation <code>=</code> :</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">UpperCaseString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">text</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">text</span><span class="p">.</span><span class="na">uppercase</span><span class="p">()</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">UpperCaseString</span><span class="p">(</span><span class="s">&quot;bonjour&quot;</span><span class="p">))</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="c1">// BONJOUR</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="passer-a-une-autre-fonction">Passer à une autre fonction<a class="headerlink" href="#passer-a-une-autre-fonction" title="Permanent link">&para;</a></h3>
+<p>Un excellent exemple de quand il est utile de passer une expression lambda à une fonction est d&rsquo;utiliser la
 fonction <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/filter.html"><code>.filter()</code></a>
 sur des collections :</p>
-<pre><code class="language-kotlin">fun main() {
-    //sampleStart
-    val numbers = listOf(1, -2, 3, -4, 5, -6)
-    val positives = numbers.filter { x -&gt; x &gt; 0 }
-    val negatives = numbers.filter { x -&gt; x &lt; 0 }
-    println(positives)
-    // [1, 3, 5]
-    println(negatives)
-    // [-2, -4, -6]
-    //sampleEnd
-}
-</code></pre>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">    </span><span class="c1">//sampleStart</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listOf</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="m">6</span><span class="p">)</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">positives</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numbers</span><span class="p">.</span><span class="na">filter</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">negatives</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numbers</span><span class="p">.</span><span class="na">filter</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">positives</span><span class="p">)</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">    </span><span class="c1">// [1, 3, 5]</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">negatives</span><span class="p">)</span>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w">    </span><span class="c1">// [-2, -4, -6]</span>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="w">    </span><span class="c1">//sampleEnd</span>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="p">}</span>
+</span></code></pre></div>
 <p>La fonction <code>.filter()</code> accepte une expression lambda en tant que prédicat :</p>
 <ul>
 <li><code>{ x -&gt; x &gt; 0 }</code> prend chaque élément de la liste et ne renvoie que ceux qui sont positifs.</li>
 <li><code>{ x -&gt; x &lt; 0 }</code> prend chaque élément de la liste et ne renvoie que ceux qui sont négatifs.</li>
 </ul>
-<blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>Si une expression lambda est le seul paramètre de fonction, vous pouvez supprimer les parenthèses de fonction <code>()</code>.
-Il s'agit d'un exemple de <em>lambda de fin</em>, qui est discuté plus en détail à la fin de ce chapitre.
-</p>
-</blockquote>
-<p>Un autre bon exemple est l'utilisation de la
+Il s&rsquo;agit d&rsquo;un exemple de <em>lambda de fin</em>, qui est discuté plus en détail à la fin de ce chapitre.</p>
+</div>
+<p>Un autre bon exemple est l&rsquo;utilisation de la
 fonction <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map.html"><code>.map()</code></a>
-pour transformer les éléments d'une collection :</p>
-<pre><code class="language-kotlin">fun main() {
-    //sampleStart
-    val numbers = listOf(1, -2, 3, -4, 5, -6)
-    val doubled = numbers.map { x -&gt; x * 2 }
-    val tripled = numbers.map { x -&gt; x * 3 }
-    println(doubled)
-    // [2, -4, 6, -8, 10, -12]
-    println(tripled)
-    // [3, -6, 9, -12, 15, -18]
-    //sampleEnd
-}
-</code></pre>
+pour transformer les éléments d&rsquo;une collection :</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">    </span><span class="c1">//sampleStart</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listOf</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="m">6</span><span class="p">)</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">doubled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numbers</span><span class="p">.</span><span class="na">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">tripled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numbers</span><span class="p">.</span><span class="na">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">doubled</span><span class="p">)</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="w">    </span><span class="c1">// [2, -4, 6, -8, 10, -12]</span>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">tripled</span><span class="p">)</span>
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="w">    </span><span class="c1">// [3, -6, 9, -12, 15, -18]</span>
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="w">    </span><span class="c1">//sampleEnd</span>
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="p">}</span>
+</span></code></pre></div>
 <p>La fonction <code>.map()</code> accepte une expression lambda en tant que fonction de transformation :</p>
 <ul>
 <li><code>{ x -&gt; x * 2 }</code> prend chaque élément de la liste et renvoie cet élément multiplié par 2.</li>
 <li><code>{ x -&gt; x * 3 }</code> prend chaque élément de la liste et renvoie cet élément multiplié par 3.</li>
 </ul>
-<h3 id="types-de-fonction">Types de fonction</h3>
-<p>Avant de pouvoir renvoyer une expression lambda d'une fonction, vous devez d'abord comprendre les <strong>types de fonction</strong>.</p>
+<h3 id="types-de-fonction">Types de fonction<a class="headerlink" href="#types-de-fonction" title="Permanent link">&para;</a></h3>
+<p>Avant de pouvoir renvoyer une expression lambda d&rsquo;une fonction, vous devez d&rsquo;abord comprendre les <strong>types de fonction</strong>.</p>
 <p>Vous avez déjà appris les types de base, mais les fonctions elles-mêmes ont aussi un type.
-L'inférence de type de Kotlin peut déduire le type d'une fonction à partir du type de paramètre.
+L&rsquo;inférence de type de Kotlin peut déduire le type d&rsquo;une fonction à partir du type de paramètre.
 Mais il peut y avoir des moments où vous devez explicitement spécifier le type de la fonction.
-Le compilateur a besoin du type de fonction pour savoir ce qui est autorisé et ce qui ne l'est pas pour cette fonction.</p>
+Le compilateur a besoin du type de fonction pour savoir ce qui est autorisé et ce qui ne l&rsquo;est pas pour cette fonction.</p>
 <p>La syntaxe pour un type de fonction a :</p>
 <ul>
 <li>le type de chaque paramètre écrit entre parenthèses <code>()</code> et séparé par des virgules <code>,</code>.</li>
@@ -525,181 +1857,241 @@ Le compilateur a besoin du type de fonction pour savoir ce qui est autorisé et 
 </ul>
 <p>Par exemple : <code>(String) -&gt; String</code> ou <code>(Int, Int) -&gt; Int</code>.</p>
 <p>Voici à quoi ressemble une expression lambda si un type de fonction pour <code>upperCaseString()</code> est défini :</p>
-<pre><code class="language-kotlin">val upperCaseString: (String) -&gt; String = { text -&gt; text.uppercase() }
-
-fun main() {
-    println(upperCaseString(&quot;bonjour&quot;))
-    // BONJOUR
-}
-</code></pre>
-<p>Si votre expression lambda n'a pas de paramètres, alors les parenthèses <code>()</code> sont laissées vides. Par
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kd">val</span><span class="w"> </span><span class="nv">upperCaseString</span><span class="p">:</span><span class="w"> </span><span class="p">(</span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">text</span><span class="p">.</span><span class="na">uppercase</span><span class="p">()</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">upperCaseString</span><span class="p">(</span><span class="s">&quot;bonjour&quot;</span><span class="p">))</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">    </span><span class="c1">// BONJOUR</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Si votre expression lambda n&rsquo;a pas de paramètres, alors les parenthèses <code>()</code> sont laissées vides. Par
 exemple : <code>() -&gt; Unit</code></p>
-<blockquote>
-<p>Vous devez déclarer les types de paramètres et de retour soit dans l'expression lambda, soit en tant que type de
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Vous devez déclarer les types de paramètres et de retour soit dans l&rsquo;expression lambda, soit en tant que type de
 fonction. Sinon, le
 compilateur ne pourra pas savoir quelle est le type de votre expression lambda.</p>
 <p>Par exemple, la ligne suivante ne fonctionnera pas :</p>
-<p><code>val upperCaseString = { str -&gt; str.uppercase() }</code>
-</p>
-</blockquote>
-<h3 id="retour-dune-fonction">Retour d'une fonction</h3>
+<p><code>val upperCaseString = { str -&gt; str.uppercase() }</code></p>
+</div>
+<h3 id="retour-dune-fonction">Retour d&rsquo;une fonction<a class="headerlink" href="#retour-dune-fonction" title="Permanent link">&para;</a></h3>
 <p>Des expressions lambda peuvent être renvoyées par une fonction. Ainsi, pour que le compilateur comprenne quel est le
-type de l'expression lambda renvoyée, vous devez déclarer un type de fonction.</p>
-<p>Dans l'exemple suivant, la fonction <code>toSeconds()</code> a un type de fonction <code>(Int) -&gt; Int</code> car elle renvoie toujours une
+type de l&rsquo;expression lambda renvoyée, vous devez déclarer un type de fonction.</p>
+<p>Dans l&rsquo;exemple suivant, la fonction <code>toSeconds()</code> a un type de fonction <code>(Int) -&gt; Int</code> car elle renvoie toujours une
 expression lambda qui prend un paramètre de type <code>Int</code> et renvoie une valeur <code>Int</code>.</p>
 <p>Cet exemple utilise une expression <code>when</code> pour déterminer quelle expression lambda est renvoyée lorsque <code>toSeconds()</code>
 est appelée :</p>
-<pre><code class="language-kotlin">fun toSeconds(time: String): (Int) -&gt; Int = when (time) {
-    &quot;heure&quot; -&gt; { value -&gt; value * 60 * 60 }
-    &quot;minute&quot; -&gt; { value -&gt; value * 60 }
-    &quot;seconde&quot; -&gt; { value -&gt; value }
-    else -&gt; { value -&gt; value }
-}
-
-fun main() {
-    val tempsEnMinutes = listOf(2, 10, 15, 1)
-    val min2sec = toSeconds(&quot;minute&quot;)
-    val tempsTotalEnSecondes = tempsEnMinutes.map(min2sec).sum()
-    println(&quot;Le temps total est de $tempsTotalEnSecondes secondes&quot;)
-    // Le temps total est de 1680 secondes
-}
-</code></pre>
-<h3 id="invoquer-separement">Invoquer séparément</h3>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">toSeconds</span><span class="p">(</span><span class="n">time</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">):</span><span class="w"> </span><span class="p">(</span><span class="kt">Int</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="n">time</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">    </span><span class="s">&quot;heure&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">60</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">    </span><span class="s">&quot;minute&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">60</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">    </span><span class="s">&quot;seconde&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="p">}</span>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">tempsEnMinutes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listOf</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">15</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">min2sec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">toSeconds</span><span class="p">(</span><span class="s">&quot;minute&quot;</span><span class="p">)</span>
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">tempsTotalEnSecondes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tempsEnMinutes</span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">min2sec</span><span class="p">).</span><span class="na">sum</span><span class="p">()</span>
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Le temps total est de </span><span class="si">$</span><span class="n">tempsTotalEnSecondes</span><span class="s"> secondes&quot;</span><span class="p">)</span>
+</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a><span class="w">    </span><span class="c1">// Le temps total est de 1680 secondes</span>
+</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="invoquer-separement">Invoquer séparément<a class="headerlink" href="#invoquer-separement" title="Permanent link">&para;</a></h3>
 <p>Les expressions lambda peuvent être invoquées seules en ajoutant des parenthèses <code>()</code> après les accolades <code>{}</code> et en
 incluant
 tous les paramètres dans les parenthèses :</p>
-<pre><code class="language-kotlin">fun main() {
-    //sampleStart
-    println({ text: String -&gt; text.uppercase() }(&quot;bonjour&quot;))
-    // BONJOUR
-    //sampleEnd
-}
-</code></pre>
-<h3 id="lambdas-de-fin">Lambdas de fin</h3>
-<p>Comme vous l'avez déjà vu, si une expression lambda est le seul paramètre d'une fonction, vous pouvez supprimer les
-parenthèses de fonction <code>()</code>. Si une expression lambda est passée en tant que dernier paramètre d'une fonction, alors
-l'expression peut être écrite en dehors des parenthèses de fonction <code>()</code>. Dans les deux cas, cette syntaxe est appelée
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">    </span><span class="c1">//sampleStart</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">    </span><span class="n">println</span><span class="p">({</span><span class="w"> </span><span class="n">text</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">text</span><span class="p">.</span><span class="na">uppercase</span><span class="p">()</span><span class="w"> </span><span class="p">}(</span><span class="s">&quot;bonjour&quot;</span><span class="p">))</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">    </span><span class="c1">// BONJOUR</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">    </span><span class="c1">//sampleEnd</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="lambdas-de-fin">Lambdas de fin<a class="headerlink" href="#lambdas-de-fin" title="Permanent link">&para;</a></h3>
+<p>Comme vous l&rsquo;avez déjà vu, si une expression lambda est le seul paramètre d&rsquo;une fonction, vous pouvez supprimer les
+parenthèses de fonction <code>()</code>. Si une expression lambda est passée en tant que dernier paramètre d&rsquo;une fonction, alors
+l&rsquo;expression peut être écrite en dehors des parenthèses de fonction <code>()</code>. Dans les deux cas, cette syntaxe est appelée
 un <strong>lambda de fin</strong>.</p>
 <p>Par exemple, la fonction <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/fold.html"><code>.fold()</code></a> accepte
 une valeur initiale et une opération :</p>
-<pre><code class="language-kotlin">fun main() {
-    //sampleStart
-    // La valeur initiale est zéro.
-    // L'opération somme la valeur initiale avec chaque élément de la liste cumulativement.
-    println(listOf(1, 2, 3).fold(0, { x, item -&gt; x + item })) // 6
-
-    // Sinon, sous la forme d'un lambda de fin
-    println(listOf(1, 2, 3).fold(0) { x, item -&gt; x + item })  // 6
-    //sampleEnd
-}
-</code></pre>
-<p>Pour plus d'informations sur les expressions lambda,
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">    </span><span class="c1">//sampleStart</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">    </span><span class="c1">// La valeur initiale est zéro.</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">    </span><span class="c1">// L&#39;opération somme la valeur initiale avec chaque élément de la liste cumulativement.</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">listOf</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">).</span><span class="na">fold</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="p">}))</span><span class="w"> </span><span class="c1">// 6</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="w">    </span><span class="c1">// Sinon, sous la forme d&#39;un lambda de fin</span>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">listOf</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">).</span><span class="na">fold</span><span class="p">(</span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="p">})</span><span class="w">  </span><span class="c1">// 6</span>
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="w">    </span><span class="c1">//sampleEnd</span>
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Pour plus d&rsquo;informations sur les expressions lambda,
 consultez <a href="https://kotlinlang.org/docs/lambdas.html#lambda-expressions-and-anonymous-functions">Expressions lambda et fonctions anonymes</a>.</p>
-<p>La prochaine étape de notre tour est d'apprendre à propos des <a href="../07-classes/">classes</a> en Kotlin.</p>
-<h2 id="pratique-avec-les-expressions-lambda">Pratique avec les expressions lambda</h2>
-<h3 id="exercice-1_1">Exercice 1</h3>
-<p>Vous disposez d'une liste d'actions prises en charge par un service web, d'un préfixe commun pour toutes les requêtes et
-d'un identifiant d'une ressource particulière.
-Pour demander une action <code>titre</code> sur la ressource avec l'ID : 5, vous devez créer l'URL
+<p>La prochaine étape de notre tour est d&rsquo;apprendre à propos des <a href="../07-classes/">classes</a> en Kotlin.</p>
+<h2 id="pratique-avec-les-expressions-lambda">Pratique avec les expressions lambda<a class="headerlink" href="#pratique-avec-les-expressions-lambda" title="Permanent link">&para;</a></h2>
+<h3 id="exercice-1_1">Exercice 1<a class="headerlink" href="#exercice-1_1" title="Permanent link">&para;</a></h3>
+<p>Vous disposez d&rsquo;une liste d&rsquo;actions prises en charge par un service web, d&rsquo;un préfixe commun pour toutes les requêtes et
+d&rsquo;un identifiant d&rsquo;une ressource particulière.
+Pour demander une action <code>titre</code> sur la ressource avec l&rsquo;ID : 5, vous devez créer l&rsquo;URL
 suivante : <code>https://example.com/informations-livre/5/titre</code>.
-Utilisez une expression lambda pour créer une liste d'URL à partir de la liste des actions.</p>
-<pre><code class="language-kotlin">fun main() {
-    val actions = listOf(&quot;titre&quot;, &quot;année&quot;, &quot;auteur&quot;)
-    val prefix = &quot;https://example.com/informations-livre&quot;
-    val id = 5
-    val urls = // Écrivez votre code ici
-        println(urls)
-}
-</code></pre>
+Utilisez une expression lambda pour créer une liste d&rsquo;URL à partir de la liste des actions.</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">actions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listOf</span><span class="p">(</span><span class="s">&quot;titre&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;année&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;auteur&quot;</span><span class="p">)</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://example.com/informations-livre&quot;</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">urls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="c1">// Écrivez votre code ici</span>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="n">urls</span><span class="p">)</span>
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="p">}</span>
+</span></code></pre></div>
 <details>
     <summary>Réponse</summary>
 
-
-<pre><code class="language-kotlin">fun main() {
-    val actions = listOf(&quot;titre&quot;, &quot;année&quot;, &quot;auteur&quot;)
-    val prefix = &quot;https://example.com/informations-livre&quot;
-    val id = 5
-    val urls = actions.map { action -&gt; &quot;$prefix/$id/$action&quot; }
-    println(urls)
-}
-</code></pre>
-
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">actions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listOf</span><span class="p">(</span><span class="s">&quot;titre&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;année&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;auteur&quot;</span><span class="p">)</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://example.com/informations-livre&quot;</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">urls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">actions</span><span class="p">.</span><span class="na">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">action</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;</span><span class="si">$</span><span class="n">prefix</span><span class="s">/</span><span class="si">$</span><span class="n">id</span><span class="s">/</span><span class="si">$</span><span class="n">action</span><span class="s">&quot;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">urls</span><span class="p">)</span>
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="p">}</span>
+</span></code></pre></div>
 </details>
 <p><br></p>
-<h3 id="exercice-2_1">Exercice 2</h3>
+<h3 id="exercice-2_1">Exercice 2<a class="headerlink" href="#exercice-2_1" title="Permanent link">&para;</a></h3>
 <p>Écrivez une fonction qui prend une valeur <code>Int</code> et une action (une fonction de type <code>() -&gt; Unit</code>) qui répète ensuite
-l'action le nombre de fois donné. Ensuite, utilisez cette fonction pour imprimer "Bonjour" 5 fois.</p>
-<pre><code class="language-kotlin">fun repeatN(n: Int, action: () -&gt; Unit) {
-    // Écrivez votre code ici
-}
-
-fun main() {
-    // Écrivez votre code ici
-}
-</code></pre>
+l&rsquo;action le nombre de fois donné. Ensuite, utilisez cette fonction pour imprimer &ldquo;Bonjour&rdquo; 5 fois.</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">repeatN</span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">action</span><span class="p">:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">Unit</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">    </span><span class="c1">// Écrivez votre code ici</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="p">}</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="w">    </span><span class="c1">// Écrivez votre code ici</span>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="p">}</span>
+</span></code></pre></div>
 <details>
     <summary>Réponse</summary>
 
-
-<pre><code class="language-kotlin">fun repeatN(n: Int, action: () -&gt; Unit) {
-    for (i in 1..n) {
-        action()
-    }
-}
-fun main() {
-    repeatN(5) {
-        println(&quot;Bonjour&quot;)
-    }
-}
-</code></pre>
-
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">repeatN</span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">action</span><span class="p">:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">Unit</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1.</span><span class="p">.</span><span class="na">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">        </span><span class="n">action</span><span class="p">()</span>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="p">}</span>
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="w">    </span><span class="n">repeatN</span><span class="p">(</span><span class="m">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a><span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Bonjour&quot;</span><span class="p">)</span>
+</span><span id="__span-26-9"><a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a><span class="p">}</span>
+</span></code></pre></div>
 </details>
 <p><br></p>
-              
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
             </div>
-          </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../05-flot/" class="btn btn-neutral float-left" title="Flot de contrôle"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../07-classes/" class="btn btn-neutral float-right" title="Classes">Next <span class="icon icon-circle-arrow-right"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-  </div>
-
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
           
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="Versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
     
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../05-flot/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Flot de contrôle">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Flot de contrôle
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../07-classes/" class="md-footer__link md-footer__link--next" aria-label="Next: Classes">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Classes
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
-      <span><a href="../05-flot/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../07-classes/" style="color: #fcfcfc">Next &raquo;</a></span>
-    
-  </span>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
 </div>
-    <script src="../../../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "../../..";</script>
-    <script src="../../../js/theme_extra.js"></script>
-    <script src="../../../js/theme.js"></script>
-      <script src="../../../search/main.js"></script>
-    <script>
-        jQuery(function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        });
-    </script>
-
-</body>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.select", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "navigation.footer", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.60a45f97.min.js"></script>
+      
+        <script src="../../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../assets/mkdocs_puml/puml.js"></script>
+      
+        <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+      
+        <script src="../../../assets/mkdocs_puml/interaction.js"></script>
+      
+    
+  </body>
 </html>

@@ -1,395 +1,1637 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="fr" >
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="shortcut icon" href="../../../img/favicon.ico" />
-    <title>Flot de contrôle - Programmation Android</title>
-    <link rel="stylesheet" href="../../../css/theme.css" />
-    <link rel="stylesheet" href="../../../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
-        <link href="../../../style.css" rel="stylesheet" />
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
-      <script>
-        // Current page data
-        var mkdocs_page_name = "Flot de contr\u00f4le";
-        var mkdocs_page_input_path = "1. Kotlin/Survol de Kotlin/05-flot.md";
-        var mkdocs_page_url = null;
-      </script>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://profdenis.github.io/3N2_doc/1.%20Kotlin/Survol%20de%20Kotlin/05-flot/">
+      
+      
+        <link rel="prev" href="../04-collections/">
+      
+      
+        <link rel="next" href="../06-fonctions/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.50">
     
-    <!--[if lt IE 9]>
-      <script src="../../../js/html5shiv.min.js"></script>
-    <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
-</head>
+    
+      
+        <title>Flot de contrôle - Programmation Android</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a40c8224.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
 
-<body class="wy-body-for-nav" role="document">
 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-          <a href="../../.." class="icon icon-home"> Programmation Android
-        </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../style.css">
+    
+      <link rel="stylesheet" href="../../../assets/mkdocs_puml/puml.css">
+    
+      <link rel="stylesheet" href="../../../assets/mkdocs_puml/interaction.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../../..">Programmation Android</a>
-                </li>
-              </ul>
-              <p class="caption"><span class="caption-text">1. Kotlin</span></p>
-              <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../../01-kotlin/">Le langage de programmation Kotlin</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../02-kotlin-android/">Kotlin pour Android</a>
-                  </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" >Survol de Kotlin</a>
-    <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../01-survol/">Survol de Kotlin</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../02-variables/">Variables</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../03-types/">Types de base</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../04-collections/">Collections</a>
-                </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="#">Flot de contrôle</a>
-    <ul class="current">
-    <li class="toctree-l3"><a class="reference internal" href="#expressions-conditionnelles">Expressions conditionnelles</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#if">If</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#when">When</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#intervalles">Intervalles</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#boucles">Boucles</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#pour">Pour</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#tant-que">Tant que</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#pratique">Pratique</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#exercice-1">Exercice 1</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#exercice-2">Exercice 2</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#exercice-3">Exercice 3</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#exercice-4">Exercice 4</a>
-    </li>
-        </ul>
-    </li>
-    </ul>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../06-fonctions/">Fonctions</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../07-classes/">Classes</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../08-valeurs-nulles/">Sécurité contre les valeurs nulles</a>
-                </li>
-    </ul>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">2. Android</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/01-intro/">1. Introduction à la programmation mobile et Android</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/02-intro-compose/">2. Introduction à Jetpack Compose</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/03-premi%C3%A8re-app/">3. Première application avec Jetpack Compose</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/04-hockey-v1/">4. Application Hockey Version 1</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/05-etats-evenements/">5. Gestion des états et des événements</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/06-hockey-v2/">6. Application Hockey Version 2</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/07-orientation/">7. Orientation de l'écran</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/08-hockey-v3/">8. Application Hockey Version 3</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/09-etats-evenements-v2/">9. Gestion des états et des événements</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/10-localisation/">10. Localisation</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/11-json/">11. Lire et écrire des fichiers JSON</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/12-cycle-de-vie/">12. Cycle de vie et architecture</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/13-architecture/">13. Architecture</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/14-navigation/">14. Navigation dans Jetpack Compose</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/15-intentions/">15. Intentions</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/16-intentions-vs-navigation/">16. Intentions vs. navigation</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../2.%20Android/17-images-distantes/">17. Affichage d'images et de vidéos distantes</a>
-                  </li>
-              </ul>
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#flot-de-controle" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Programmation Android" class="md-header__button md-logo" aria-label="Programmation Android" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programmation Android
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Flot de contrôle
+            
+          </span>
+        </div>
       </div>
     </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../..">Programmation Android</a>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
         
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
       </nav>
-      <div class="wy-nav-content">
-        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">1. Kotlin</li>
-          <li class="breadcrumb-item">Survol de Kotlin</li>
-      <li class="breadcrumb-item active">Flot de contrôle</li>
-    <li class="wy-breadcrumbs-aside">
-    </li>
-  </ul>
-  <hr/>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div class="section" itemprop="articleBody">
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/profdenis/3N2_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    profdenis/3N2_doc
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Programmation Android
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../01-kotlin/" class="md-tabs__link">
+          
+  
+  1. Kotlin
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../2.%20Android/01-intro/" class="md-tabs__link">
+          
+  
+  2. Android
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
               
-                <h1 id="flot-de-controle">Flot de contrôle</h1>
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Programmation Android" class="md-nav__button md-logo" aria-label="Programmation Android" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Programmation Android
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/profdenis/3N2_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    profdenis/3N2_doc
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Programmation Android
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    1. Kotlin
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            1. Kotlin
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-kotlin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Le langage de programmation Kotlin
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-kotlin-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kotlin pour Android
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Survol de Kotlin
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Survol de Kotlin
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-survol/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Survol de Kotlin
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-variables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Variables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Types de base
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-collections/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Collections
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Flot de contrôle
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Flot de contrôle
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#expressions-conditionnelles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Expressions conditionnelles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Expressions conditionnelles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if" class="md-nav__link">
+    <span class="md-ellipsis">
+      If
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when" class="md-nav__link">
+    <span class="md-ellipsis">
+      When
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intervalles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intervalles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boucles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Boucles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Boucles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pour" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pour
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tant-que" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tant que
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pratique" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pratique
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pratique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercice-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 3
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 4
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-fonctions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fonctions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-classes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Classes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-valeurs-nulles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sécurité contre les valeurs nulles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2. Android
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            2. Android
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/01-intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Introduction à la programmation mobile et Android
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/02-intro-compose/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Introduction à Jetpack Compose
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/03-premi%C3%A8re-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Première application avec Jetpack Compose
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/04-hockey-v1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Application Hockey Version 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/05-etats-evenements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Gestion des états et des événements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/06-hockey-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Application Hockey Version 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/07-orientation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Orientation de l&rsquo;écran
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/08-hockey-v3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Application Hockey Version 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/09-etats-evenements-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Gestion des états et des événements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/10-localisation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Localisation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/11-json/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Lire et écrire des fichiers JSON
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/12-cycle-de-vie/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Cycle de vie et architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/13-architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/14-navigation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Navigation dans Jetpack Compose
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/15-intentions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Intentions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/16-intentions-vs-navigation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Intentions vs. navigation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.%20Android/17-images-distantes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Affichage d&rsquo;images et de vidéos distantes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#expressions-conditionnelles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Expressions conditionnelles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Expressions conditionnelles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if" class="md-nav__link">
+    <span class="md-ellipsis">
+      If
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when" class="md-nav__link">
+    <span class="md-ellipsis">
+      When
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intervalles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intervalles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boucles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Boucles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Boucles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pour" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pour
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tant-que" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tant que
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pratique" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pratique
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pratique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercice-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 3
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercice-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercice 4
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="flot-de-controle">Flot de contrôle<a class="headerlink" href="#flot-de-controle" title="Permanent link">&para;</a></h1>
 <p><a href="https://kotlinlang.org/docs/kotlin-tour-control-flow.html">Source</a></p>
-<p>Comme les autres langages de programmation, Kotlin est capable de prendre des décisions en fonction de l'évaluation d'un
+<p>Comme les autres langages de programmation, Kotlin est capable de prendre des décisions en fonction de l&rsquo;évaluation d&rsquo;un
 fragment de code à vrai. De tels fragments de code sont appelés <strong>expressions conditionnelles</strong>. Kotlin est également
 capable de créer et naviguer à travers des boucles.</p>
-<h2 id="expressions-conditionnelles">Expressions conditionnelles</h2>
+<h2 id="expressions-conditionnelles">Expressions conditionnelles<a class="headerlink" href="#expressions-conditionnelles" title="Permanent link">&para;</a></h2>
 <p>Kotlin propose <code>if</code> et <code>when</code> pour vérifier des expressions conditionnelles.</p>
-<blockquote>
-<p>Si vous devez choisir entre <code>if</code> et <code>when</code>, nous vous recommandons d'utiliser <code>when</code>, car cela conduit à des
-programmes plus robustes et plus sûrs.
-</p>
-</blockquote>
-<h3 id="if">If</h3>
-<p>Pour utiliser <code>if</code>, ajoutez l'expression conditionnelle entre parenthèses <code>()</code> et l'action à effectuer si le résultat
-est vrai à l'intérieur des accolades <code>{}</code> :</p>
-<pre><code class="language-kotlin">fun main() {
-//sampleStart
-    val d: Int
-    val check = true
-
-    if (check) {
-        d = 1
-    } else {
-        d = 2
-    }
-
-    println(d)
-    // 1
-//sampleEnd
-}
-</code></pre>
-<p>Il n'y a pas d'opérateur ternaire <code>condition ? then : else</code> en Kotlin. En revanche, <code>if</code> peut être utilisé comme une
-expression. S'il n'y a qu'une seule ligne de code par action, les accolades <code>{}</code> sont facultatives :</p>
-<pre><code class="language-kotlin">fun main() {
-//sampleStart
-    val a = 1
-    val b = 2
-
-    println(if (a &gt; b) a else b) // Returns a value: 2
-//sampleEnd
-}
-</code></pre>
-<h3 id="when">When</h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Si vous devez choisir entre <code>if</code> et <code>when</code>, nous vous recommandons d&rsquo;utiliser <code>when</code>, car cela conduit à des
+programmes plus robustes et plus sûrs.</p>
+</div>
+<h3 id="if">If<a class="headerlink" href="#if" title="Permanent link">&para;</a></h3>
+<p>Pour utiliser <code>if</code>, ajoutez l&rsquo;expression conditionnelle entre parenthèses <code>()</code> et l&rsquo;action à effectuer si le résultat
+est vrai à l&rsquo;intérieur des accolades <code>{}</code> :</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1">//sampleStart</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">d</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">check</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">check</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">        </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="c1">// 1</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="c1">//sampleEnd</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Il n&rsquo;y a pas d&rsquo;opérateur ternaire <code>condition ? then : else</code> en Kotlin. En revanche, <code>if</code> peut être utilisé comme une
+expression. S&rsquo;il n&rsquo;y a qu&rsquo;une seule ligne de code par action, les accolades <code>{}</code> sont facultatives :</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1">//sampleStart</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="c1">// Returns a value: 2</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1">//sampleEnd</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="when">When<a class="headerlink" href="#when" title="Permanent link">&para;</a></h3>
 <p>Utilisez <code>when</code> lorsque vous avez une expression conditionnelle avec plusieurs branches. <code>when</code> peut être utilisé soit
 comme une instruction, soit comme une expression.</p>
-<p>Voici un exemple d'utilisation de <code>when</code> en tant qu'instruction :</p>
+<p>Voici un exemple d&rsquo;utilisation de <code>when</code> en tant qu&rsquo;instruction :</p>
 <ul>
-<li>Placez l'expression conditionnelle entre parenthèses <code>()</code> et les actions à effectuer
-  à l'intérieur des accolades <code>{}</code>.</li>
+<li>Placez l&rsquo;expression conditionnelle entre parenthèses <code>()</code> et les actions à effectuer
+  à l&rsquo;intérieur des accolades <code>{}</code>.</li>
 <li>Utilisez <code>-&gt;</code> dans chaque branche pour séparer chaque condition de chaque action.</li>
 </ul>
-<pre><code class="language-kotlin">fun main() {
-//sampleStart
-    val obj = &quot;Hello&quot;
-
-    when (obj) {
-        // Vérifie si obj est égal à &quot;1&quot;
-        &quot;1&quot; -&gt; println(&quot;Un&quot;)
-        // Vérifie si obj est égal à &quot;Hello&quot;
-        &quot;Hello&quot; -&gt; println(&quot;Salutation&quot;)
-        // Instruction par défaut
-        else -&gt; println(&quot;Inconnu&quot;)
-    }
-    // Salutation
-//sampleEnd
-}
-</code></pre>
-<blockquote>
-<p>Notez que toutes les conditions des branches sont vérifiées séquentiellement jusqu'à ce que l'une d'entre elles soit
-satisfaite. Seule la première branche adéquate est donc exécutée.
-</p>
-</blockquote>
-<p>Voici un exemple d'utilisation de <code>when</code> en tant qu'expression. La syntaxe <code>when</code> est immédiatement assignée à une
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1">//sampleStart</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="n">obj</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="c1">// Vérifie si obj est égal à &quot;1&quot;</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Un&quot;</span><span class="p">)</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">        </span><span class="c1">// Vérifie si obj est égal à &quot;Hello&quot;</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">        </span><span class="s">&quot;Hello&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Salutation&quot;</span><span class="p">)</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="c1">// Instruction par défaut</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Inconnu&quot;</span><span class="p">)</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="c1">// Salutation</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="c1">//sampleEnd</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notez que toutes les conditions des branches sont vérifiées séquentiellement jusqu&rsquo;à ce que l&rsquo;une d&rsquo;entre elles soit
+satisfaite. Seule la première branche adéquate est donc exécutée.</p>
+</div>
+<p>Voici un exemple d&rsquo;utilisation de <code>when</code> en tant qu&rsquo;expression. La syntaxe <code>when</code> est immédiatement assignée à une
 variable :</p>
-<pre><code class="language-kotlin">fun main() {
-//sampleStart    
-    val obj = &quot;Hello&quot;
-
-    val result = when (obj) {
-        // Si obj est égal à &quot;1&quot;, assigne &quot;Un&quot; à result
-        &quot;1&quot; -&gt; &quot;Un&quot;
-        // Si obj est égal à &quot;Hello&quot;, assigne &quot;Salutation&quot; à result
-        &quot;Hello&quot; -&gt; &quot;Salutation&quot;
-        // Assign &quot;Inconnu&quot; à result si aucune des conditions précédentes n'est satisfaite
-        else -&gt; &quot;Inconnu&quot;
-    }
-    println(result)
-    // Salutation
-//sampleEnd
-}
-</code></pre>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1">//sampleStart    </span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="n">obj</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="c1">// Si obj est égal à &quot;1&quot;, assigne &quot;Un&quot; à result</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Un&quot;</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="c1">// Si obj est égal à &quot;Hello&quot;, assigne &quot;Salutation&quot; à result</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="s">&quot;Hello&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Salutation&quot;</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="c1">// Assign &quot;Inconnu&quot; à result si aucune des conditions précédentes n&#39;est satisfaite</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Inconnu&quot;</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="c1">// Salutation</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="c1">//sampleEnd</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="p">}</span>
+</span></code></pre></div>
 <p>Si <code>when</code> est utilisé comme une expression, la branche <code>else</code> est obligatoire, à moins que le compilateur puisse
 détecter
 que tous les cas possibles sont couverts par les conditions des branches.</p>
-<p>L'exemple précédent a montré que <code>when</code> est utile pour faire correspondre une variable. <code>when</code> est également utile
-lorsque vous avez besoin de vérifier une chaîne d'expressions booléennes :</p>
-<pre><code class="language-kotlin">fun main() {
-//sampleStart
-    val temp = 18
-
-    val description = when {
-        // Si temp &lt; 0 est vrai, assigne &quot;voir froid&quot; à description
-        temp &lt; 0 -&gt; &quot;très froid&quot;
-        // Si temp &lt; 10 est vrai, assigne &quot;un peu froid&quot; à description
-        temp &lt; 10 -&gt; &quot;un peu froid&quot;
-        // Si temp &lt; 20 est vrai, assigne &quot;chaud&quot; à description
-        temp &lt; 20 -&gt; &quot;chaud&quot;
-        // Assigne &quot;très chaud&quot; à description si aucune des conditions précédentes n'est satisfaite
-        else -&gt; &quot;très chaud&quot;
-    }
-    println(description)
-    // chaud
-//sampleEnd
-}
-</code></pre>
-<h2 id="intervalles">Intervalles</h2>
+<p>L&rsquo;exemple précédent a montré que <code>when</code> est utile pour faire correspondre une variable. <code>when</code> est également utile
+lorsque vous avez besoin de vérifier une chaîne d&rsquo;expressions booléennes :</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1">//sampleStart</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">18</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">        </span><span class="c1">// Si temp &lt; 0 est vrai, assigne &quot;voir froid&quot; à description</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">        </span><span class="n">temp</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;très froid&quot;</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">        </span><span class="c1">// Si temp &lt; 10 est vrai, assigne &quot;un peu froid&quot; à description</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">        </span><span class="n">temp</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;un peu froid&quot;</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">        </span><span class="c1">// Si temp &lt; 20 est vrai, assigne &quot;chaud&quot; à description</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">        </span><span class="n">temp</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;chaud&quot;</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">        </span><span class="c1">// Assigne &quot;très chaud&quot; à description si aucune des conditions précédentes n&#39;est satisfaite</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;très chaud&quot;</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">description</span><span class="p">)</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">    </span><span class="c1">// chaud</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="c1">//sampleEnd</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="intervalles">Intervalles<a class="headerlink" href="#intervalles" title="Permanent link">&para;</a></h2>
 <p>Avant de parler des boucles, il est utile de savoir comment construire des intervalles pour que les boucles puissent les
 parcourir.</p>
-<p>La façon la plus courante de créer un intervalle en Kotlin est d'utiliser l'opérateur <code>..</code>. Par exemple, <code>1..4</code> équivaut
+<p>La façon la plus courante de créer un intervalle en Kotlin est d&rsquo;utiliser l&rsquo;opérateur <code>..</code>. Par exemple, <code>1..4</code> équivaut
 à <code>1, 2, 3, 4</code>.</p>
-<p>Pour déclarer un intervalle qui n'inclut pas la valeur de fin, utilisez l'opérateur <code>..&lt;</code>. Par exemple, <code>1..&lt;4</code> équivaut
+<p>Pour déclarer un intervalle qui n&rsquo;inclut pas la valeur de fin, utilisez l&rsquo;opérateur <code>..&lt;</code>. Par exemple, <code>1..&lt;4</code> équivaut
 à <code>1, 2, 3</code>.</p>
 <p>Pour déclarer un intervalle en ordre inverse, utilisez <code>downTo.</code>. Par exemple, <code>4 downTo 1</code> équivaut à <code>4, 3, 2, 1</code>.</p>
-<p>Pour déclarer un intervalle qui augmente en pas qui n'est pas de 1, utilisez <code>step</code> et la valeur d'incrément souhaitée.
+<p>Pour déclarer un intervalle qui augmente en pas qui n&rsquo;est pas de 1, utilisez <code>step</code> et la valeur d&rsquo;incrément souhaitée.
 Par exemple, <code>1..5 step 2</code> équivaut à <code>1, 3, 5</code>.</p>
 <p>Il est également possible de faire la même chose avec des intervalles de caractères <code>Char</code> :</p>
 <ul>
 <li><code>'a'..'d'</code> équivaut à <code>'a', 'b', 'c', 'd'</code></li>
 <li><code>'z' downTo 's' step 2</code> équivaut à <code>'z', 'x', 'v', 't'</code></li>
 </ul>
-<h2 id="boucles">Boucles</h2>
+<h2 id="boucles">Boucles<a class="headerlink" href="#boucles" title="Permanent link">&para;</a></h2>
 <p>Les deux structures de boucle les plus courantes en programmation sont <code>for</code> et <code>while</code>. Utilisez <code>for</code> pour itérer sur
-une série de valeurs et effectuer une action. Utilisez <code>while</code> pour poursuivre une action jusqu'à ce qu'une condition
+une série de valeurs et effectuer une action. Utilisez <code>while</code> pour poursuivre une action jusqu&rsquo;à ce qu&rsquo;une condition
 particulière soit satisfaite.</p>
-<h3 id="pour">Pour</h3>
+<h3 id="pour">Pour<a class="headerlink" href="#pour" title="Permanent link">&para;</a></h3>
 <p>En utilisant votre nouvelle connaissance des intervalles, vous pouvez créer une boucle <code>for</code> qui itère sur les numéros 1
 à 5 et imprime le numéro à chaque fois.</p>
-<p>Placez l'itérateur et l'intervalle entre parenthèses <code>()</code> avec le mot-clé <code>in</code>. Ajoutez l'action que vous voulez
-terminer à l'intérieur des accolades <code>{}</code> :</p>
-<pre><code class="language-kotlin">fun main() {
-//sampleStart
-    for (number in 1..5) {
-        // number est l'itérateur et 1..5 est l'intervalle
-        print(number)
-    }
-    // 12345
-//sampleEnd
-}
-</code></pre>
+<p>Placez l&rsquo;itérateur et l&rsquo;intervalle entre parenthèses <code>()</code> avec le mot-clé <code>in</code>. Ajoutez l&rsquo;action que vous voulez
+terminer à l&rsquo;intérieur des accolades <code>{}</code> :</p>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1">//sampleStart</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1.</span><span class="p">.</span><span class="m">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">        </span><span class="c1">// number est l&#39;itérateur et 1..5 est l&#39;intervalle</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">        </span><span class="n">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="c1">// 12345</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="c1">//sampleEnd</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="p">}</span>
+</span></code></pre></div>
 <p>Les collections peuvent également être parcourues par des boucles :</p>
-<pre><code class="language-kotlin">fun main() {
-//sampleStart
-    val cakes = listOf(&quot;carotte&quot;, &quot;fromage&quot;, &quot;chocolat&quot;)
-
-    for (cake in cakes) {
-        println(&quot;Miam, c'est un gâteau à la $cake!&quot;)
-    }
-    // Miam, c'est un gâteau à la carotte!
-    // Miam, c'est un gâteau au fromage!
-    // Miam, c'est un gâteau au chocolat!
-//sampleEnd
-}
-</code></pre>
-<h3 id="tant-que">Tant que</h3>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1">//sampleStart</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">cakes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listOf</span><span class="p">(</span><span class="s">&quot;carotte&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;fromage&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;chocolat&quot;</span><span class="p">)</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">cake</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">cakes</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Miam, c&#39;est un gâteau à la </span><span class="si">$</span><span class="n">cake</span><span class="s">!&quot;</span><span class="p">)</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="c1">// Miam, c&#39;est un gâteau à la carotte!</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="c1">// Miam, c&#39;est un gâteau au fromage!</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="c1">// Miam, c&#39;est un gâteau au chocolat!</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="c1">//sampleEnd</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="tant-que">Tant que<a class="headerlink" href="#tant-que" title="Permanent link">&para;</a></h3>
 <p><code>while</code> peut être utilisé de deux façons :</p>
 <ul>
-<li>Pour exécuter un bloc de code tant qu'une expression conditionnelle est vraie. (<code>while</code>)</li>
-<li>Pour exécuter le bloc de code en premier, puis vérifier l'expression conditionnelle. (<code>do-while</code>)</li>
+<li>Pour exécuter un bloc de code tant qu&rsquo;une expression conditionnelle est vraie. (<code>while</code>)</li>
+<li>Pour exécuter le bloc de code en premier, puis vérifier l&rsquo;expression conditionnelle. (<code>do-while</code>)</li>
 </ul>
-<p>Dans le premier cas d'utilisation (<code>while</code>) :</p>
+<p>Dans le premier cas d&rsquo;utilisation (<code>while</code>) :</p>
 <ul>
-<li>Déclarez l'expression conditionnelle pour que votre boucle continue entre parenthèses <code>()</code>.</li>
-<li>Ajoutez l'action que vous voulez effectuer à l'intérieur des accolades <code>{}</code>.</li>
+<li>Déclarez l&rsquo;expression conditionnelle pour que votre boucle continue entre parenthèses <code>()</code>.</li>
+<li>Ajoutez l&rsquo;action que vous voulez effectuer à l&rsquo;intérieur des accolades <code>{}</code>.</li>
 </ul>
-<blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>Les exemples suivants utilisent
-l'<a href="https://kotlinlang.org/docs/operator-overloading.html#increments-and-decrements">opérateur d'incrémentation</a> <code>++</code>
-pour incrémenter la valeur de la variable <code>gâteauxMangés</code>.
-</p>
-</blockquote>
-<pre><code class="language-kotlin">fun main() {
-//sampleStart
-    var gâteauxMangés = 0
-    while (gâteauxMangés &lt; 3) {
-        println(&quot;Mange un gâteau&quot;)
-        gâteauxMangés++
-    }
-    // Mange un gâteau
-    // Mange un gâteau
-    // Mange un gâteau
-//sampleEnd
-}
-</code></pre>
+l&rsquo;<a href="https://kotlinlang.org/docs/operator-overloading.html#increments-and-decrements">opérateur d&rsquo;incrémentation</a> <code>++</code>
+pour incrémenter la valeur de la variable <code>gâteauxMangés</code>.</p>
+</div>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1">//sampleStart</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">gâteauxMangés</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">gâteauxMangés</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Mange un gâteau&quot;</span><span class="p">)</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">        </span><span class="n">gâteauxMangés</span><span class="o">++</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="c1">// Mange un gâteau</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="c1">// Mange un gâteau</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="c1">// Mange un gâteau</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="c1">//sampleEnd</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="p">}</span>
+</span></code></pre></div>
 <p>Dans le second cas (<code>do-while</code>) :</p>
 <ul>
-<li>Déclarez l'expression conditionnelle pour que votre boucle continue entre parenthèses <code>()</code>.</li>
-<li>Définissez l'action que vous voulez effectuer entre les accolades <code>{}</code> avec le mot-clé <code>do</code>.</li>
+<li>Déclarez l&rsquo;expression conditionnelle pour que votre boucle continue entre parenthèses <code>()</code>.</li>
+<li>Définissez l&rsquo;action que vous voulez effectuer entre les accolades <code>{}</code> avec le mot-clé <code>do</code>.</li>
 </ul>
-<pre><code class="language-kotlin">fun main() {
-//sampleStart
-    var gâteauxMangés = 0
-    var gâteauxCuits = 0
-    while (gâteauxMangés &lt; 3) {
-        println(&quot;Mange un gâteau&quot;)
-        gâteauxMangés++
-    }
-    do {
-        println(&quot;Cuit un gâteau&quot;)
-        gâteauxCuits++
-    } while (gâteauxCuits &lt; gâteauxMangés)
-    // Mange un gâteau
-    // Mange un gâteau
-    // Mange un gâteau
-    // Cuit un gâteau
-    // Cuit un gâteau
-    // Cuit un gâteau
-//sampleEnd
-}
-</code></pre>
-<p>Pour plus d'informations et d'exemples sur les expressions conditionnelles et les boucles,
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="c1">//sampleStart</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">gâteauxMangés</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">gâteauxCuits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">gâteauxMangés</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Mange un gâteau&quot;</span><span class="p">)</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">        </span><span class="n">gâteauxMangés</span><span class="o">++</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="k">do</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Cuit un gâteau&quot;</span><span class="p">)</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">        </span><span class="n">gâteauxCuits</span><span class="o">++</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">gâteauxCuits</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">gâteauxMangés</span><span class="p">)</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">    </span><span class="c1">// Mange un gâteau</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">    </span><span class="c1">// Mange un gâteau</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">    </span><span class="c1">// Mange un gâteau</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">    </span><span class="c1">// Cuit un gâteau</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">    </span><span class="c1">// Cuit un gâteau</span>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">    </span><span class="c1">// Cuit un gâteau</span>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="c1">//sampleEnd</span>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Pour plus d&rsquo;informations et d&rsquo;exemples sur les expressions conditionnelles et les boucles,
 voir <a href="https://kotlinlang.org/docs/control-flow.html">Conditions et boucles</a>.</p>
-<p>Maintenant que vous connaissez les fondamentaux du flux de contrôle de Kotlin, il est temps d'apprendre comment écrire
+<p>Maintenant que vous connaissez les fondamentaux du flux de contrôle de Kotlin, il est temps d&rsquo;apprendre comment écrire
 vos propres <a href="../06-fonctions/">fonctions</a>.</p>
-<h2 id="pratique">Pratique</h2>
-<h3 id="exercice-1">Exercice 1</h3>
+<h2 id="pratique">Pratique<a class="headerlink" href="#pratique" title="Permanent link">&para;</a></h2>
+<h3 id="exercice-1">Exercice 1<a class="headerlink" href="#exercice-1" title="Permanent link">&para;</a></h3>
 <p>En utilisant une expression <code>when</code>, mettez à jour le programme suivant de sorte que lorsque vous saisissez les noms des
 boutons du GameBoy, les actions soient affichées en sortie.</p>
 <table>
@@ -418,109 +1660,103 @@ boutons du GameBoy, les actions soient affichées en sortie.</p>
 </tr>
 <tr>
 <td>Autre</td>
-<td>Il n'y a pas de bouton de ce genre</td>
+<td>Il n&rsquo;y a pas de bouton de ce genre</td>
 </tr>
 </tbody>
 </table>
-<pre><code class="language-kotlin">fun main() {
-    val bouton = &quot;A&quot;
-
-    println(
-        // Écrivez votre code ici
-    )
-}
-</code></pre>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">bouton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;A&quot;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">        </span><span class="c1">// Écrivez votre code ici</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="p">)</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="p">}</span>
+</span></code></pre></div>
 <details>
     <summary>Réponse</summary>
 
-
-<pre><code class="language-kotlin">fun main() {
-    val bouton = &quot;A&quot;
-    println(
-        when (bouton) {
-            &quot;A&quot; -&gt; &quot;Oui&quot;
-            &quot;B&quot; -&gt; &quot;Non&quot;
-            &quot;X&quot; -&gt; &quot;Menu&quot;
-            &quot;Y&quot; -&gt; &quot;Rien&quot;
-            else -&gt; &quot;Il n'y a pas de bouton de ce genre&quot;
-        }
-    )
-}
-</code></pre>
-
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">bouton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;A&quot;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">        </span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="n">bouton</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">            </span><span class="s">&quot;A&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Oui&quot;</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">            </span><span class="s">&quot;B&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Non&quot;</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">            </span><span class="s">&quot;X&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Menu&quot;</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">            </span><span class="s">&quot;Y&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Rien&quot;</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Il n&#39;y a pas de bouton de ce genre&quot;</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">    </span><span class="p">)</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="p">}</span>
+</span></code></pre></div>
 
 </details>
 <p><br></p>
-<h3 id="exercice-2">Exercice 2</h3>
-<p>Vous avez un programme qui compte les tranches de pizza jusqu'à ce qu'il y ait une pizza entière avec 8 tranches.
+<h3 id="exercice-2">Exercice 2<a class="headerlink" href="#exercice-2" title="Permanent link">&para;</a></h3>
+<p>Vous avez un programme qui compte les tranches de pizza jusqu&rsquo;à ce qu&rsquo;il y ait une pizza entière avec 8 tranches.
 Refactorisez ce programme de deux façons :</p>
 <ul>
 <li>Utilisez une boucle <code>while</code>.</li>
 <li>Utilisez une boucle <code>do-while</code>.</li>
 </ul>
-<pre><code class="language-kotlin">fun main() {
-    var tranchesPizza = 0
-    // Commencez le refactoring ici
-    tranchesPizza++
-    println(&quot;Il n'y a que $tranchesPizza tranche/s de pizza :(&quot;)
-    tranchesPizza++
-    println(&quot;Il n'y a que $tranchesPizza tranche/s de pizza :(&quot;)
-    tranchesPizza++
-    println(&quot;Il n'y a que $tranchesPizza tranche/s de pizza :(&quot;)
-    tranchesPizza++
-    println(&quot;Il n'y a que $tranchesPizza tranche/s de pizza :(&quot;)
-    tranchesPizza++
-    println(&quot;Il n'y a que $tranchesPizza tranche/s de pizza :(&quot;)
-    tranchesPizza++
-    println(&quot;Il n'y a que $tranchesPizza tranche/s de pizza :(&quot;)
-    tranchesPizza++
-    println(&quot;Il n'y a que $tranchesPizza tranche/s de pizza :(&quot;)
-    tranchesPizza++
-    // Terminez le refactoring ici
-    println(&quot;Il y a $tranchesPizza tranches de pizza. Hourra! Nous avons une pizza entière! :D&quot;)
-}
-</code></pre>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">tranchesPizza</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="c1">// Commencez le refactoring ici</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="n">tranchesPizza</span><span class="o">++</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Il n&#39;y a que </span><span class="si">$</span><span class="n">tranchesPizza</span><span class="s"> tranche/s de pizza :(&quot;</span><span class="p">)</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="n">tranchesPizza</span><span class="o">++</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Il n&#39;y a que </span><span class="si">$</span><span class="n">tranchesPizza</span><span class="s"> tranche/s de pizza :(&quot;</span><span class="p">)</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="n">tranchesPizza</span><span class="o">++</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Il n&#39;y a que </span><span class="si">$</span><span class="n">tranchesPizza</span><span class="s"> tranche/s de pizza :(&quot;</span><span class="p">)</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">    </span><span class="n">tranchesPizza</span><span class="o">++</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Il n&#39;y a que </span><span class="si">$</span><span class="n">tranchesPizza</span><span class="s"> tranche/s de pizza :(&quot;</span><span class="p">)</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">    </span><span class="n">tranchesPizza</span><span class="o">++</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Il n&#39;y a que </span><span class="si">$</span><span class="n">tranchesPizza</span><span class="s"> tranche/s de pizza :(&quot;</span><span class="p">)</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">    </span><span class="n">tranchesPizza</span><span class="o">++</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Il n&#39;y a que </span><span class="si">$</span><span class="n">tranchesPizza</span><span class="s"> tranche/s de pizza :(&quot;</span><span class="p">)</span>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="w">    </span><span class="n">tranchesPizza</span><span class="o">++</span>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Il n&#39;y a que </span><span class="si">$</span><span class="n">tranchesPizza</span><span class="s"> tranche/s de pizza :(&quot;</span><span class="p">)</span>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">    </span><span class="n">tranchesPizza</span><span class="o">++</span>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="w">    </span><span class="c1">// Terminez le refactoring ici</span>
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Il y a </span><span class="si">$</span><span class="n">tranchesPizza</span><span class="s"> tranches de pizza. Hourra! Nous avons une pizza entière! :D&quot;</span><span class="p">)</span>
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="p">}</span>
+</span></code></pre></div>
 <details>
     <summary>Réponse</summary>
 
-
-<pre><code class="language-kotlin">fun main() {
-    var tranchesPizza = 0
-    while (tranchesPizza &lt; 7 ) {
-        tranchesPizza++
-        println(&quot;Il n 'y a que $tranchesPizza tranche/s de pizza :(&quot;)
-    }
-    tranchesPizza++
-    println(&quot;Il y a $tranchesPizza tranches de pizza. Hourra!Nous avons une pizza entière!:D&quot;)
-}
-</code></pre>
-
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">tranchesPizza</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">tranchesPizza</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">        </span><span class="n">tranchesPizza</span><span class="o">++</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Il n &#39;y a que </span><span class="si">$</span><span class="n">tranchesPizza</span><span class="s"> tranche/s de pizza :(&quot;</span><span class="p">)</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span><span class="n">tranchesPizza</span><span class="o">++</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Il y a </span><span class="si">$</span><span class="n">tranchesPizza</span><span class="s"> tranches de pizza. Hourra!Nous avons une pizza entière!:D&quot;</span><span class="p">)</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="p">}</span>
+</span></code></pre></div>
 
 </details>
 <p><br></p>
 <details>
     <summary>Réponse</summary>
 
-
-<pre><code class="language-kotlin">fun main() {
-    var tranchesPizza = 0
-    tranchesPizza++
-    do {
-        println(&quot;Il n 'y a que $tranchesPizza tranche/s de pizza :(&quot;)
-        tranchesPizza++
-    } while (tranchesPizza &lt; 8 )
-    println(&quot;Il y a $tranchesPizza tranches de pizza. Hourra!Nous avons une pizza entière!:D&quot;)
-}
-</code></pre>
-
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">tranchesPizza</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="n">tranchesPizza</span><span class="o">++</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span><span class="k">do</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Il n &#39;y a que </span><span class="si">$</span><span class="n">tranchesPizza</span><span class="s"> tranche/s de pizza :(&quot;</span><span class="p">)</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">        </span><span class="n">tranchesPizza</span><span class="o">++</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">tranchesPizza</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="p">)</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Il y a </span><span class="si">$</span><span class="n">tranchesPizza</span><span class="s"> tranches de pizza. Hourra!Nous avons une pizza entière!:D&quot;</span><span class="p">)</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="p">}</span>
+</span></code></pre></div>
 
 </details>
 <p><br></p>
-<h3 id="exercice-3">Exercice 3</h3>
-<p>Écrivez un programme qui simule le jeu <a href="https://fr.wikipedia.org/wiki/Fizz_buzz">Fizz buzz</a>. Votre tâche est d'imprimer
-les nombres de 1 à 100 de manière incrémentielle, en remplaçant tout nombre divisible par trois par le mot "fizz", et
-tout nombre divisible par cinq par le mot "buzz". Tout nombre divisible à la fois par 3 et 5 doit être remplacé par le
-mot "fizzbuzz".</p>
+<h3 id="exercice-3">Exercice 3<a class="headerlink" href="#exercice-3" title="Permanent link">&para;</a></h3>
+<p>Écrivez un programme qui simule le jeu <a href="https://fr.wikipedia.org/wiki/Fizz_buzz">Fizz buzz</a>. Votre tâche est d&rsquo;imprimer
+les nombres de 1 à 100 de manière incrémentielle, en remplaçant tout nombre divisible par trois par le mot &ldquo;fizz&rdquo;, et
+tout nombre divisible par cinq par le mot &ldquo;buzz&rdquo;. Tout nombre divisible à la fois par 3 et 5 doit être remplacé par le
+mot &ldquo;fizzbuzz&rdquo;.</p>
 <details>
     <summary>Indice</summary>
 
@@ -528,32 +1764,30 @@ Utilisez une boucle <code>for</code> pour compter les numéros et une expression
 qu'il faut imprimer à chaque étape.
 </details>
 <p><br></p>
-<pre><code class="language-kotlin">fun main() {
-    // Écrivez votre code ici
-}
-</code></pre>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span><span class="c1">// Écrivez votre code ici</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="p">}</span>
+</span></code></pre></div>
 <details>
     <summary>Réponse</summary>
 
-
-<pre><code class="language-kotlin">fun main() {
-    for (number in 1..100) {
-        println(
-            when {
-                number % 15 == 0 -&gt; &quot;fizzbuzz&quot;
-                number % 3 == 0 -&gt; &quot;fizz&quot;
-                number % 5 == 0 -&gt; &quot;buzz&quot;
-                else -&gt; &quot;$number&quot;
-            }
-        )
-    }
-}
-</code></pre>
-
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1.</span><span class="p">.</span><span class="m">100</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">        </span><span class="n">println</span><span class="p">(</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">            </span><span class="k">when</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">                </span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;fizzbuzz&quot;</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">                </span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;fizz&quot;</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">                </span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;buzz&quot;</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">                </span><span class="k">else</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;</span><span class="si">$</span><span class="n">number</span><span class="s">&quot;</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="w">        </span><span class="p">)</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="p">}</span>
+</span></code></pre></div>
 
 </details>
 <p><br></p>
-<h3 id="exercice-4">Exercice 4</h3>
+<h3 id="exercice-4">Exercice 4<a class="headerlink" href="#exercice-4" title="Permanent link">&para;</a></h3>
 <p>Vous avez une liste de mots. Utilisez <code>for</code> et <code>if</code> pour imprimer seulement les mots qui commencent par la lettre <code>l</code>.</p>
 <details>
     <summary>Indice</summary>
@@ -562,71 +1796,133 @@ Utilisez la fonction <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotli
 <code>.startsWith()</code></a> pour le type <code>String</code>.
 </details>
 <p><br></p>
-<pre><code class="language-kotlin">fun main() {
-    val mots = listOf(&quot;dinosaure&quot;, &quot;limousine&quot;, &quot;magazine&quot;, &quot;langue&quot;)
-    // Écrivez votre code ici
-}
-</code></pre>
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">mots</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listOf</span><span class="p">(</span><span class="s">&quot;dinosaure&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;limousine&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;magazine&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;langue&quot;</span><span class="p">)</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="c1">// Écrivez votre code ici</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="p">}</span>
+</span></code></pre></div>
 <details>
     <summary>Réponse</summary>
 
-
-<pre><code class="language-kotlin">fun main() {
-    val mots = listOf(&quot;dinosaure&quot;, &quot;limousine&quot;, &quot;magazine&quot;, &quot;langue&quot;)
-    for (m in mots) {
-        if (m.startsWith(&quot;l&quot;))
-            println(m)
-    }
-}
-</code></pre>
-
+<div class="language-kotlin highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">mots</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listOf</span><span class="p">(</span><span class="s">&quot;dinosaure&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;limousine&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;magazine&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;langue&quot;</span><span class="p">)</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">mots</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="na">startsWith</span><span class="p">(</span><span class="s">&quot;l&quot;</span><span class="p">))</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">            </span><span class="n">println</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="p">}</span>
+</span></code></pre></div>
 </details>
 <p><br></p>
-              
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
             </div>
-          </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../04-collections/" class="btn btn-neutral float-left" title="Collections"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../06-fonctions/" class="btn btn-neutral float-right" title="Fonctions">Next <span class="icon icon-circle-arrow-right"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-  </div>
-
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
           
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="Versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
     
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../04-collections/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Collections">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Collections
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../06-fonctions/" class="md-footer__link md-footer__link--next" aria-label="Next: Fonctions">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Fonctions
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
-      <span><a href="../04-collections/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../06-fonctions/" style="color: #fcfcfc">Next &raquo;</a></span>
-    
-  </span>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
 </div>
-    <script src="../../../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "../../..";</script>
-    <script src="../../../js/theme_extra.js"></script>
-    <script src="../../../js/theme.js"></script>
-      <script src="../../../search/main.js"></script>
-    <script>
-        jQuery(function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        });
-    </script>
-
-</body>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.select", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "navigation.footer", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.60a45f97.min.js"></script>
+      
+        <script src="../../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../assets/mkdocs_puml/puml.js"></script>
+      
+        <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+      
+        <script src="../../../assets/mkdocs_puml/interaction.js"></script>
+      
+    
+  </body>
 </html>

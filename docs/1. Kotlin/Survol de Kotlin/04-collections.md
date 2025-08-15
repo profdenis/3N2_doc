@@ -47,14 +47,15 @@ fun main() {
 }
 ```
 
-> Pour prévenir les modifications indésirables, vous pouvez obtenir des vues en lecture seule de listes modifiables en
-> les affectant à une `List` :
-```kotlin
-    val formes: MutableList<String> = mutableListOf("triangle", "carré", "cercle")
-    val formesVerrouillées: List<String> = formes
-```
-> Ceci est également appelé **casting** en anglais.
->
+!!! Note
+    Pour prévenir les modifications indésirables, vous pouvez obtenir des vues en lecture seule de listes modifiables en
+    les affectant à une `List` :
+    ```kotlin
+        val formes: MutableList<String> = mutableListOf("triangle", "carré", "cercle")
+        val formesVerrouillées: List<String> = formes
+    ```
+    Ceci est également appelé **casting** en anglais.
+
 
 
 Les listes sont ordonnées donc pour accéder à un élément dans une liste, utilisez
@@ -84,16 +85,17 @@ fun main() {
 }
 ```
 
-> Les fonctions [`.first()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/first.html)
-> et [`.last()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/last.html)
-> sont des exemples de **fonctions d'extension**. Pour appeler une fonction d'extension sur un objet, écrivez le nom de
-> la fonction
-> après l'objet en l'appendant avec un point `.`
->
-> Pour plus d'informations sur les fonctions d'extension,
-> voir [Fonctions d'extensions](https://kotlinlang.org/docs/extensions.html#extension-functions).
-> Pour les objectifs de cette visite, vous avez juste besoin de savoir comment les appeler.
->
+!!! Note
+    Les fonctions [`.first()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/first.html)
+    et [`.last()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/last.html)
+    sont des exemples de **fonctions d'extension**. Pour appeler une fonction d'extension sur un objet, écrivez le nom de
+    la fonction
+    après l'objet en l'appendant avec un point `.`
+    
+    Pour plus d'informations sur les fonctions d'extension,
+    voir [Fonctions d'extensions](https://kotlinlang.org/docs/extensions.html#extension-functions).
+    Pour les objectifs de cette visite, vous avez juste besoin de savoir comment les appeler.
+
 
 
 Pour obtenir le nombre d'éléments dans une liste, utilisez la
@@ -177,17 +179,17 @@ fun main() {
 Vous pouvez voir dans l'exemple précédent que comme les ensembles ne contiennent que des éléments uniques,
 l'élément `"cerise"` en double est supprimé.
 
-> Pour prévenir les modifications indésirables, obtenez des vues en lecture seule des ensembles modifiables en les
-> affectant à `Set` :
-> 
->`val fruits: MutableSet<String> = mutableSetOf("pomme", "banane", "cerise", "cerise")`
-> 
->`val fruitsVerrouillés: Set<String> = fruits`
->
+!!! Note
+    Pour prévenir les modifications indésirables, obtenez des vues en lecture seule des ensembles modifiables en les
+    affectant à `Set` :
+     
+    `val fruits: MutableSet<String> = mutableSetOf("pomme", "banane", "cerise", "cerise")`
+    
+    `val fruitsVerrouillés: Set<String> = fruits`
 
+!!! Note
+    Comme les ensembles sont **non ordonnés**, vous ne pouvez pas accéder à un élément à un index particulier.
 
-> Comme les ensembles sont **non ordonnés**, vous ne pouvez pas accéder à un élément à un index particulier.
->
 
 
 Pour obtenir le nombre d'éléments dans un ensemble, utilisez la
@@ -249,13 +251,14 @@ fun main() {
 }
 ```
 
-> [`keys`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/keys.html)
-> et [`values`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/values.html) sont des exemples de *
-*propriétés** d'un objet. Pour accéder à la propriété d'un objet, écrivez le nom de la propriété après l'objet, en
-> ajoutant un point `.`.
-> Les propriétés sont discutées plus en détail dans le chapitre [Classes](07-classes.md). À ce stade de la
-> visite, vous devez seulement savoir comment y accéder.
->
+!!! Note
+    [`keys`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/keys.html)
+    et [`values`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/values.html) sont des exemples de 
+    **propriétés** d'un objet. Pour accéder à la propriété d'un objet, écrivez le nom de la propriété après l'objet, en
+    ajoutant un point `.`.
+    Les propriétés sont discutées plus en détail dans le chapitre [Classes](07-classes.md). À ce stade de la
+    visite, vous devez seulement savoir comment y accéder.
+
 
 
 Pour vérifier qu'une clé ou une valeur est dans une mappe, utilisez

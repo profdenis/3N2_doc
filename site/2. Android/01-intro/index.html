@@ -1,200 +1,1584 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="fr" >
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>1. Introduction à la programmation mobile et Android - Programmation Android</title>
-    <link rel="stylesheet" href="../../css/theme.css" />
-    <link rel="stylesheet" href="../../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
-        <link href="../../style.css" rel="stylesheet" />
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
-      <script>
-        // Current page data
-        var mkdocs_page_name = "1. Introduction \u00e0 la programmation mobile et Android";
-        var mkdocs_page_input_path = "2. Android/01-intro.md";
-        var mkdocs_page_url = null;
-      </script>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://profdenis.github.io/3N2_doc/2.%20Android/01-intro/">
+      
+      
+        <link rel="prev" href="../../1.%20Kotlin/Survol%20de%20Kotlin/08-valeurs-nulles/">
+      
+      
+        <link rel="next" href="../02-intro-compose/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.50">
     
-    <!--[if lt IE 9]>
-      <script src="../../js/html5shiv.min.js"></script>
-    <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
-</head>
+    
+      
+        <title>1. Introduction à la programmation mobile et Android - Programmation Android</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
 
-<body class="wy-body-for-nav" role="document">
 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-          <a href="../.." class="icon icon-home"> Programmation Android
-        </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../style.css">
+    
+      <link rel="stylesheet" href="../../assets/mkdocs_puml/puml.css">
+    
+      <link rel="stylesheet" href="../../assets/mkdocs_puml/interaction.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../..">Programmation Android</a>
-                </li>
-              </ul>
-              <p class="caption"><span class="caption-text">1. Kotlin</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../1.%20Kotlin/01-kotlin/">Le langage de programmation Kotlin</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../1.%20Kotlin/02-kotlin-android/">Kotlin pour Android</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" >Survol de Kotlin</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/01-survol/">Survol de Kotlin</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/02-variables/">Variables</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/03-types/">Types de base</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/04-collections/">Collections</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/05-flot/">Flot de contrôle</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/06-fonctions/">Fonctions</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/07-classes/">Classes</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../../1.%20Kotlin/Survol%20de%20Kotlin/08-valeurs-nulles/">Sécurité contre les valeurs nulles</a>
-                </li>
-    </ul>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">2. Android</span></p>
-              <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">1. Introduction à la programmation mobile et Android</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#defis-de-la-programmation-mobile">Défis de la programmation mobile</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#android-vs-autres-plateformes">Android vs autres plateformes</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#historique-des-versions-dandroid">Historique des versions d'Android</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#applications-classiques-vs-modernes-sur-android">Applications classiques vs modernes sur Android</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#applications-classiques-java">Applications classiques (Java)</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#applications-modernes-kotlin-avec-jetpack-compose">Applications modernes (Kotlin avec Jetpack Compose)</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#etapes-de-developpement-dune-application-mobile-android">Étapes de développement d'une application mobile Android</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#1-conception-et-planification">1. Conception et planification</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#2-configuration-de-lenvironnement-de-developpement">2. Configuration de l'environnement de développement</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#3-developpement">3. Développement</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#4-tests">4. Tests</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#a-tests-unitaires">a. Tests unitaires</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#b-tests-dintegration">b. Tests d'intégration</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#c-tests-manuels">c. Tests manuels</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#d-tests-de-performance">d. Tests de performance</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#5-debogage-et-optimisation">5. Débogage et optimisation</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#6-preparation-au-deploiement">6. Préparation au déploiement</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#7-deploiement-sur-le-google-play-store">7. Déploiement sur le Google Play Store</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#8-surveillance-et-maintenance-post-lancement">8. Surveillance et maintenance post-lancement</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#9-mises-a-jour-et-iterations">9. Mises à jour et itérations</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#10-marketing-et-promotion-continus">10. Marketing et promotion continus</a>
-    </li>
-        </ul>
-    </li>
-    </ul>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../02-intro-compose/">2. Introduction à Jetpack Compose</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../03-premi%C3%A8re-app/">3. Première application avec Jetpack Compose</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../04-hockey-v1/">4. Application Hockey Version 1</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../05-etats-evenements/">5. Gestion des états et des événements</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../06-hockey-v2/">6. Application Hockey Version 2</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../07-orientation/">7. Orientation de l'écran</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../08-hockey-v3/">8. Application Hockey Version 3</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../09-etats-evenements-v2/">9. Gestion des états et des événements</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../10-localisation/">10. Localisation</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../11-json/">11. Lire et écrire des fichiers JSON</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../12-cycle-de-vie/">12. Cycle de vie et architecture</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../13-architecture/">13. Architecture</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../14-navigation/">14. Navigation dans Jetpack Compose</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../15-intentions/">15. Intentions</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../16-intentions-vs-navigation/">16. Intentions vs. navigation</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../17-images-distantes/">17. Affichage d'images et de vidéos distantes</a>
-                  </li>
-              </ul>
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-introduction-a-la-programmation-mobile-et-android" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Programmation Android" class="md-header__button md-logo" aria-label="Programmation Android" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programmation Android
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. Introduction à la programmation mobile et Android
+            
+          </span>
+        </div>
       </div>
     </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../..">Programmation Android</a>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
         
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
       </nav>
-      <div class="wy-nav-content">
-        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">2. Android</li>
-      <li class="breadcrumb-item active">1. Introduction à la programmation mobile et Android</li>
-    <li class="wy-breadcrumbs-aside">
-    </li>
-  </ul>
-  <hr/>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div class="section" itemprop="articleBody">
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/profdenis/3N2_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    profdenis/3N2_doc
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Programmation Android
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../1.%20Kotlin/01-kotlin/" class="md-tabs__link">
+          
+  
+  1. Kotlin
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  2. Android
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
               
-                <h1 id="1-introduction-a-la-programmation-mobile-et-android">1. Introduction à la programmation mobile et Android</h1>
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Programmation Android" class="md-nav__button md-logo" aria-label="Programmation Android" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Programmation Android
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/profdenis/3N2_doc" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    profdenis/3N2_doc
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Programmation Android
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    1. Kotlin
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            1. Kotlin
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20Kotlin/01-kotlin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Le langage de programmation Kotlin
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20Kotlin/02-kotlin-android/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kotlin pour Android
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Survol de Kotlin
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Survol de Kotlin
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20Kotlin/Survol%20de%20Kotlin/01-survol/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Survol de Kotlin
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20Kotlin/Survol%20de%20Kotlin/02-variables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Variables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20Kotlin/Survol%20de%20Kotlin/03-types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Types de base
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20Kotlin/Survol%20de%20Kotlin/04-collections/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Collections
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20Kotlin/Survol%20de%20Kotlin/05-flot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flot de contrôle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20Kotlin/Survol%20de%20Kotlin/06-fonctions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fonctions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20Kotlin/Survol%20de%20Kotlin/07-classes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Classes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.%20Kotlin/Survol%20de%20Kotlin/08-valeurs-nulles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sécurité contre les valeurs nulles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    2. Android
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            2. Android
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    1. Introduction à la programmation mobile et Android
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    1. Introduction à la programmation mobile et Android
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#defis-de-la-programmation-mobile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Défis de la programmation mobile
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#android-vs-autres-plateformes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Android vs autres plateformes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historique-des-versions-dandroid" class="md-nav__link">
+    <span class="md-ellipsis">
+      Historique des versions d&rsquo;Android
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#applications-classiques-vs-modernes-sur-android" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applications classiques vs modernes sur Android
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Applications classiques vs modernes sur Android">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#applications-classiques-java" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applications classiques (Java)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applications-modernes-kotlin-avec-jetpack-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applications modernes (Kotlin avec Jetpack Compose)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etapes-de-developpement-dune-application-mobile-android" class="md-nav__link">
+    <span class="md-ellipsis">
+      Étapes de développement d&rsquo;une application mobile Android
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Étapes de développement d’une application mobile Android">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-conception-et-planification" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Conception et planification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-configuration-de-lenvironnement-de-developpement" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Configuration de l&rsquo;environnement de développement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-developpement" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Développement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Tests
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Tests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-tests-unitaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      a. Tests unitaires
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-tests-dintegration" class="md-nav__link">
+    <span class="md-ellipsis">
+      b. Tests d&rsquo;intégration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-tests-manuels" class="md-nav__link">
+    <span class="md-ellipsis">
+      c. Tests manuels
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-tests-de-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      d. Tests de performance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-debogage-et-optimisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Débogage et optimisation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-preparation-au-deploiement" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Préparation au déploiement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-deploiement-sur-le-google-play-store" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Déploiement sur le Google Play Store
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-surveillance-et-maintenance-post-lancement" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Surveillance et maintenance post-lancement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-mises-a-jour-et-iterations" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Mises à jour et itérations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-marketing-et-promotion-continus" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Marketing et promotion continus
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-intro-compose/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Introduction à Jetpack Compose
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-premi%C3%A8re-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Première application avec Jetpack Compose
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-hockey-v1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Application Hockey Version 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-etats-evenements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Gestion des états et des événements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-hockey-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Application Hockey Version 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-orientation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Orientation de l&rsquo;écran
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-hockey-v3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Application Hockey Version 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-etats-evenements-v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Gestion des états et des événements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-localisation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. Localisation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-json/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Lire et écrire des fichiers JSON
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-cycle-de-vie/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Cycle de vie et architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-navigation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Navigation dans Jetpack Compose
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-intentions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. Intentions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-intentions-vs-navigation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Intentions vs. navigation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-images-distantes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Affichage d&rsquo;images et de vidéos distantes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#defis-de-la-programmation-mobile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Défis de la programmation mobile
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#android-vs-autres-plateformes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Android vs autres plateformes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historique-des-versions-dandroid" class="md-nav__link">
+    <span class="md-ellipsis">
+      Historique des versions d&rsquo;Android
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#applications-classiques-vs-modernes-sur-android" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applications classiques vs modernes sur Android
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Applications classiques vs modernes sur Android">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#applications-classiques-java" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applications classiques (Java)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applications-modernes-kotlin-avec-jetpack-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applications modernes (Kotlin avec Jetpack Compose)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etapes-de-developpement-dune-application-mobile-android" class="md-nav__link">
+    <span class="md-ellipsis">
+      Étapes de développement d&rsquo;une application mobile Android
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Étapes de développement d’une application mobile Android">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-conception-et-planification" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Conception et planification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-configuration-de-lenvironnement-de-developpement" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Configuration de l&rsquo;environnement de développement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-developpement" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Développement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Tests
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Tests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-tests-unitaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      a. Tests unitaires
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-tests-dintegration" class="md-nav__link">
+    <span class="md-ellipsis">
+      b. Tests d&rsquo;intégration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-tests-manuels" class="md-nav__link">
+    <span class="md-ellipsis">
+      c. Tests manuels
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-tests-de-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      d. Tests de performance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-debogage-et-optimisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Débogage et optimisation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-preparation-au-deploiement" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Préparation au déploiement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-deploiement-sur-le-google-play-store" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Déploiement sur le Google Play Store
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-surveillance-et-maintenance-post-lancement" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Surveillance et maintenance post-lancement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-mises-a-jour-et-iterations" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Mises à jour et itérations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-marketing-et-promotion-continus" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Marketing et promotion continus
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="1-introduction-a-la-programmation-mobile-et-android">1. Introduction à la programmation mobile et Android<a class="headerlink" href="#1-introduction-a-la-programmation-mobile-et-android" title="Permanent link">&para;</a></h1>
 <p>La programmation mobile représente un domaine passionnant et en constante évolution dans le monde du développement
 logiciel. Elle offre aux développeurs la possibilité de créer des applications qui accompagnent les utilisateurs
 partout, transformant la façon dont nous interagissons avec la technologie au quotidien.</p>
-<h2 id="defis-de-la-programmation-mobile">Défis de la programmation mobile</h2>
-<p>Le développement d'applications mobiles présente des défis uniques par rapport aux plateformes traditionnelles :</p>
-<ol>
+<h2 id="defis-de-la-programmation-mobile">Défis de la programmation mobile<a class="headerlink" href="#defis-de-la-programmation-mobile" title="Permanent link">&para;</a></h2>
+<p>Le développement d&rsquo;applications mobiles présente des défis uniques par rapport aux plateformes traditionnelles :</p>
+<ol type="1">
 <li>
 <p><strong>Ressources limitées</strong> : Les appareils mobiles ont généralement moins de puissance de traitement, de mémoire et de
    batterie que les ordinateurs de bureau.</p>
 </li>
 <li>
-<p><strong>Diversité des appareils</strong> : Il existe une grande variété de tailles d'écran, de résolutions et de capacités
+<p><strong>Diversité des appareils</strong> : Il existe une grande variété de tailles d&rsquo;écran, de résolutions et de capacités
    matérielles à prendre en compte.</p>
 </li>
 <li>
@@ -202,26 +1586,26 @@ partout, transformant la façon dont nous interagissons avec la technologie au q
    instable ou inexistante.</p>
 </li>
 <li>
-<p><strong>Interactions tactiles</strong> : L'interface utilisateur doit être conçue pour des interactions tactiles plutôt que pour
+<p><strong>Interactions tactiles</strong> : L&rsquo;interface utilisateur doit être conçue pour des interactions tactiles plutôt que pour
    la souris et le clavier.</p>
 </li>
 <li>
 <p><strong>Cycle de vie des applications</strong> : Les applications mobiles peuvent être interrompues à tout moment par des appels,
-   des notifications ou d'autres événements système.</p>
+   des notifications ou d&rsquo;autres événements système.</p>
 </li>
 </ol>
-<h2 id="android-vs-autres-plateformes">Android vs autres plateformes</h2>
+<h2 id="android-vs-autres-plateformes">Android vs autres plateformes<a class="headerlink" href="#android-vs-autres-plateformes" title="Permanent link">&para;</a></h2>
 <p>Android se distingue par plusieurs aspects :</p>
 <ul>
-<li><strong>Open source</strong> : Contrairement à iOS, Android est un système d'exploitation open source, offrant plus de flexibilité
+<li><strong>Open source</strong> : Contrairement à iOS, Android est un système d&rsquo;exploitation open source, offrant plus de flexibilité
   aux développeurs.</li>
 <li><strong>Part de marché</strong> : Android domine le marché mondial des smartphones avec plus de 70% de part de marché.</li>
-<li><strong>Diversité des appareils</strong> : Android fonctionne sur une grande variété d'appareils de différents fabricants,
+<li><strong>Diversité des appareils</strong> : Android fonctionne sur une grande variété d&rsquo;appareils de différents fabricants,
   contrairement à iOS qui est limité aux appareils Apple.</li>
-<li><strong>Processus de publication</strong> : La publication d'applications sur le Google Play Store est généralement plus rapide et
-  moins restrictive que sur l'App Store d'Apple.</li>
+<li><strong>Processus de publication</strong> : La publication d&rsquo;applications sur le Google Play Store est généralement plus rapide et
+  moins restrictive que sur l&rsquo;App Store d&rsquo;Apple.</li>
 </ul>
-<h2 id="historique-des-versions-dandroid">Historique des versions d'Android</h2>
+<h2 id="historique-des-versions-dandroid">Historique des versions d&rsquo;Android<a class="headerlink" href="#historique-des-versions-dandroid" title="Permanent link">&para;</a></h2>
 <ul>
 <li>2008 : Android 1.0 (API 1)</li>
 <li>2009 : Android 2.0 (Eclair, API 5)</li>
@@ -240,185 +1624,246 @@ partout, transformant la façon dont nous interagissons avec la technologie au q
 <li>2022 : Android 13 (API 33)</li>
 <li>2023 : Android 14 (API 34)</li>
 </ul>
-<p>Cette liste met en évidence la progression des versions d'Android et leurs API correspondantes. Il est important de
-noter que chaque nouvelle version d'API apporte généralement de nouvelles fonctionnalités, des améliorations de
+<p>Cette liste met en évidence la progression des versions d&rsquo;Android et leurs API correspondantes. Il est important de
+noter que chaque nouvelle version d&rsquo;API apporte généralement de nouvelles fonctionnalités, des améliorations de
 performance et des changements dans la façon dont les développeurs interagissent avec le système Android.</p>
-<p>Les numéros d'API sont particulièrement importants pour les développeurs car ils déterminent :</p>
-<ol>
-<li>Les fonctionnalités disponibles pour l'application.</li>
-<li>La compatibilité de l'application avec différents appareils Android.</li>
+<p>Les numéros d&rsquo;API sont particulièrement importants pour les développeurs car ils déterminent :</p>
+<ol type="1">
+<li>Les fonctionnalités disponibles pour l&rsquo;application.</li>
+<li>La compatibilité de l&rsquo;application avec différents appareils Android.</li>
 <li>Les exigences minimales et cibles pour la publication sur le Google Play Store.</li>
 </ol>
-<p>Lors du développement d'une application Android, les développeurs doivent choisir une version d'API minimale (qui
-détermine les appareils les plus anciens supportés) et une version d'API cible (généralement la plus récente pour
+<p>Lors du développement d&rsquo;une application Android, les développeurs doivent choisir une version d&rsquo;API minimale (qui
+détermine les appareils les plus anciens supportés) et une version d&rsquo;API cible (généralement la plus récente pour
 profiter des dernières fonctionnalités et optimisations).</p>
-<p>Cette progression constante des versions d'API souligne l'importance pour les développeurs Android de rester à jour avec
-les dernières évolutions de la plateforme et d'adapter leurs applications en conséquence.</p>
-<h2 id="applications-classiques-vs-modernes-sur-android">Applications classiques vs modernes sur Android</h2>
-<h3 id="applications-classiques-java">Applications classiques (Java)</h3>
+<p>Cette progression constante des versions d&rsquo;API souligne l&rsquo;importance pour les développeurs Android de rester à jour avec
+les dernières évolutions de la plateforme et d&rsquo;adapter leurs applications en conséquence.</p>
+<h2 id="applications-classiques-vs-modernes-sur-android">Applications classiques vs modernes sur Android<a class="headerlink" href="#applications-classiques-vs-modernes-sur-android" title="Permanent link">&para;</a></h2>
+<h3 id="applications-classiques-java">Applications classiques (Java)<a class="headerlink" href="#applications-classiques-java" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Utilisation de Java comme langage principal</li>
 <li>Interface utilisateur définie en XML</li>
-<li>Utilisation d'Activities et de Fragments pour la structure de l'application</li>
+<li>Utilisation d&rsquo;Activities et de Fragments pour la structure de l&rsquo;application</li>
 <li>Cycle de vie des composants plus complexe à gérer</li>
 </ul>
-<h3 id="applications-modernes-kotlin-avec-jetpack-compose">Applications modernes (Kotlin avec Jetpack Compose)</h3>
+<h3 id="applications-modernes-kotlin-avec-jetpack-compose">Applications modernes (Kotlin avec Jetpack Compose)<a class="headerlink" href="#applications-modernes-kotlin-avec-jetpack-compose" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Utilisation de Kotlin, un langage plus moderne et concis</li>
 <li>Interface utilisateur définie de manière déclarative avec Jetpack Compose</li>
-<li>Structure d'application plus flexible et modulaire</li>
+<li>Structure d&rsquo;application plus flexible et modulaire</li>
 <li>Gestion simplifiée du cycle de vie des composants</li>
 <li>Meilleure performance et moins de code boilerplate</li>
 <li>Support natif pour la programmation asynchrone et réactive</li>
 </ul>
-<p>Le passage de Java à Kotlin et l'adoption de Jetpack Compose représentent une évolution majeure dans le développement
+<p>Le passage de Java à Kotlin et l&rsquo;adoption de Jetpack Compose représentent une évolution majeure dans le développement
 Android, offrant aux développeurs des outils plus puissants et une expérience de développement plus agréable.</p>
-<p>En conclusion, la programmation mobile Android offre de nombreuses opportunités et défis. Avec l'évolution constante de
-la plateforme et des outils de développement, il est crucial pour les développeurs de rester à jour et d'adopter les
+<p>En conclusion, la programmation mobile Android offre de nombreuses opportunités et défis. Avec l&rsquo;évolution constante de
+la plateforme et des outils de développement, il est crucial pour les développeurs de rester à jour et d&rsquo;adopter les
 meilleures pratiques pour créer des applications performantes et attrayantes.</p>
-<h2 id="etapes-de-developpement-dune-application-mobile-android">Étapes de développement d'une application mobile Android</h2>
-<p>Le développement d'une application mobile est un processus complexe qui implique plusieurs étapes, de la conception
+<h2 id="etapes-de-developpement-dune-application-mobile-android">Étapes de développement d&rsquo;une application mobile Android<a class="headerlink" href="#etapes-de-developpement-dune-application-mobile-android" title="Permanent link">&para;</a></h2>
+<p>Le développement d&rsquo;une application mobile est un processus complexe qui implique plusieurs étapes, de la conception
 initiale au déploiement final. Voici un aperçu détaillé des principales étapes pour développer une application mobile
 Android, en incluant les phases de test et de déploiement :</p>
-<h3 id="1-conception-et-planification">1. Conception et planification</h3>
+<h3 id="1-conception-et-planification">1. Conception et planification<a class="headerlink" href="#1-conception-et-planification" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Définir les objectifs et les fonctionnalités de l'application</li>
+<li>Définir les objectifs et les fonctionnalités de l&rsquo;application</li>
 <li>Réaliser une étude de marché et une analyse de la concurrence</li>
-<li>Créer des wireframes et des maquettes de l'interface utilisateur</li>
+<li>Créer des wireframes et des maquettes de l&rsquo;interface utilisateur</li>
 <li>Élaborer un plan de développement et un calendrier</li>
 </ul>
-<h3 id="2-configuration-de-lenvironnement-de-developpement">2. Configuration de l'environnement de développement</h3>
+<h3 id="2-configuration-de-lenvironnement-de-developpement">2. Configuration de l&rsquo;environnement de développement<a class="headerlink" href="#2-configuration-de-lenvironnement-de-developpement" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Installer Android Studio</li>
 <li>Configurer le SDK Android et les outils nécessaires</li>
 <li>Mettre en place un système de contrôle de version (ex: Git)</li>
 </ul>
-<h3 id="3-developpement">3. Développement</h3>
+<h3 id="3-developpement">3. Développement<a class="headerlink" href="#3-developpement" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Coder l'interface utilisateur (UI) avec Jetpack Compose</li>
+<li>Coder l&rsquo;interface utilisateur (UI) avec Jetpack Compose</li>
 <li>Implémenter la logique métier en Kotlin</li>
 <li>Intégrer les API nécessaires (Google Maps, paiement, etc.)</li>
 <li>Gérer le stockage local des données (SharedPreferences, Room)</li>
 <li>Implémenter les fonctionnalités de connectivité réseau</li>
 </ul>
-<h3 id="4-tests">4. Tests</h3>
-<h4 id="a-tests-unitaires">a. Tests unitaires</h4>
+<h3 id="4-tests">4. Tests<a class="headerlink" href="#4-tests" title="Permanent link">&para;</a></h3>
+<h4 id="a-tests-unitaires">a. Tests unitaires<a class="headerlink" href="#a-tests-unitaires" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Écrire et exécuter des tests unitaires pour les composants individuels</li>
 <li>Utiliser JUnit et Mockito pour tester la logique métier</li>
 </ul>
-<h4 id="b-tests-dintegration">b. Tests d'intégration</h4>
+<h4 id="b-tests-dintegration">b. Tests d&rsquo;intégration<a class="headerlink" href="#b-tests-dintegration" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Tester l'interaction entre différents modules de l'application</li>
-<li>Utiliser Espresso pour les tests d'interface utilisateur automatisés</li>
+<li>Tester l&rsquo;interaction entre différents modules de l&rsquo;application</li>
+<li>Utiliser Espresso pour les tests d&rsquo;interface utilisateur automatisés</li>
 </ul>
-<h4 id="c-tests-manuels">c. Tests manuels</h4>
+<h4 id="c-tests-manuels">c. Tests manuels<a class="headerlink" href="#c-tests-manuels" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Effectuer des tests fonctionnels sur différents appareils et versions d'Android</li>
-<li>Tester les scénarios d'utilisation réels</li>
+<li>Effectuer des tests fonctionnels sur différents appareils et versions d&rsquo;Android</li>
+<li>Tester les scénarios d&rsquo;utilisation réels</li>
 </ul>
-<h4 id="d-tests-de-performance">d. Tests de performance</h4>
+<h4 id="d-tests-de-performance">d. Tests de performance<a class="headerlink" href="#d-tests-de-performance" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Analyser les performances de l'application (utilisation CPU, mémoire, batterie)</li>
-<li>Utiliser Android Profiler pour identifier les goulots d'étranglement</li>
+<li>Analyser les performances de l&rsquo;application (utilisation CPU, mémoire, batterie)</li>
+<li>Utiliser Android Profiler pour identifier les goulots d&rsquo;étranglement</li>
 </ul>
-<h3 id="5-debogage-et-optimisation">5. Débogage et optimisation</h3>
+<h3 id="5-debogage-et-optimisation">5. Débogage et optimisation<a class="headerlink" href="#5-debogage-et-optimisation" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Corriger les bugs identifiés lors des tests</li>
-<li>Optimiser les performances de l'application</li>
-<li>Améliorer l'expérience utilisateur en fonction des retours</li>
+<li>Optimiser les performances de l&rsquo;application</li>
+<li>Améliorer l&rsquo;expérience utilisateur en fonction des retours</li>
 </ul>
-<h3 id="6-preparation-au-deploiement">6. Préparation au déploiement</h3>
+<h3 id="6-preparation-au-deploiement">6. Préparation au déploiement<a class="headerlink" href="#6-preparation-au-deploiement" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Générer une version signée de l'APK ou du bundle App</li>
-<li>Préparer les ressources marketing (icônes, captures d'écran, descriptions)</li>
-<li>Rédiger la politique de confidentialité et les conditions d'utilisation</li>
+<li>Générer une version signée de l&rsquo;APK ou du bundle App</li>
+<li>Préparer les ressources marketing (icônes, captures d&rsquo;écran, descriptions)</li>
+<li>Rédiger la politique de confidentialité et les conditions d&rsquo;utilisation</li>
 </ul>
-<h3 id="7-deploiement-sur-le-google-play-store">7. Déploiement sur le Google Play Store</h3>
+<h3 id="7-deploiement-sur-le-google-play-store">7. Déploiement sur le Google Play Store<a class="headerlink" href="#7-deploiement-sur-le-google-play-store" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Créer un compte développeur Google Play</li>
-<li>Configurer la fiche de l'application sur la console Google Play</li>
-<li>Téléverser l'APK ou le bundle App</li>
+<li>Configurer la fiche de l&rsquo;application sur la console Google Play</li>
+<li>Téléverser l&rsquo;APK ou le bundle App</li>
 <li>Définir les pays de distribution et les prix (si applicable)</li>
-<li>Soumettre l'application pour examen</li>
+<li>Soumettre l&rsquo;application pour examen</li>
 </ul>
-<h3 id="8-surveillance-et-maintenance-post-lancement">8. Surveillance et maintenance post-lancement</h3>
+<h3 id="8-surveillance-et-maintenance-post-lancement">8. Surveillance et maintenance post-lancement<a class="headerlink" href="#8-surveillance-et-maintenance-post-lancement" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Surveiller les statistiques d'installation et d'utilisation</li>
+<li>Surveiller les statistiques d&rsquo;installation et d&rsquo;utilisation</li>
 <li>Collecter et analyser les retours des utilisateurs</li>
 <li>Répondre aux commentaires et aux questions des utilisateurs</li>
 <li>Planifier et développer des mises à jour régulières</li>
 </ul>
-<h3 id="9-mises-a-jour-et-iterations">9. Mises à jour et itérations</h3>
+<h3 id="9-mises-a-jour-et-iterations">9. Mises à jour et itérations<a class="headerlink" href="#9-mises-a-jour-et-iterations" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Corriger les bugs signalés par les utilisateurs</li>
 <li>Ajouter de nouvelles fonctionnalités basées sur les retours</li>
-<li>Adapter l'application aux nouvelles versions d'Android et aux nouveaux appareils</li>
+<li>Adapter l&rsquo;application aux nouvelles versions d&rsquo;Android et aux nouveaux appareils</li>
 </ul>
-<h3 id="10-marketing-et-promotion-continus">10. Marketing et promotion continus</h3>
+<h3 id="10-marketing-et-promotion-continus">10. Marketing et promotion continus<a class="headerlink" href="#10-marketing-et-promotion-continus" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Mettre en œuvre des stratégies d'ASO (App Store Optimization)</li>
-<li>Promouvoir l'application sur les réseaux sociaux et autres canaux</li>
+<li>Mettre en œuvre des stratégies d&rsquo;ASO (App Store Optimization)</li>
+<li>Promouvoir l&rsquo;application sur les réseaux sociaux et autres canaux</li>
 <li>Analyser les métriques de performance et ajuster la stratégie marketing</li>
 </ul>
 <p>Ce processus est itératif, et de nombreuses étapes peuvent se chevaucher ou être répétées au fur et à mesure du
-développement et de l'évolution de l'application. Il est crucial de rester flexible et réactif aux changements du
-marché, aux retours des utilisateurs et aux avancées technologiques tout au long du cycle de vie de l'application.</p>
+développement et de l&rsquo;évolution de l&rsquo;application. Il est crucial de rester flexible et réactif aux changements du
+marché, aux retours des utilisateurs et aux avancées technologiques tout au long du cycle de vie de l&rsquo;application.</p>
 <hr />
-<p><small>
-   <cite>
-      <strong>Note</strong> : <em>Page rédigée en partie avec l'aide d'un assistant IA, principalement
-      à l'aide de Perplexity AI, avec les _LLM</em> <code>GPT-4 Omni</code> et <code>Claude 3.5 Sonnet</code>. L'IA
-      a été utilisée pour générer des explications, des exemples et des suggestions de
-      structure. Toutes les informations ont été vérifiées, éditées et complétées par
-      l'auteur._
-   </cite>
-</small></p>
-              
+<details class="info">
+<summary>Utilisation de l&rsquo;IA</summary>
+<p>Page rédigée en partie avec l&rsquo;aide d&rsquo;un assistant IA. L&rsquo;IA a été utilisée pour générer des 
+explications, des exemples et/ou des suggestions de structure. Toutes les informations ont 
+été vérifiées, éditées et complétées par l&rsquo;auteur.</p>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
             </div>
-          </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../../1.%20Kotlin/Survol%20de%20Kotlin/08-valeurs-nulles/" class="btn btn-neutral float-left" title="Sécurité contre les valeurs nulles"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../02-intro-compose/" class="btn btn-neutral float-right" title="2. Introduction à Jetpack Compose">Next <span class="icon icon-circle-arrow-right"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-  </div>
-
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
           
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="Versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
     
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../1.%20Kotlin/Survol%20de%20Kotlin/08-valeurs-nulles/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Sécurité contre les valeurs nulles">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Sécurité contre les valeurs nulles
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../02-intro-compose/" class="md-footer__link md-footer__link--next" aria-label="Next: 2. Introduction à Jetpack Compose">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                2. Introduction à Jetpack Compose
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
-      <span><a href="../../1.%20Kotlin/Survol%20de%20Kotlin/08-valeurs-nulles/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../02-intro-compose/" style="color: #fcfcfc">Next &raquo;</a></span>
-    
-  </span>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
 </div>
-    <script src="../../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "../..";</script>
-    <script src="../../js/theme_extra.js"></script>
-    <script src="../../js/theme.js"></script>
-      <script src="../../search/main.js"></script>
-    <script>
-        jQuery(function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        });
-    </script>
-
-</body>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.select", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "navigation.footer", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.60a45f97.min.js"></script>
+      
+        <script src="../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../assets/mkdocs_puml/puml.js"></script>
+      
+        <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+      
+        <script src="../../assets/mkdocs_puml/interaction.js"></script>
+      
+    
+  </body>
 </html>

@@ -20,8 +20,9 @@ En Kotlin :
   et [`print()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/print.html) affichent leurs arguments en sortie
   standard
 
-> Les fonctions sont discutées plus en détail dans quelques chapitres. Jusque-là, tous les exemples utilisent la
-> fonction `main()`.
+!!! Note
+    Les fonctions sont discutées plus en détail dans quelques chapitres. Jusque-là, tous les exemples utilisent la
+    fonction `main()`.
 
 ## Variables
 
@@ -50,15 +51,17 @@ fun main() {
 }
 ```
 
-> Les variables peuvent être déclarées en dehors de la fonction `main()` au début de votre programme. On dit que les
-> variables déclarées de cette manière sont déclarées au **niveau supérieur**.
->
+!!! Note
+    Les variables peuvent être déclarées en dehors de la fonction `main()` au début de votre programme. On dit que les
+    variables déclarées de cette manière sont déclarées au **niveau supérieur**.
+
 
 Comme `clients` est une variable modifiable, sa valeur peut être réattribuée après la déclaration.
 
-> Nous recommandons que vous déclariez toutes les variables en lecture seule (`val`) par défaut. Déclarez des variables
-> modifiables (`var`) seulement si nécessaire.
->
+!!! Note
+    Nous recommandons que vous déclariez toutes les variables en lecture seule (`val`) par défaut. Déclarez des variables
+    modifiables (`var`) seulement si nécessaire.
+ 
 
 ## Gabarits de chaîne
 

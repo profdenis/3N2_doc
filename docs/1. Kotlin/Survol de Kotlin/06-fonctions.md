@@ -23,8 +23,8 @@ En Kotlin:
 * le corps d'une fonction est écrit entre accolades `{}`.
 * le mot-clé `return` est utilisé pour sortir ou retourner quelque chose d'une fonction.
 
-> Si une fonction ne renvoie rien d'utile, le type de retour et le mot-clé `return` peuvent être omis. 
-> 
+!!! Note
+    Si une fonction ne renvoie rien d'utile, le type de retour et le mot-clé `return` peuvent être omis.
 
 
 Dans l'exemple suivant :
@@ -45,9 +45,9 @@ fun main() {
 }
 ```
 
-> Nous recommandons dans nos [conventions de codage](https://kotlinlang.org/docs/coding-conventions.html#function-names)
-> que vous nommiez les fonctions en commençant par une lettre minuscule et utilisez camel case sans tirets du bas.
->
+!!! Note
+    Nous recommandons dans nos [conventions de codage](https://kotlinlang.org/docs/coding-conventions.html#function-names)
+    que vous nommiez les fonctions en commençant par une lettre minuscule et utilisez camel case sans tirets du bas.
 
 ## Arguments nommés
 
@@ -57,11 +57,12 @@ rend votre code plus facile à lire. C'est ce qu'on appelle l'utilisation des **
 noms des paramètres, vous pouvez alors
 écrire les paramètres dans n'importe quel ordre.
 
-> Dans l'exemple suivant,
-> les [templates de chaînes de caractères](https://kotlinlang.org/docs/strings.html#string-templates) (`$`) sont
-> utilisés pour accéder aux valeurs des paramètres, les convertir en type `String`, puis les concaténer en une chaîne
-> pour l'impression.
->
+!!! Note
+    Dans l'exemple suivant,
+    les [templates de chaînes de caractères](https://kotlinlang.org/docs/strings.html#string-templates) (`$`) sont
+    utilisés pour accéder aux valeurs des paramètres, les convertir en type `String`, puis les concaténer en une chaîne
+    pour l'impression.
+
 
 ```kotlin
 fun printMessageWithPrefix(message: String, prefix: String) {
@@ -100,10 +101,11 @@ fun main() {
 }
 ```
 
-> Vous pouvez omettre des paramètres spécifiques ayant des valeurs par défaut, plutôt que de tous les omettre.
-> Cependant, après le
-> premier paramètre omis, vous devez nommer tous les paramètres suivants.
->
+!!! Note
+    Vous pouvez omettre des paramètres spécifiques ayant des valeurs par défaut, plutôt que de tous les omettre.
+    Cependant, après le
+    premier paramètre omis, vous devez nommer tous les paramètres suivants.
+
 
 ## Fonctions sans retour 
 
@@ -154,10 +156,11 @@ fun main() {
 }
 ```
 
-> Omettre le type de retour n'est possible que lorsque votre fonction n'a pas de corps (`{}`). À moins que le type de
-> retour de votre fonction
-> ne soit `Unit`.
->
+!!! Note
+    Omettre le type de retour n'est possible que lorsque votre fonction n'a pas de corps (`{}`). À moins que le type de
+    retour de votre fonction
+    ne soit `Unit`.
+
 
 ## Pratique des fonctions
 
@@ -166,10 +169,10 @@ fun main() {
 Écrivez une fonction appelée `circleArea` qui prend le rayon d'un cercle au format entier comme paramètre et affiche
 l'aire de ce cercle.
 
-> Dans cet exercice, vous importez un package afin de pouvoir accéder à la valeur de pi via `PI`. Pour plus
-> d'informations sur
-> l'importation de packages, voir [Packages and imports](https://kotlinlang.org/docs/packages.html).
->
+!!! Note
+    Dans cet exercice, vous importez un package afin de pouvoir accéder à la valeur de pi via `PI`. Pour plus
+    d'informations sur l'importation de packages, voir [Packages and imports](https://kotlinlang.org/docs/packages.html).
+
 
 ```kotlin
 import kotlin.math.PI
@@ -310,7 +313,8 @@ Dans l'exemple précédent :
   fonction [`.uppercase()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/uppercase.html)
   appelée sur `text`.
 
-> Si vous déclarez une lambda sans paramètres, alors il n'est pas nécessaire d'utiliser `->`. Par exemple :
+!!! Note
+    Si vous déclarez une lambda sans paramètres, alors il n'est pas nécessaire d'utiliser `->`. Par exemple :
 
 ```kotlin
 { println("Message de log") }
@@ -360,9 +364,10 @@ La fonction `.filter()` accepte une expression lambda en tant que prédicat :
 * `{ x -> x > 0 }` prend chaque élément de la liste et ne renvoie que ceux qui sont positifs.
 * `{ x -> x < 0 }` prend chaque élément de la liste et ne renvoie que ceux qui sont négatifs.
 
-> Si une expression lambda est le seul paramètre de fonction, vous pouvez supprimer les parenthèses de fonction `()`.
-> Il s'agit d'un exemple de _lambda de fin_, qui est discuté plus en détail à la fin de ce chapitre.
->
+!!! Note
+    Si une expression lambda est le seul paramètre de fonction, vous pouvez supprimer les parenthèses de fonction `()`.
+    Il s'agit d'un exemple de _lambda de fin_, qui est discuté plus en détail à la fin de ce chapitre.
+
 
 Un autre bon exemple est l'utilisation de la
 fonction [`.map()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map.html)
@@ -417,14 +422,15 @@ fun main() {
 Si votre expression lambda n'a pas de paramètres, alors les parenthèses `()` sont laissées vides. Par
 exemple : `() -> Unit`
 
-> Vous devez déclarer les types de paramètres et de retour soit dans l'expression lambda, soit en tant que type de
-> fonction. Sinon, le
-> compilateur ne pourra pas savoir quelle est le type de votre expression lambda.
->
-> Par exemple, la ligne suivante ne fonctionnera pas :
->
-> `val upperCaseString = { str -> str.uppercase() }`
->
+!!! Note
+    Vous devez déclarer les types de paramètres et de retour soit dans l'expression lambda, soit en tant que type de
+    fonction. Sinon, le
+    compilateur ne pourra pas savoir quelle est le type de votre expression lambda.
+    
+    Par exemple, la ligne suivante ne fonctionnera pas :
+    
+    `val upperCaseString = { str -> str.uppercase() }`
+
 
 ### Retour d'une fonction
 

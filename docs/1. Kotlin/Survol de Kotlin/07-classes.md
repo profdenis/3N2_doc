@@ -38,9 +38,10 @@ après la création d'une instance de la classe.
 Vous pouvez déclarer des propriétés sans `val` ou `var` dans les parenthèses, mais ces propriétés ne sont pas
 accessibles après la création d'une instance.
 
-> * Le contenu entre parenthèses `()` s'appelle l'**en-tête de la classe**.
-> * Vous pouvez utiliser une [virgule finale](https://kotlinlang.org/docs/coding-conventions.html#trailing-commas) lors
-    > de la déclaration des propriétés de classe.
+!!! Note
+    * Le contenu entre parenthèses `()` s'appelle l'**en-tête de la classe**.
+    * Vous pouvez utiliser une [virgule finale](https://kotlinlang.org/docs/coding-conventions.html#trailing-commas) lors
+      de la déclaration des propriétés de classe.
 
 Tout comme avec les paramètres de fonction, les propriétés de classe peuvent avoir des valeurs par défaut :
 
@@ -101,13 +102,15 @@ fun main() {
 }
 ```
 
-> Pour concaténer la valeur d'une propriété dans le cadre d'une chaîne de caractères, vous pouvez utiliser des modèles
-> de chaîne de caractères (`$`).
-> Par exemple :
-> ```kotlin
-> println("Leur adresse email est : ${contact.email}")
-> ```
->
+!!! Note
+    Pour concaténer la valeur d'une propriété dans le cadre d'une chaîne de caractères, vous pouvez utiliser des modèles
+    de chaîne de caractères (`$`).
+    
+    Par exemple :
+    ```kotlin
+    println("Leur adresse email est : ${contact.email}")
+    ```
+
 
 ## Fonctions membres
 
