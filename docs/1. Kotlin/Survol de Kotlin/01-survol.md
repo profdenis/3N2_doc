@@ -2,8 +2,9 @@
 
 [Source](https://kotlinlang.org/docs/kotlin-tour-welcome.html)
 
-> Ce parcours couvre les fondamentaux du langage de programmation Kotlin et peut être complètement réalisé dans votre
-> navigateur. Aucune installation n'est nécessaire.
+!!! Note
+    Ce parcours couvre les fondamentaux du langage de programmation Kotlin et peut être complètement réalisé dans votre
+    navigateur. Aucune installation n'est nécessaire.
 
 Chaque chapitre de ce parcours contient :
 
