@@ -1,5 +1,11 @@
 # Exercices
 
+[GitHub](https://github.com/profdenis/3N2_exercices)
+
+!!! note "Note"
+    Le dernier *commit* contient les réponses aux exercices. Faites un *checkout* de l'avant-dernière révision pour avoir la
+    structure du code sans les réponses. Vous pouvez créer une branche différente pour y placer vos réponses.
+
 ## Exercice 1 : Calculer la somme des chiffres d'un nombre
 
 Écrivez une fonction qui prend un nombre entier positif en entrée et retourne la somme de ses chiffres.
